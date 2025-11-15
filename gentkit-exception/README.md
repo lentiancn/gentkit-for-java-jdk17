@@ -16,9 +16,7 @@ new Exception("测试");
 
 // [ 执行 ]
 String s = ExceptionUtils.throwableToString(new Exception("测试"));
-System.out.
-
-println(s);
+System.out.println(s);
 
 // [ 输出 ]
 "java.lang.Exception: 测试"
@@ -31,18 +29,17 @@ JDK: 17 及以上
 **Maven 项目** -> 在你项目的 <code>pom.xml</code> 中添加依赖 ：
 
 ```xml
-
 <dependency>
     <groupId>com.gentkit.exception</groupId>
     <artifactId>gentkit-exception</artifactId>
-    <version>1.0.0-RELEASE</version>
+    <version>1.x.x-jdk17</version>
 </dependency>
 ```
 
 **Gradle 项目** -> 在你项目的 <code>build.gradle</code> 中添加依赖 ：
 
 ```groovy
-implementation 'com.gentkit.exception:gentkit-exception:1.0.0-RELEASE'
+implementation 'com.gentkit.exception:gentkit-exception:1.x.x-jdk17'
 ```
 
 ## 捐助
