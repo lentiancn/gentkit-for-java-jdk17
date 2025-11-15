@@ -220,13 +220,13 @@
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://gitee.com/gentkit/genkit-for-java/blob/master/LICENSE</url>
+            <url>https://gitee.com/gentkit/gentkit-for-java-jdk17/blob/master/LICENSE</url>
         </license>
     </licenses>
 
     <scm>
-        <url>https://gitee.com/gentkit/genkit-for-java</url>
-        <connection>scm:git:https://gitee.com/gentkit/gentkit-for-java.git</connection>
-        <developerConnection>scm:git:git@gitee.com:gentkit/gentkit-for-java.git</developerConnection>
+        <url>https://gitee.com/gentkit/gentkit-for-java-jdk17</url>
+        <connection>scm:git:https://gitee.com/gentkit/gentkit-for-java-jdk17.git</connection>
+        <developerConnection>scm:git:git@gitee.com:gentkit/gentkit-for-java-jdk17.git</developerConnection>
     </scm>
 </project>
