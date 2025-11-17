@@ -22,6 +22,7 @@
 package com.gentkit.exception.utils;
 
 import com.gentkit.exception.ExceptionConstants;
+import lombok.NoArgsConstructor;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -34,15 +35,8 @@ import java.io.StringWriter;
  * @author 田隆 (Len)
  * @since 2025-11-10 22:54
  */
-public final class ExceptionUtils {
-
-    /**
-     * 私有构造方法，防止被实例化。<br>
-     * 私有構造方法，防止被實例化。<br>
-     * A private constructor is used to prevent instantiation.<br>
-     */
-    private ExceptionUtils() {
-    }
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
+public class ExceptionUtils {
 
     /**
      * 异常转为堆栈信息字符串。<br>
@@ -52,7 +46,7 @@ public final class ExceptionUtils {
      * @param cause 异常<br>例外<br>abnormal
      * @return 返回异常堆栈信息字符串。<br>傳回異常堆疊資訊字串。<br>Returns an exception stack trace string.
      */
-    public static String throwableToString(Throwable cause) {
+    public static String throwableToString(final Throwable cause) {
         StringWriter sw = null;
         PrintWriter pw = null;
         try {

@@ -17,6 +17,13 @@
         and easily integrable exception handling solutions.
     </description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
     <developers>
         <developer>
             <name>田隆 (Len)</name>
