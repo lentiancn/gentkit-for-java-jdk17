@@ -125,4 +125,56 @@ public class StringUtilsTest {
 
         Assertions.assertFalse(value);
     }
+
+    // -- isNotBlank
+
+    @DisplayName("isNotBlank_shouldReturnTrue_whenStringIsNotBlank")
+    @Test
+    public void isNotBlank_shouldReturnTrue_whenStringIsNotBlank() {
+        boolean value = StringUtils.isNotBlank("test");
+
+        Assertions.assertTrue(value);
+    }
+
+    @DisplayName("isNotBlank_shouldReturnFalse_whenStringIsNull")
+    @Test
+    public void isNotBlank_shouldReturnFalse_whenStringIsNull() {
+        boolean value = StringUtils.isNotBlank(null);
+
+        Assertions.assertFalse(value);
+    }
+
+    @DisplayName("isNotBlank_shouldReturnFalse_whenStringIsBlank")
+    @Test
+    public void isNotBlank_shouldReturnFalse_whenStringIsBlank() {
+        boolean value = StringUtils.isNotBlank("    ");
+
+        Assertions.assertFalse(value);
+    }
+
+    // -- isBlank
+
+    @DisplayName("isBlank_shouldReturnTrue_whenStringIsBlank")
+    @Test
+    public void isBlank_shouldReturnTrue_whenStringIsBlank() {
+        boolean value = StringUtils.isBlank("    ");
+
+        Assertions.assertTrue(value);
+    }
+
+    @DisplayName("isBlank_shouldReturnTrue_whenStringIsNull")
+    @Test
+    public void isBlank_shouldReturnTrue_whenStringIsNull() {
+        boolean value = StringUtils.isBlank(null);
+
+        Assertions.assertTrue(value);
+    }
+
+    @DisplayName("isBlank_shouldReturnFalse_whenStringIsNotBlank")
+    @Test
+    public void isBlank_shouldReturnFalse_whenStringIsNotBlank() {
+        boolean value = StringUtils.isBlank("test");
+
+        Assertions.assertFalse(value);
+    }
 }
