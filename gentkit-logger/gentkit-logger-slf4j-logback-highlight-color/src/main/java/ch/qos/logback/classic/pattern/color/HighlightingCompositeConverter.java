@@ -28,19 +28,20 @@ public class HighlightingCompositeConverter extends ForegroundCompositeConverter
 
     @Override
     protected String getForegroundColorCode(ILoggingEvent event) {
-        // {FATAL=bold #C00000, ERROR=bold #B22234, WARN=yellow, INFO=green, DEBUG=blue, TRACE=cyan}
-
         Level level = event.getLevel();
         switch (level.toInt()) {
             case Level.ERROR_INT:
                 return BOLD + RED_FG;
             case Level.WARN_INT:
-                return RED_FG;
+                return YELLOW_FG;
             case Level.INFO_INT:
+                return GREEN_FG;
+            case Level.DEBUG_INT:
                 return BLUE_FG;
+            case Level.TRACE_INT:
+                return CYAN_FG;
             default:
                 return DEFAULT_FG;
         }
-
     }
 }

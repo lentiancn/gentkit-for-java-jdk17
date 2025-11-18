@@ -21,6 +21,11 @@
             <groupId>com.gentkit.logger</groupId>
             <artifactId>gentkit-logger</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.gentkit.logger</groupId>
+            <artifactId>gentkit-logger-slf4j-logback-highlight-color</artifactId>
+            <version>1.0.0-jdk17</version>
+        </dependency>
         <!-- 门面 -->
         <dependency>
             <groupId>org.slf4j</groupId>
