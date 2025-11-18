@@ -22,12 +22,13 @@
 package com.gentkit.logger.impl;
 
 import com.gentkit.logger.Logger;
+import com.gentkit.logger.utils.Slf4jUtils;
 
 /**
  * @author 田隆 (Len)
  * @since 2025-11-07 23:22
  */
-public final class Slf4jLog4j2LoggerImpl implements Logger {
+public class Slf4jLog4j2LoggerImpl implements Logger {
 
     public static final String FACADE = "slf4j";
     public static final String PROVIDER = "log4j2";
@@ -52,13 +53,13 @@ public final class Slf4jLog4j2LoggerImpl implements Logger {
     }
 
     @Override
-    public String getProviderName() {
-        return PROVIDER;
+    public Object getFacadeLogger() {
+        return FACADE_LOGGER;
     }
 
     @Override
-    public Object getFacadeLogger() {
-        return FACADE_LOGGER;
+    public String getProviderName() {
+        return PROVIDER;
     }
 
     @Override
@@ -87,13 +88,7 @@ public final class Slf4jLog4j2LoggerImpl implements Logger {
     }
 
     @Override
-    public void trace(final String msg, final Object... args) {
-        FACADE_LOGGER.trace(msg, args);
-    }
-
-    @Override
     public void trace(Throwable cause, String msg, Object... args) {
-
     }
 
     @Override
@@ -102,8 +97,8 @@ public final class Slf4jLog4j2LoggerImpl implements Logger {
     }
 
     @Override
-    public void debug(final String msg, final Object... args) {
-        FACADE_LOGGER.debug(msg, args);
+    public void trace(final String msg, final Object... args) {
+        FACADE_LOGGER.trace(msg, args);
     }
 
     @Override
@@ -117,8 +112,8 @@ public final class Slf4jLog4j2LoggerImpl implements Logger {
     }
 
     @Override
-    public void info(final String msg, final Object... args) {
-        FACADE_LOGGER.info(msg, args);
+    public void debug(final String msg, final Object... args) {
+        FACADE_LOGGER.debug(msg, args);
     }
 
     @Override
@@ -132,8 +127,8 @@ public final class Slf4jLog4j2LoggerImpl implements Logger {
     }
 
     @Override
-    public void warn(final String msg, final Object... args) {
-        FACADE_LOGGER.warn(msg, args);
+    public void info(final String msg, final Object... args) {
+        FACADE_LOGGER.info(msg, args);
     }
 
     @Override
@@ -147,8 +142,8 @@ public final class Slf4jLog4j2LoggerImpl implements Logger {
     }
 
     @Override
-    public void error(final String msg, final Object... args) {
-        FACADE_LOGGER.error(msg, args);
+    public void warn(final String msg, final Object... args) {
+        FACADE_LOGGER.warn(msg, args);
     }
 
     @Override
@@ -159,5 +154,10 @@ public final class Slf4jLog4j2LoggerImpl implements Logger {
     @Override
     public void error(final Throwable cause) {
         FACADE_LOGGER.error(cause.toString());
+    }
+
+    @Override
+    public void error(final String msg, final Object... args) {
+        FACADE_LOGGER.error(msg, args);
     }
 }

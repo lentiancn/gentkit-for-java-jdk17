@@ -19,23 +19,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.logger.impl;
+package com.gentkit.logger.utils;
 
+import lombok.NoArgsConstructor;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
 /**
  * @author 田隆 (Len)
  * @since 2025-11-09 17:51
  */
-public final class Slf4jUtils {
-
-    /**
-     * 私有构造方法，防止被实例化。<br>
-     * 私有構造方法，防止被實例化。<br>
-     * A private constructor is used to prevent instantiation.<br>
-     */
-    private Slf4jUtils() {
-    }
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
+public class Slf4jUtils {
 
     /**
      * 强制桥接 JUL 到 SLF4J

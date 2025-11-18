@@ -45,13 +45,13 @@ public class DefaultLoggerImpl implements Logger {
     }
 
     @Override
-    public String getProviderName() {
-        return PROVIDER;
+    public Object getFacadeLogger() {
+        return this;
     }
 
     @Override
-    public Object getFacadeLogger() {
-        return this;
+    public String getProviderName() {
+        return PROVIDER;
     }
 
     @Override
