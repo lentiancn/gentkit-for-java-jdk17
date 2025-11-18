@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.gentkit.logger</groupId>
+    <artifactId>gentkit-logger-slf4j-logback-highlight-color</artifactId>
+    <version>${revision}</version>
+    <name>GentKit Logger SLF4J with Logback (Highlight Color)</name>
+    <description>
+        GentKit Logger SLF4J with Logback (Highlight Color)
+    </description>
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.18</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
