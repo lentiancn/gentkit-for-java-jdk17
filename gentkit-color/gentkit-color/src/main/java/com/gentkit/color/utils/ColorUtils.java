@@ -22,7 +22,7 @@
 package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
-import com.gentkit.color.ColorRGB;
+import com.gentkit.color.model.ColorRGB;
 import lombok.NoArgsConstructor;
 
 /**
@@ -41,22 +41,22 @@ public class ColorUtils {
      * 將16進位顏色轉換為RGB顏色。<br>
      * Convert hexadecimal colors to RGB colors.<br>
      */
-    public static ColorRGB hexToRgb(String hex) {
+    public static ColorRGB hexToRgb(final String hex) {
         // 1. 移除 # 号
-        hex = hex.startsWith(ColorConstants.HEX_PREFIX) ? hex.substring(1) : hex;
+        String hex01 = hex.startsWith(ColorConstants.HEX_PREFIX) ? hex.substring(1) : hex;
 
         // 2. 处理简写格式
-        if (hex.length() == 3) {
-            hex = String.valueOf(hex.charAt(0)) + hex.charAt(0) +
-                    hex.charAt(1) + hex.charAt(1) +
-                    hex.charAt(2) + hex.charAt(2);
+        if (hex01.length() == 3) {
+            hex01 = String.valueOf(hex01.charAt(0)) + hex01.charAt(0) +
+                    hex01.charAt(1) + hex01.charAt(1) +
+                    hex01.charAt(2) + hex01.charAt(2);
         }
 
         // 3. 组装 RGB 颜色
         ColorRGB rgb = new ColorRGB();
-        rgb.setRed(Integer.parseInt(hex.substring(0, 2), 16));
-        rgb.setGreen(Integer.parseInt(hex.substring(2, 4), 16));
-        rgb.setBlue(Integer.parseInt(hex.substring(4, 6), 16));
+        rgb.setRed(Integer.parseInt(hex01.substring(0, 2), 16));
+        rgb.setGreen(Integer.parseInt(hex01.substring(2, 4), 16));
+        rgb.setBlue(Integer.parseInt(hex01.substring(4, 6), 16));
         return rgb;
     }
 
@@ -65,7 +65,7 @@ public class ColorUtils {
      * 将RGB顏色轉換為16進位顏色。<br>
      * Convert RGB colors to hexadecimal colors.<br>
      */
-    public static String rgbToHex(ColorRGB rgb) {
+    public static String rgbToHex(final ColorRGB rgb) {
         return (ColorConstants.HEX_PREFIX + String.format("%02x%02x%02x", rgb.getRed(), rgb.getGreen(), rgb.getBlue()).toUpperCase());
     }
 
@@ -74,7 +74,7 @@ public class ColorUtils {
      * 將16進位顏色轉換為ANSI前景色序列。<br>
      * Convert hexadecimal colors to ANSI foreground color sequences.<br>
      */
-    public static String hexToAnsiForeground(String hex) {
+    public static String hexToAnsiForeground(final String hex) {
         ColorRGB rgb = hexToRgb(hex);
         return String.format("%s38;2;%d;%d;%d%s", ColorConstants.ANSI_START, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
     }
@@ -84,7 +84,7 @@ public class ColorUtils {
      * 將16進位顏色轉換為ANSI背景色序列。<br>
      * Convert hexadecimal colors to ANSI background color sequences.<br>
      */
-    public static String hexToAnsiBackground(String hex) {
+    public static String hexToAnsiBackground(final String hex) {
         ColorRGB rgb = hexToRgb(hex);
         return String.format("%s48;2;%d;%d;%d%s", ColorConstants.ANSI_START, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
     }
