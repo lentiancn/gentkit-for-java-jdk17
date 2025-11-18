@@ -5,7 +5,7 @@
 
     <groupId>com.gentkit.logger</groupId>
     <artifactId>gentkit-logger-slf4j-logback-highlight-color</artifactId>
-    <version>${revision}</version>
+    <version>1.0.0-jdk17</version>
     <name>GentKit Logger SLF4J with Logback (Highlight Color)</name>
     <description>
         GentKit Logger SLF4J with Logback (Highlight Color)
@@ -14,7 +14,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.5.18</version>
+            <version>1.5.21</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
