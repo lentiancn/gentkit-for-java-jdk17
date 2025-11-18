@@ -15,6 +15,7 @@
     <url>https://gitee.com/gentkit/gentkit-for-java-jdk17</url>
 
     <modules>
+        <module>gentkit-base64</module>
         <module>gentkit-color</module>
         <module>gentkit-excel</module>
         <module>gentkit-exception</module>
