@@ -9,11 +9,11 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>gentkit-logger-slf4j-logback</artifactId>
+    <artifactId>gentkit-logger-with-slf4j-log4j2</artifactId>
     <version>${revision}</version>
-    <name>GentKit Logger SLF4J with Logback</name>
+    <name>GentKit Logger with SLF4J Apache Log4j 2</name>
     <description>
-        GentKit Logger SLF4J with Logback
+        GentKit Logger with SLF4J Apache Log4j 2
     </description>
 
     <dependencies>
@@ -21,20 +21,15 @@
             <groupId>com.gentkit.logger</groupId>
             <artifactId>gentkit-logger</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.gentkit.logger</groupId>
-            <artifactId>gentkit-logger-with-slf4j-logback-config</artifactId>
-            <version>1.0.0-jdk17</version>
-        </dependency>
         <!-- 门面 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-        <!-- 提供器 : ch.qos.logback.classic.spi.LogbackServiceProvider -->
+        <!-- 提供器 : xxxProvider -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
         </dependency>
         <!-- JCL 桥接 -->
         <dependency>
@@ -50,22 +45,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
-        </dependency>
-        <!-- Log4j2 桥接 -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-to-slf4j</artifactId>
-        </dependency>
-        <!-- OSGi 桥接 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>osgi-over-slf4j</artifactId>
-        </dependency>
-        <!-- 引用包含org.osgi.service.log.Logger的 osgi的jar包 -->
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.service.log</artifactId>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 

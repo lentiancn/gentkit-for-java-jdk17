@@ -21,8 +21,9 @@
 
     <modules>
         <module>gentkit-logger</module>
-        <module>gentkit-logger-slf4j-log4j2</module>
-        <module>gentkit-logger-slf4j-logback</module>
+        <module>gentkit-logger-with-slf4j-log4j2</module>
+        <module>gentkit-logger-with-slf4j-logback</module>
+        <module>gentkit-logger-with-slf4j-logback-config</module>
     </modules>
 
     <dependencyManagement>
@@ -39,7 +40,7 @@
             </dependency>
             <dependency>
                 <groupId>com.gentkit.logger</groupId>
-                <artifactId>gentkit-logger-slf4j-log4j2</artifactId>
+                <artifactId>gentkit-logger-with-slf4j-log4j2</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
