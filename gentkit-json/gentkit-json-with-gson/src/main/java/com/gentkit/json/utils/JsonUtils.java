@@ -23,6 +23,7 @@ package com.gentkit.json.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import lombok.NoArgsConstructor;
 
 /**
@@ -49,20 +50,20 @@ public class JsonUtils {
         return toBean(GSON, json, classOfT);
     }
 
-//    public static int getInt(final String memberName, final JsonObject json, final int defValue) {
-//        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
-//            throw new NullPointerException("memberName");
-//        }
-//        if (json == null) {
-//            return defValue;
-//        }
-//        try {
-//            return json.getAsJsonPrimitive(memberName).getAsInt();
-//        } catch (Throwable ex) {
-//            return defValue;
-//        }
-//    }
-//
+    public static int getInt(final String memberName, final JsonObject json, final int defaultValue) {
+        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
+            throw new NullPointerException("memberName");
+        }
+        if (json == null) {
+            return defaultValue;
+        }
+        try {
+            return json.getAsJsonPrimitive(memberName).getAsInt();
+        } catch (Throwable ex) {
+            return defaultValue;
+        }
+    }
+
 //    public static String getString(final String memberName, final JsonObject json, final String defValue) {
 //        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
 //            throw new NullPointerException("memberName");
