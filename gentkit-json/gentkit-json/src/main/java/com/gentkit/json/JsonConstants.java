@@ -29,27 +29,4 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class JsonConstants {
-
-    public static final String HEX_PREFIX = "#";
-
-    /**
-     * ANSI序列开始。<br>
-     * ANSI序列開始。<br>
-     * ANSI sequence start.<br>
-     */
-    public static final String ANSI_START = "\u001B[";
-
-    /**
-     * ANSI序列结束。<br>
-     * ANSI序列結束。<br>
-     * ANSI sequence end.<br>
-     */
-    public static final String ANSI_END = "m";
-
-    /**
-     * ANSI序列重置。<br>
-     * ANSI序列重置。<br>
-     * ANSI sequence reset.<br>
-     */
-    public static final String ANSI_RESET = ANSI_START + '0' + ANSI_END;
 }
