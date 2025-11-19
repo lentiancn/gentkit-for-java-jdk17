@@ -6,9 +6,9 @@
     <groupId>com.gentkit.logger</groupId>
     <artifactId>gentkit-logger-with-slf4j-logback-config</artifactId>
     <version>1.0.0-jdk17</version>
-    <name>GentKit Logger with SLF4J and Logback Config</name>
+    <name>GentKit Logger with SLF4J Logback Config</name>
     <description>
-        GentKit Logger with SLF4J and Logback Config
+        GentKit Logger with SLF4J Logback Config
     </description>
     <dependencies>
         <dependency>
