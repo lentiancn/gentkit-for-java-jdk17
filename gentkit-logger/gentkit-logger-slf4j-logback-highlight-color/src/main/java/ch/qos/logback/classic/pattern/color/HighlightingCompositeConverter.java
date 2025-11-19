@@ -26,6 +26,9 @@ import static ch.qos.logback.core.pattern.color.ANSIConstants.*;
  */
 public class HighlightingCompositeConverter extends ForegroundCompositeConverterBase<ILoggingEvent> {
 
+    final String FE_PREFIX = "38;2;";
+    final String DEBUG_COLOR = "0;112;245";
+
     @Override
     protected String getForegroundColorCode(ILoggingEvent event) {
         Level level = event.getLevel();
@@ -37,7 +40,7 @@ public class HighlightingCompositeConverter extends ForegroundCompositeConverter
             case Level.INFO_INT:
                 return GREEN_FG;
             case Level.DEBUG_INT:
-                return BLUE_FG;
+                return FE_PREFIX + DEBUG_COLOR;
             case Level.TRACE_INT:
                 return CYAN_FG;
             default:
