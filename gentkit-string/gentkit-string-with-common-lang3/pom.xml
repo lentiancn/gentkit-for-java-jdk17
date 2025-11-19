@@ -11,7 +11,7 @@
 
     <artifactId>gentkit-string-with-common-lang3</artifactId>
     <version>${revision}</version>
-    <name>GentKit String</name>
+    <name>GentKit String with Apache Common Lang3</name>
     <description>
         GentKit String is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
         and easily integrable string handling solutions.
