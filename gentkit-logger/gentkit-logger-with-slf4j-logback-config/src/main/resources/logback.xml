@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <conversionRule conversionWord="gentkitLevelColor" converterClass="com.gentkit.logger.logback.converter.GentKitLoggerLevelColorCompositeConverter" class="com.gentkit.logger.logback.converter.GentKitLoggerLevelColorCompositeConverter"/>
+    <conversionRule conversionWord="gentkitLevelColor"
+                    converterClass="com.gentkit.logger.logback.converter.GentKitLoggerLevelColorCompositeConverter"
+                    class="com.gentkit.logger.logback.converter.GentKitLoggerLevelColorCompositeConverter"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
