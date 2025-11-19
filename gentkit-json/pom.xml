@@ -20,14 +20,14 @@
     </description>
 
     <modules>
-        <module>gentkit-json</module>
+        <module>gentkit-json-with-gson</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.gentkit.json</groupId>
-                <artifactId>gentkit-json</artifactId>
+                <artifactId>gentkit-json-with-gson</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>

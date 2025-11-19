@@ -22,11 +22,8 @@
 package com.gentkit.json.utils;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.google.gson.GsonBuilder;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 /**
  * @author 田隆 (Len)
@@ -34,6 +31,8 @@ import java.util.Date;
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class JsonUtils {
+
+    private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
 
     public static <T> T toBean(final Gson gson, final String json, final Class<T> classOfT) {
         if (DataUtilsInternalUseOnly.isBlankString(json)) {
@@ -44,6 +43,10 @@ public class JsonUtils {
         } catch (Throwable ex) {
             return null;
         }
+    }
+
+    public static <T> T toBean(final String json, final Class<T> classOfT) {
+        return toBean(GSON, json, classOfT);
     }
 
 //    public static int getInt(final String memberName, final JsonObject json, final int defValue) {

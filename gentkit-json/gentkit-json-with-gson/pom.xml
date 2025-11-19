@@ -9,7 +9,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>gentkit-json</artifactId>
+    <artifactId>gentkit-json-with-gson</artifactId>
     <version>${revision}</version>
     <name>GentKit Json</name>
     <description>
