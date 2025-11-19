@@ -24,6 +24,7 @@ package com.gentkit.logger;
 import com.gentkit.exception.utils.ExceptionUtils;
 import com.gentkit.logger.impl.DefaultLoggerImpl;
 import com.gentkit.logger.utils.LoggerUtils;
+import lombok.NoArgsConstructor;
 
 import java.lang.reflect.Constructor;
 import java.util.List;
@@ -34,6 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author 田隆 (Len)
  * @since 2025-11-07 22:53
  */
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public final class LoggerFactory {
 
     // Logger 实现类的集合
@@ -55,14 +57,6 @@ public final class LoggerFactory {
         } catch (Throwable e) {
             System.err.println("加载 Logger 实现类失败。因为：" + ExceptionUtils.throwableToString(e));
         }
-    }
-
-    /**
-     * 私有构造方法，防止被实例化。<br>
-     * 私有構造方法，防止被實例化。<br>
-     * A private constructor is used to prevent instantiation.<br>
-     */
-    private LoggerFactory() {
     }
 
     /**
