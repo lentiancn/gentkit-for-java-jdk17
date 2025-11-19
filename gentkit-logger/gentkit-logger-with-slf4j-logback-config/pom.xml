@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.gentkit.logger</groupId>
-    <artifactId>gentkit-logger-slf4j-logback-highlight-color</artifactId>
+    <artifactId>gentkit-logger-with-slf4j-logback-config</artifactId>
     <version>1.0.0-jdk17</version>
-    <name>GentKit Logger SLF4J with Logback (Highlight Color)</name>
+    <name>GentKit Logger with SLF4J and Logback Config</name>
     <description>
-        GentKit Logger SLF4J with Logback (Highlight Color)
+        GentKit Logger with SLF4J and Logback Config
     </description>
     <dependencies>
         <dependency>

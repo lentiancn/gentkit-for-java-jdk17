@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.gentkit.logger</groupId>
-            <artifactId>gentkit-logger-slf4j-logback-highlight-color</artifactId>
+            <artifactId>gentkit-logger-with-slf4j-logback-config</artifactId>
             <version>1.0.0-jdk17</version>
         </dependency>
         <!-- 门面 -->
