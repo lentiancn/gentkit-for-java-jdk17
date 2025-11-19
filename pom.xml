@@ -17,6 +17,7 @@
     <modules>
         <module>gentkit-base64</module>
         <module>gentkit-color</module>
+        <module>gentkit-datetime</module>
         <module>gentkit-excel</module>
         <module>gentkit-exception</module>
         <module>gentkit-json</module>
