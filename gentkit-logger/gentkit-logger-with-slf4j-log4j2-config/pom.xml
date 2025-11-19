@@ -9,48 +9,12 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>gentkit-logger-with-slf4j-log4j2</artifactId>
+    <artifactId>gentkit-logger-with-slf4j-log4j2-config</artifactId>
     <version>${revision}</version>
-    <name>GentKit Logger with SLF4J Apache Log4j 2</name>
+    <name>GentKit Logger with SLF4J Apache Log4j 2 Config</name>
     <description>
-        GentKit Logger with SLF4J Apache Log4j 2
+        GentKit Logger with SLF4J Apache Log4j 2 Config
     </description>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.gentkit.logger</groupId>
-            <artifactId>gentkit-logger</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.gentkit.logger</groupId>
-            <artifactId>gentkit-logger-with-slf4j-log4j2-config</artifactId>
-        </dependency>
-        <!-- 门面 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <!-- 提供器 : xxxProvider -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j2-impl</artifactId>
-        </dependency>
-        <!-- JCL 桥接 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-        </dependency>
-        <!-- JUL 桥接 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-        </dependency>
-        <!-- Log4j1 桥接 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
