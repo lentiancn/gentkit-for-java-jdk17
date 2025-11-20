@@ -22,6 +22,7 @@
 package com.gentkit.logger.utils;
 
 import com.gentkit.logger.LoggerConstants;
+import lombok.NoArgsConstructor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,15 +41,8 @@ import java.util.List;
  * @author 田隆 (Len)
  * @since 2025-11-08 16:36
  */
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public final class LoggerUtils {
-
-    /**
-     * 私有构造方法，防止被实例化。<br>
-     * 私有構造方法，防止被實例化。<br>
-     * A private constructor is used to prevent instantiation.<br>
-     */
-    private LoggerUtils() {
-    }
 
     /**
      * 加载 CLASSPATH 下指定接口的实现类。<br>

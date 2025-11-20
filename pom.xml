@@ -20,6 +20,7 @@
         <module>gentkit-datetime</module>
         <module>gentkit-excel</module>
         <module>gentkit-exception</module>
+        <module>gentkit-hex</module>
         <module>gentkit-json</module>
         <module>gentkit-logger</module>
         <module>gentkit-string</module>

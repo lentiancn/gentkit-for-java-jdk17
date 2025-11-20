@@ -4,23 +4,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.gentkit.color</groupId>
-        <artifactId>gentkit-color-parent</artifactId>
+        <groupId>com.gentkit.hex</groupId>
+        <artifactId>gentkit-hex-parent</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>gentkit-color</artifactId>
+    <artifactId>gentkit-hex</artifactId>
     <version>${revision}</version>
-    <name>GentKit Color</name>
+    <name>GentKit Hex</name>
     <description>
-        GentKit Color is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
-        and easily integrable color handling solutions.
+        GentKit Hex is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
+        and easily integrable hex handling solutions.
     </description>
 
     <dependencies>
         <dependency>
-            <groupId>com.gentkit.hex</groupId>
-            <artifactId>gentkit-hex</artifactId>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
