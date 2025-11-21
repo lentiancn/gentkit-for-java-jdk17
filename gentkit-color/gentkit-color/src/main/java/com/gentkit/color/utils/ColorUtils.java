@@ -23,6 +23,7 @@ package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
 import com.gentkit.color.exception.HexColorNormalizationException;
+import com.gentkit.color.exception.RgbColorOutOfRangeException;
 import com.gentkit.color.model.HexColor;
 import com.gentkit.color.model.RgbColor;
 import lombok.NoArgsConstructor;
@@ -38,6 +39,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class ColorUtils {
 
+    public static RgbColor hexToRgb(final HexColor hexColor) {
+        return new RgbColor(Integer.parseInt(hexColor.getRed(), 16), Integer.parseInt(hexColor.getGreen(), 16), Integer.parseInt(hexColor.getBlue(), 16));
+    }
+
     /**
      * 将16进制颜色转换为RGB颜色。<br>
      * 將16進位顏色轉換為RGB顏色。<br>
@@ -45,20 +50,19 @@ public class ColorUtils {
      * @throws HexColorNormalizationException
      */
     public static RgbColor hexToRgb(final String hexColor) {
-        // 1. Normalizes a hex color string to a standard 6-digit format.
-        HexColor hexColor01 = new HexColor(hexColor);
-
-        // 2. Converts the hexadecimal color string to RGB.
-        return new RgbColor(Integer.parseInt(hexColor01.getRed(), 16), Integer.parseInt(hexColor01.getGreen(), 16), Integer.parseInt(hexColor01.getBlue(), 16));
+        return hexToRgb(new HexColor(hexColor));
     }
 
     /**
      * 将RGB颜色转换为16进制颜色。<br>
      * 将RGB顏色轉換為16進位顏色。<br>
      * Convert RGB colors to hexadecimal colors.<br>
+     * @throws RgbColorOutOfRangeException
      */
     public static String rgbToHex(final int red, final int green, final int blue) {
-        return (ColorConstants.HEX_PREFIX + String.format("%02x%02x%02x", red, green, blue).toUpperCase());
+        RgbColor rgbColor = new RgbColor(red, green, blue);
+
+        return (ColorConstants.HEX_PREFIX + String.format("%02x%02x%02x", rgbColor.getRed(), rgbColor.getGreen(), rgbColor.getBlue()).toUpperCase());
     }
 
     /**

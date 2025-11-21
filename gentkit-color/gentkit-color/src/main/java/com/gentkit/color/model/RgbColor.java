@@ -47,8 +47,15 @@ public class RgbColor implements Serializable {
      * @param blue  蓝色<br>藍色<br>Blue<br>
      */
     public RgbColor(final int red, final int green, final int blue) {
+        // Validate all color components are in valid range (0-255)
         if (red < 0 || red > 255) {
             throw new RgbColorOutOfRangeException("red must be between 0 and 255", red, green, blue);
+        }
+        if (green < 0 || green > 255) {
+            throw new RgbColorOutOfRangeException("green must be between 0 and 255", red, green, blue);
+        }
+        if (blue < 0 || blue > 255) {
+            throw new RgbColorOutOfRangeException("blue must be between 0 and 255", red, green, blue);
         }
 
         this.red = red;
@@ -86,9 +93,6 @@ public class RgbColor implements Serializable {
      */
     @Override
     public String toString() {
-        return
-                "RGB(" + red +
-                        ", " + green +
-                        ", " + blue + ")";
+        return "RGB(" + red + ", " + green + ", " + blue + ")";
     }
 }
