@@ -22,7 +22,7 @@
 package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
-import com.gentkit.color.model.RgbaColor;
+import com.gentkit.color.model.RgbColor;
 import lombok.NoArgsConstructor;
 
 /**
@@ -41,12 +41,12 @@ public class ColorUtils {
      * 將16進位顏色轉換為RGB顏色。<br>
      * Convert hexadecimal colors to RGB colors.<br>
      */
-    public static RgbaColor hexToRgb(final String hexColor) {
+    public static RgbColor hexToRgb(final String hexColor) {
         // 1. Normalizes a hex color string to a standard 6-digit format.
         String hexColor01 = HexColorUtils.normalize(hexColor, null);
 
         // 2. Converts the hexadecimal color string to RGB.
-        RgbaColor rgb = new RgbaColor();
+        RgbColor rgb = new RgbColor();
         rgb.setRed(Integer.parseInt(hexColor01.substring(0, 2), 16));
         rgb.setGreen(Integer.parseInt(hexColor01.substring(2, 4), 16));
         rgb.setBlue(Integer.parseInt(hexColor01.substring(4, 6), 16));
@@ -67,7 +67,7 @@ public class ColorUtils {
      * 将RGB顏色轉換為16進位顏色。<br>
      * Convert RGB colors to hexadecimal colors.<br>
      */
-    public static String rgbToHex(final RgbaColor rgb) {
+    public static String rgbToHex(final RgbColor rgb) {
         return rgbToHex(rgb.getRed(), rgb.getGreen(), rgb.getBlue());
     }
 
@@ -90,7 +90,7 @@ public class ColorUtils {
      * Convert hexadecimal colors to ANSI foreground color sequences.<br>
      */
     public static String hexToAnsiForeground(final boolean bold, final String hex) {
-        RgbaColor rgb = hexToRgb(hex);
+        RgbColor rgb = hexToRgb(hex);
         String ansiBold = bold? ColorConstants.ANSI_BOLD : "";
         return String.format("%s%s38;2;%d;%d;%d%s", ColorConstants.ANSI_START, ansiBold, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
     }
@@ -110,7 +110,7 @@ public class ColorUtils {
      * Convert hexadecimal colors to ANSI background color sequences.<br>
      */
     public static String hexToAnsiBackground(final String hex) {
-        RgbaColor rgb = hexToRgb(hex);
+        RgbColor rgb = hexToRgb(hex);
         return String.format("%s48;2;%d;%d;%d%s", ColorConstants.ANSI_START, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
     }
 

@@ -34,7 +34,7 @@ import java.io.Serializable;
  * @since 2025-11-10 22:42
  */
 @Data
-public class RgbaColor implements Serializable {
+public class RgbColor implements Serializable {
 
     /**
      * 红色。<br>
@@ -56,13 +56,4 @@ public class RgbaColor implements Serializable {
      * blue.<br>
      */
     private int blue;
-
-    /**
-     *
-     */
-    private int alpha;
-
-    public static void main(String[] args) {
-        System.out.println(Integer.parseInt("01", 16));
-    }
 }
