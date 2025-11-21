@@ -51,7 +51,7 @@ public class HexColorNormalizationException extends GlobalException {
      * @param hexColor 十六进制颜色<br>十六進制顏色<br>hex color
      * @see #hexColor
      */
-    public HexColorNormalizationException(String message, String hexColor) {
+    public HexColorNormalizationException(final String message, final String hexColor) {
         super(message);
         this.hexColor = hexColor;
     }
