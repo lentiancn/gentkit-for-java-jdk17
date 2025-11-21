@@ -49,12 +49,12 @@ public class HexColorUtils {
 
         // Length is 3 or 4 to 6 will be valid
         if (hexColor01.length() == 3 || hexColor01.length() == 4) {
-            char c1 = hexColor01.charAt(0);
-            char c2 = hexColor01.charAt(1);
-            char c3 = hexColor01.charAt(2);
-            return (ColorConstants.HEX_PREFIX + c1 + c1 +
-                    c2 + c2 +
-                    c3 + c3).toUpperCase();
+            char rc = hexColor01.charAt(0);
+            char gc = hexColor01.charAt(1);
+            char bc = hexColor01.charAt(2);
+            return (ColorConstants.HEX_PREFIX + rc + rc +
+                    gc + gc +
+                    bc + bc).toUpperCase();
         } else if (hexColor01.length() == 6) {
             return ColorConstants.HEX_PREFIX + hexColor01.toUpperCase();
         }
