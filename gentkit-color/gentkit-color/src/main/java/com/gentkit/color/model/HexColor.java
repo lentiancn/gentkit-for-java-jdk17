@@ -19,47 +19,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.exception;
+package com.gentkit.color.model;
 
-/**
- * 全局异常。<br>
- * 全局例外。<br>
- * Global exception.<br>
- *
- * @author 田隆 (Len)
- * @since 2025-11-10 23:17
- */
-public class GlobalException extends RuntimeException {
+import com.gentkit.color.utils.HexColorUtils;
+import lombok.Data;
 
-    /**
-     * 构造方法。<br>
-     * 建構方法。<br>
-     * Constructor.<br>
-     */
-    public GlobalException() {
-        super();
+import java.io.Serializable;
+
+@Data
+public class HexColor implements Serializable {
+
+    private String hexColor;
+
+    private String red;
+
+    private String green;
+
+    private String blue;
+
+    public HexColor(final String hexColor) {
+        this.hexColor = HexColorUtils.normalize(hexColor);
+
+        red = hexColor.substring(0, 2);
+        green = hexColor.substring(2, 4);
+        blue = hexColor.substring(4, 6);
     }
 
-    /**
-     * 构造方法。<br>
-     * 建構方法。<br>
-     * Constructor.<br>
-     *
-     * @param message 异常信息。<br>異常信息。<br>Exception message.<br>
-     */
-    public GlobalException(String message) {
-        super(message);
-    }
-
-    /**
-     * 构造方法。<br>
-     * 建構方法。<br>
-     * Constructor.<br>
-     *
-     * @param message 异常信息。<br>異常信息。<br>Exception message.<br>
-     * @param cause   异常 cause。<br>異常 cause。<br>Exception cause.<br>
-     */
-    public GlobalException(String message, Throwable cause) {
-        super(message, cause);
+    @Override
+    public String toString() {
+        return hexColor;
     }
 }

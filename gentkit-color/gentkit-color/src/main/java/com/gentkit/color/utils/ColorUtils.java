@@ -22,6 +22,8 @@
 package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
+import com.gentkit.color.exception.HexColorNormalizationException;
+import com.gentkit.color.model.HexColor;
 import com.gentkit.color.model.RgbColor;
 import lombok.NoArgsConstructor;
 
@@ -40,17 +42,14 @@ public class ColorUtils {
      * 将16进制颜色转换为RGB颜色。<br>
      * 將16進位顏色轉換為RGB顏色。<br>
      * Convert hexadecimal colors to RGB colors.<br>
+     * @throws HexColorNormalizationException
      */
     public static RgbColor hexToRgb(final String hexColor) {
         // 1. Normalizes a hex color string to a standard 6-digit format.
-        String hexColor01 = HexColorUtils.normalize(hexColor, null);
+        HexColor hexColor01 = new HexColor(hexColor);
 
         // 2. Converts the hexadecimal color string to RGB.
-        RgbColor rgb = new RgbColor();
-        rgb.setRed(Integer.parseInt(hexColor01.substring(0, 2), 16));
-        rgb.setGreen(Integer.parseInt(hexColor01.substring(2, 4), 16));
-        rgb.setBlue(Integer.parseInt(hexColor01.substring(4, 6), 16));
-        return rgb;
+        return new RgbColor(Integer.parseInt(hexColor01.getRed(), 16), Integer.parseInt(hexColor01.getGreen(), 16), Integer.parseInt(hexColor01.getBlue(), 16));
     }
 
     /**
@@ -115,8 +114,6 @@ public class ColorUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println("# B B B F C");
-
-        System.out.println(Integer.parseInt("BBBFC", 16));
+        System.out.println(rgbToHex(256, 255, 255));
     }
 }
