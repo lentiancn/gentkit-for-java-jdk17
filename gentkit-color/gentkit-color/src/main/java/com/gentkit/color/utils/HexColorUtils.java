@@ -22,10 +22,7 @@
 package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
-import com.gentkit.hex.utils.HexUtils;
 import lombok.NoArgsConstructor;
-
-import java.util.Arrays;
 
 /**
  * 颜色工具。<br>
@@ -38,39 +35,30 @@ import java.util.Arrays;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class HexColorUtils {
 
-    public static String normalize(final String hexColor) {
-        String hex01 = hexColor.startsWith(ColorConstants.HEX_PREFIX) ? hexColor.substring(1) : hexColor;
+    public static String normalize(final String hexColor, final String defaultValue) {
+        if (hexColor == null) {
+            return defaultValue;
+        }
+        String hexColor01 = hexColor.trim();
 
-        char[] cs = hex01.toCharArray();
-        int length = cs.length;
-
-        if (length == 1) {
-            return ColorConstants.HEX_PREFIX + "0000" + channel(cs);
+        // Remove '#'
+        hexColor01 = hexColor01.startsWith(ColorConstants.HEX_PREFIX) ? hexColor01.substring(1) : hexColor01;
+        if (hexColor01.isEmpty()) {
+            return "#000000";
         }
 
-        int channelSize = (int) Math.ceil(length / 3F);
-
-        return ColorConstants.HEX_PREFIX + channel(Arrays.copyOfRange(cs, 0, channelSize)) +
-                channel(Arrays.copyOfRange(cs, channelSize, channelSize * 2)) +
-                channel(Arrays.copyOfRange(cs, channelSize * 2, channelSize * 3));
-    }
-
-    private static char[] fill(final char[] cs) {
-        for (int i = 0; i < cs.length; i++) {
-            if (!HexUtils.isHexChar(cs[i])) {
-                cs[i] = '0';
-            }
+        // Length is 3 or 4 to 6 will be valid
+        if (hexColor01.length() == 3 || hexColor01.length() == 4) {
+            char c1 = hexColor01.charAt(0);
+            char c2 = hexColor01.charAt(1);
+            char c3 = hexColor01.charAt(2);
+            return (ColorConstants.HEX_PREFIX + c1 + c1 +
+                    c2 + c2 +
+                    c3 + c3).toUpperCase();
+        } else if (hexColor01.length() == 6) {
+            return ColorConstants.HEX_PREFIX + hexColor01.toUpperCase();
         }
-        return cs;
-    }
 
-    private static String channel(final char[] cs) {
-        if (cs.length == 0) {
-            return "00";
-        }
-        if (cs.length == 1) {
-            return ('0' + new String(fill(cs)));
-        }
-        return new String(fill(cs), 0, 2);
+        return defaultValue;
     }
 }
