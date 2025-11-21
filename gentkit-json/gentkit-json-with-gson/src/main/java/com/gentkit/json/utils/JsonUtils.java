@@ -21,6 +21,7 @@
  */
 package com.gentkit.json.utils;
 
+import com.gentkit.string.utils.StringUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -36,7 +37,7 @@ public class JsonUtils {
     private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
 
     public static <T> T toBean(final Gson gson, final String json, final Class<T> classOfT) {
-        if (DataUtilsInternalUseOnly.isBlankString(json)) {
+        if (StringUtils.isBlank(json)) {
             return null;
         }
         try {
@@ -51,7 +52,7 @@ public class JsonUtils {
     }
 
     public static int getInt(final String memberName, final JsonObject json, final int defaultValue) {
-        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
+        if (StringUtils.isBlank(memberName)) {
             throw new NullPointerException("memberName");
         }
         if (json == null) {
