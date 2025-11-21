@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class StringUtilsTest {
 
     // -- isNotNull
@@ -13,7 +16,7 @@ public class StringUtilsTest {
     public void isNotNull_shouldReturnTrue_whenStringIsNotNull() {
         boolean value = StringUtils.isNotNull("test");
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isNotNull_shouldReturnTrue_whenStringIsBlank")
@@ -21,7 +24,7 @@ public class StringUtilsTest {
     public void isNotNull_shouldReturnTrue_whenStringIsBlank() {
         boolean value = StringUtils.isNotNull("    ");
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isNotNull_shouldReturnFalse_whenStringIsNull")
@@ -29,7 +32,7 @@ public class StringUtilsTest {
     public void isNotNull_shouldReturnFalse_whenStringIsNull() {
         boolean value = StringUtils.isNotNull(null);
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     // -- isNull
@@ -39,7 +42,7 @@ public class StringUtilsTest {
     public void isNull_shouldReturnTrue_whenStringIsNull() {
         boolean value = StringUtils.isNull(null);
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isNull_shouldReturnFalse_whenStringIsNotNull")
@@ -47,7 +50,7 @@ public class StringUtilsTest {
     public void isNull_shouldReturnFalse_whenStringIsNotNull() {
         boolean value = StringUtils.isNull("test");
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     @DisplayName("isNull_shouldReturnFalse_whenStringIsBlank")
@@ -55,7 +58,7 @@ public class StringUtilsTest {
     public void isNull_shouldReturnFalse_whenStringIsBlank() {
         boolean value = StringUtils.isNull("    ");
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     // -- isNotEmpty
@@ -65,7 +68,7 @@ public class StringUtilsTest {
     public void isNotEmpty_shouldReturnTrue_whenStringIsNotEmpty() {
         boolean value = StringUtils.isNotEmpty("test");
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isNotEmpty_shouldReturnTrue_whenStringIsBlank")
@@ -73,7 +76,7 @@ public class StringUtilsTest {
     public void isNotEmpty_shouldReturnTrue_whenStringIsBlank() {
         boolean value = StringUtils.isNotEmpty("    ");
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isNotEmpty_shouldReturnFalse_whenStringIsNull")
@@ -81,7 +84,7 @@ public class StringUtilsTest {
     public void isNotEmpty_shouldReturnFalse_whenStringIsNull() {
         boolean value = StringUtils.isNotEmpty(null);
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     @DisplayName("isNotEmpty_shouldReturnFalse_whenStringIsEmpty")
@@ -89,7 +92,7 @@ public class StringUtilsTest {
     public void isNotEmpty_shouldReturnFalse_whenStringIsEmpty() {
         boolean value = StringUtils.isNotEmpty("");
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     // -- isEmpty
@@ -99,7 +102,7 @@ public class StringUtilsTest {
     public void isEmpty_shouldReturnTrue_whenStringIsNull() {
         boolean value = StringUtils.isEmpty(null);
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isEmpty_shouldReturnTrue_whenStringIsEmpty")
@@ -107,7 +110,7 @@ public class StringUtilsTest {
     public void isEmpty_shouldReturnTrue_whenStringIsEmpty() {
         boolean value = StringUtils.isEmpty("");
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isEmpty_shouldReturnFalse_whenStringIsBlank")
@@ -115,7 +118,7 @@ public class StringUtilsTest {
     public void isEmpty_shouldReturnFalse_whenStringIsBlank() {
         boolean value = StringUtils.isEmpty("    ");
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     @DisplayName("isEmpty_shouldReturnFalse_whenStringIsNotEmpty")
@@ -123,7 +126,7 @@ public class StringUtilsTest {
     public void isEmpty_shouldReturnFalse_whenStringIsNotEmpty() {
         boolean value = StringUtils.isEmpty("test");
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     // -- isNotBlank
@@ -133,7 +136,7 @@ public class StringUtilsTest {
     public void isNotBlank_shouldReturnTrue_whenStringIsNotBlank() {
         boolean value = StringUtils.isNotBlank("test");
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isNotBlank_shouldReturnFalse_whenStringIsNull")
@@ -141,7 +144,7 @@ public class StringUtilsTest {
     public void isNotBlank_shouldReturnFalse_whenStringIsNull() {
         boolean value = StringUtils.isNotBlank(null);
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     @DisplayName("isNotBlank_shouldReturnFalse_whenStringIsBlank")
@@ -149,7 +152,7 @@ public class StringUtilsTest {
     public void isNotBlank_shouldReturnFalse_whenStringIsBlank() {
         boolean value = StringUtils.isNotBlank("    ");
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 
     // -- isBlank
@@ -159,7 +162,7 @@ public class StringUtilsTest {
     public void isBlank_shouldReturnTrue_whenStringIsBlank() {
         boolean value = StringUtils.isBlank("    ");
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isBlank_shouldReturnTrue_whenStringIsNull")
@@ -167,7 +170,7 @@ public class StringUtilsTest {
     public void isBlank_shouldReturnTrue_whenStringIsNull() {
         boolean value = StringUtils.isBlank(null);
 
-        Assertions.assertTrue(value);
+        assertTrue(value);
     }
 
     @DisplayName("isBlank_shouldReturnFalse_whenStringIsNotBlank")
@@ -175,6 +178,6 @@ public class StringUtilsTest {
     public void isBlank_shouldReturnFalse_whenStringIsNotBlank() {
         boolean value = StringUtils.isBlank("test");
 
-        Assertions.assertFalse(value);
+        assertFalse(value);
     }
 }

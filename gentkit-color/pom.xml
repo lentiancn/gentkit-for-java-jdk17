@@ -31,8 +31,18 @@
                 <version>${revision}</version>
             </dependency>
             <dependency>
+                <groupId>com.gentkit.exception</groupId>
+                <artifactId>gentkit-exception</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.gentkit.hex</groupId>
                 <artifactId>gentkit-hex</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gentkit.string</groupId>
+                <artifactId>gentkit-string</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>

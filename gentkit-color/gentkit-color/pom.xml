@@ -19,8 +19,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.gentkit.exception</groupId>
+            <artifactId>gentkit-exception</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.gentkit.hex</groupId>
             <artifactId>gentkit-hex</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.gentkit.string</groupId>
+            <artifactId>gentkit-string</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

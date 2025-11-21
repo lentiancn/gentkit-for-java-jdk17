@@ -22,12 +22,15 @@
 package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
+import com.gentkit.exception.GlobalException;
+import com.gentkit.hex.utils.HexUtils;
+import com.gentkit.string.utils.StringUtils;
 import lombok.NoArgsConstructor;
 
 /**
- * 颜色工具。<br>
- * 顏色工具。<br>
- * Color utils.<br>
+ * 十六进制颜色工具。<br>
+ * 十六進制顏色工具。<br>
+ * Hex color utils.<br>
  *
  * @author 田隆 (Len)
  * @since 2025-11-20 22:32
@@ -35,30 +38,71 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class HexColorUtils {
 
+    /**
+     * 将十六进制颜色字符串规范化为标准的 6 位格式。<br>
+     * 將十六進制顏色字串正規化為標準的 6 位格式。<br>
+     * Normalizes a hex color string to a standard 6-digit format.<br>
+     *
+     * @param hexColor     待规范化的十六进制颜色字符串<br>待正規化的十六進制顏色字串<br>The hex color string to normalize
+     * @param defaultValue 若规范化失败时返回的默认值<br>若正規化失敗時回傳的預設值<br>The default value to return if normalization fails
+     * @return 规范化后的十六进制颜色字符串或默认值<br>正規化後的十六進制顏色字串或預設值<br>Normalized hex color string or default value
+     */
     public static String normalize(final String hexColor, final String defaultValue) {
-        if (hexColor == null) {
+        if (StringUtils.isBlank(hexColor)) {
             return defaultValue;
         }
         String hexColor01 = hexColor.trim();
 
-        // Remove '#'
-        hexColor01 = hexColor01.startsWith(ColorConstants.HEX_PREFIX) ? hexColor01.substring(1) : hexColor01;
-        if (hexColor01.isEmpty()) {
-            return "#000000";
+        // Remove '#' prefix if present
+        hexColor01 = hexColor01.startsWith(ColorConstants.HEX_PREFIX)
+                ? hexColor01.substring(1)
+                : hexColor01;
+
+        // Check for valid characters
+        for (int i = 0; i < hexColor01.length(); i++) {
+            if (!HexUtils.isHexChar(hexColor01.charAt(i))) {
+                return defaultValue;
+            }
         }
 
-        // Length is 3 or 4 to 6 will be valid
-        if (hexColor01.length() == 3 || hexColor01.length() == 4) {
-            char rc = hexColor01.charAt(0);
-            char gc = hexColor01.charAt(1);
-            char bc = hexColor01.charAt(2);
-            return (ColorConstants.HEX_PREFIX + rc + rc +
-                    gc + gc +
-                    bc + bc).toUpperCase();
-        } else if (hexColor01.length() == 6) {
-            return ColorConstants.HEX_PREFIX + hexColor01.toUpperCase();
+        // Normalize based on length
+        switch (hexColor01.length()) {
+            case 3:
+            case 4:
+                // Expand short format RGB to full format
+                char r = hexColor01.charAt(0);
+                char g = hexColor01.charAt(1);
+                char b = hexColor01.charAt(2);
+                return (ColorConstants.HEX_PREFIX + r + r + g + g + b + b).toUpperCase();
+
+            case 6:
+                // Already in full format
+                return ColorConstants.HEX_PREFIX + hexColor01.toUpperCase();
+
+            default:
+                // Invalid length, return default
+                return defaultValue;
+        }
+    }
+
+    /**
+     * 将十六进制颜色字符串规范化为标准的 6 位格式。<br>
+     * 將十六進制顏色字串正規化為標準的 6 位格式。<br>
+     * Normalizes a hex color string to a standard 6-digit format.<br>
+     *
+     * @param hexColor 待规范化的十六进制颜色字符串<br>待正規化的十六進制顏色字串<br>The hex color string to normalize
+     * @return 规范化后的十六进制颜色字符串<br>正規化後的十六進制顏色字串<br>Normalized hex color string
+     * @throws GlobalException 若规范化失败<br>若正規化失敗<br>If normalization fails
+     */
+    public static String normalize(final String hexColor) {
+        String defaultValue = "EX";
+        String hexColor01 = normalize(hexColor, defaultValue);
+
+        // Directly return non default values
+        if (!defaultValue.equals(hexColor01)) {
+            return hexColor01;
         }
 
-        return defaultValue;
+        throw new GlobalException("Invalid hex color: '" + hexColor + "'");
     }
 }
