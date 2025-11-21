@@ -22,6 +22,7 @@
 package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
+import com.gentkit.color.exception.HexColorNormalizationException;
 import com.gentkit.exception.GlobalException;
 import com.gentkit.hex.utils.HexUtils;
 import com.gentkit.string.utils.StringUtils;
@@ -33,7 +34,7 @@ import lombok.NoArgsConstructor;
  * Hex color utils.<br>
  *
  * @author 田隆 (Len)
- * @since 2025-11-20 22:32
+ * @since 2025-11-20 23:25
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class HexColorUtils {
@@ -53,19 +54,19 @@ public class HexColorUtils {
         }
         String hexColor01 = hexColor.trim();
 
-        // Remove '#' prefix if present
+        // 1. Remove '#' prefix if present
         hexColor01 = hexColor01.startsWith(ColorConstants.HEX_PREFIX)
                 ? hexColor01.substring(1)
                 : hexColor01;
 
-        // Check for valid characters
+        // 2. Check for valid characters
         for (int i = 0; i < hexColor01.length(); i++) {
             if (!HexUtils.isHexChar(hexColor01.charAt(i))) {
                 return defaultValue;
             }
         }
 
-        // Normalize based on length
+        // 3. Normalize based on length
         switch (hexColor01.length()) {
             case 3:
             case 4:
@@ -98,11 +99,11 @@ public class HexColorUtils {
         String defaultValue = "EX";
         String hexColor01 = normalize(hexColor, defaultValue);
 
-        // Directly return non default values
+        // 1. Directly return non default values
         if (!defaultValue.equals(hexColor01)) {
             return hexColor01;
         }
 
-        throw new GlobalException("Invalid hex color: '" + hexColor + "'");
+        throw new HexColorNormalizationException("Invalid hex color: '" + hexColor + "'", hexColor);
     }
 }

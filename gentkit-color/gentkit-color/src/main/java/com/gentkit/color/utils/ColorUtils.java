@@ -41,28 +41,15 @@ public class ColorUtils {
      * 將16進位顏色轉換為RGB顏色。<br>
      * Convert hexadecimal colors to RGB colors.<br>
      */
-    public static RgbaColor hexToRgb(final String hex) {
-        // 1. 移除 # 号
-        String hex01 = hex.startsWith(ColorConstants.HEX_PREFIX) ? hex.substring(1) : hex;
-        // #FF0000 - 正常处理
-        // #FF000  - 自动补0
-        // #FF00   - 自动补00
-        // #FF0
-        // #FF     - 两位都前边增加0，再补00
-        // #F      - 前补充0，补5个0
+    public static RgbaColor hexToRgb(final String hexColor) {
+        // 1. Normalizes a hex color string to a standard 6-digit format.
+        String hexColor01 = HexColorUtils.normalize(hexColor, null);
 
-        // 2. 处理简写格式
-        if (hex01.length() == 3) {
-            hex01 = String.valueOf(hex01.charAt(0)) + hex01.charAt(0) +
-                    hex01.charAt(1) + hex01.charAt(1) +
-                    hex01.charAt(2) + hex01.charAt(2);
-        }
-
-        // 3. 组装 RGB 颜色
+        // 2. Converts the hexadecimal color string to RGB.
         RgbaColor rgb = new RgbaColor();
-        rgb.setRed(Integer.parseInt(hex01.substring(0, 2), 16));
-        rgb.setGreen(Integer.parseInt(hex01.substring(2, 4), 16));
-        rgb.setBlue(Integer.parseInt(hex01.substring(4, 6), 16));
+        rgb.setRed(Integer.parseInt(hexColor01.substring(0, 2), 16));
+        rgb.setGreen(Integer.parseInt(hexColor01.substring(2, 4), 16));
+        rgb.setBlue(Integer.parseInt(hexColor01.substring(4, 6), 16));
         return rgb;
     }
 
