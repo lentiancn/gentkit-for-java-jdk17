@@ -38,6 +38,7 @@ public class HexMappingAlgorithm {
 
     /**
      * 输入十六进制字符串，输出映射后的6位十六进制字符串
+     *
      * @param input 输入字符串（仅含0-9、A-F，忽略大小写）
      * @return 映射后的6位十六进制字符串（带#前缀）
      * @throws IllegalArgumentException 输入不合法时抛出

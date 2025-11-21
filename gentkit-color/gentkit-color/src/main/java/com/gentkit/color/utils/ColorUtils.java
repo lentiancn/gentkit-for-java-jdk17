@@ -47,6 +47,7 @@ public class ColorUtils {
      * 将16进制颜色转换为RGB颜色。<br>
      * 將16進位顏色轉換為RGB顏色。<br>
      * Convert hexadecimal colors to RGB colors.<br>
+     *
      * @throws HexColorNormalizationException
      */
     public static RgbColor hexToRgb(final String hexColor) {
@@ -57,6 +58,7 @@ public class ColorUtils {
      * 将RGB颜色转换为16进制颜色。<br>
      * 将RGB顏色轉換為16進位顏色。<br>
      * Convert RGB colors to hexadecimal colors.<br>
+     *
      * @throws RgbColorOutOfRangeException
      */
     public static String rgbToHex(final int red, final int green, final int blue) {
@@ -94,7 +96,7 @@ public class ColorUtils {
      */
     public static String hexToAnsiForeground(final boolean bold, final String hex) {
         RgbColor rgb = hexToRgb(hex);
-        String ansiBold = bold? ColorConstants.ANSI_BOLD : "";
+        String ansiBold = bold ? ColorConstants.ANSI_BOLD : "";
         return String.format("%s%s38;2;%d;%d;%d%s", ColorConstants.ANSI_START, ansiBold, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
     }
 

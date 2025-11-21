@@ -4,9 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum AnsiColorEnum {
-    GREEN(32)
-
-    ;
+    GREEN(32);
 
     private final int value;
 

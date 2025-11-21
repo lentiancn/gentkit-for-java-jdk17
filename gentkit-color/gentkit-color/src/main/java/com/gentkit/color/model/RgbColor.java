@@ -38,6 +38,25 @@ import java.io.Serializable;
 public class RgbColor implements Serializable {
 
     /**
+     * 红色。<br>
+     * 紅色。<br>
+     * red.<br>
+     */
+    private int red;
+    /**
+     * 绿色。<br>
+     * 綠色。<br>
+     * green.<br>
+     */
+    private int green;
+    /**
+     * 蓝色。<br>
+     * 藍色。<br>
+     * blue.<br>
+     */
+    private int blue;
+
+    /**
      * 构造方法。<br>
      * 建構方法。<br>
      * Constructor.<br>
@@ -62,27 +81,6 @@ public class RgbColor implements Serializable {
         this.green = green;
         this.blue = blue;
     }
-
-    /**
-     * 红色。<br>
-     * 紅色。<br>
-     * red.<br>
-     */
-    private int red;
-
-    /**
-     * 绿色。<br>
-     * 綠色。<br>
-     * green.<br>
-     */
-    private int green;
-
-    /**
-     * 蓝色。<br>
-     * 藍色。<br>
-     * blue.<br>
-     */
-    private int blue;
 
     /**
      * 获取 RGB 颜色字符串。<br>
