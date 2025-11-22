@@ -21,7 +21,6 @@
  */
 package com.gentkit.color;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**

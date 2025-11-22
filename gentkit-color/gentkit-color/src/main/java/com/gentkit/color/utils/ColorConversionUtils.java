@@ -140,9 +140,6 @@ public class ColorConversionUtils {
     }
 
 
-
-
-
     public static void main(String[] args) {
         System.out.println(ansi16feToHex(ColorAnsi16ForegroundCodeEnum.RED_B));
     }

@@ -87,6 +87,12 @@ public enum ColorAnsiStyleEnum {
     STRIKE(9),
     ;
 
+    private final int value;
+
+    ColorAnsiStyleEnum(int value) {
+        this.value = value;
+    }
+
     public static ColorAnsiStyleEnum getByValue(int value) {
         for (ColorAnsiStyleEnum style : ColorAnsiStyleEnum.values()) {
             if (style.value == value) {
@@ -94,12 +100,6 @@ public enum ColorAnsiStyleEnum {
             }
         }
         return null;
-    }
-
-    private final int value;
-
-    ColorAnsiStyleEnum(int value) {
-        this.value = value;
     }
 
     @Override

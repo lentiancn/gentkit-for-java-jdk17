@@ -22,7 +22,6 @@
 package com.gentkit.color.model;
 
 import com.gentkit.color.enums.ColorAnsi16BackgroundCodeEnum;
-import com.gentkit.color.enums.ColorAnsi16ForegroundCodeEnum;
 import com.gentkit.color.enums.ColorAnsiStyleEnum;
 import lombok.Data;
 

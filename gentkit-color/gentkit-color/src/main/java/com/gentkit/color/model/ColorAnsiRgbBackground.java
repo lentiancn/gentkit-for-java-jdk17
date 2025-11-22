@@ -21,11 +21,8 @@
  */
 package com.gentkit.color.model;
 
-import com.gentkit.color.ColorConstants;
 import com.gentkit.color.enums.ColorAnsiStyleEnum;
 import lombok.Data;
-
-import static com.gentkit.color.ColorConstants.*;
 
 @Data
 public class ColorAnsiRgbBackground implements ColorAnsiSequence {

@@ -21,7 +21,6 @@
  */
 package com.gentkit.color.exception;
 
-import com.gentkit.exception.GlobalException;
 import lombok.Getter;
 
 /**
