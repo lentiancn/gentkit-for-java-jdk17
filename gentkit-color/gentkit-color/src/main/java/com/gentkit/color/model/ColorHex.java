@@ -101,7 +101,7 @@ public class ColorHex implements Serializable {
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritDoc}<br>
      */
     @Override
     public String toString() {

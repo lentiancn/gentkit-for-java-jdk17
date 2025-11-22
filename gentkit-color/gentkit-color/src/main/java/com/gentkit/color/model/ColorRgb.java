@@ -95,7 +95,7 @@ public class ColorRgb implements Serializable {
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritDoc}<br>
      */
     @Override
     public String toString() {

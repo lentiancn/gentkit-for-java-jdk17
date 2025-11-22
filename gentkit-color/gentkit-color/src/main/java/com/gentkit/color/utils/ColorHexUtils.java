@@ -44,9 +44,9 @@ public class ColorHexUtils {
      * 將十六進制顏色字串正規化為標準的 6 位格式。<br>
      * Normalizes a hex color string to a standard 6-digit format.<br>
      *
-     * @param hex     待规范化的十六进制颜色字符串<br>待正規化的十六進制顏色字串<br>The hex color string to normalize
-     * @param defaultValue 若规范化失败时返回的默认值<br>若正規化失敗時回傳的預設值<br>The default value to return if normalization fails
-     * @return 规范化后的十六进制颜色字符串或默认值<br>正規化後的十六進制顏色字串或預設值<br>Normalized hex color string or default value
+     * @param hex          待规范化的十六进制颜色字符串<br>待正規化的十六進制顏色字串<br>The hex color string to normalize<br>
+     * @param defaultValue 若规范化失败时返回的默认值<br>若正規化失敗時回傳的預設值<br>The default value to return if normalization fails<br>
+     * @return 规范化后的十六进制颜色字符串或默认值<br>正規化後的十六進制顏色字串或預設值<br>Normalized hex color string or default value<br>
      */
     public static String normalize(final String hex, final String defaultValue) {
         if (StringUtils.isBlank(hex)) {
@@ -91,9 +91,9 @@ public class ColorHexUtils {
      * 將十六進制顏色字串正規化為標準的 6 位格式。<br>
      * Normalizes a hex color string to a standard 6-digit format.<br>
      *
-     * @param hex 待规范化的十六进制颜色字符串<br>待正規化的十六進制顏色字串<br>The hex color string to normalize
-     * @return 规范化后的十六进制颜色字符串<br>正規化後的十六進制顏色字串<br>Normalized hex color string
-     * @throws GlobalException 若规范化失败<br>若正規化失敗<br>If normalization fails
+     * @param hex 待规范化的十六进制颜色字符串<br>待正規化的十六進制顏色字串<br>The hex color string to normalize<br>
+     * @return 规范化后的十六进制颜色字符串<br>正規化後的十六進制顏色字串<br>Normalized hex color string<br>
+     * @throws GlobalException 若规范化失败<br>若正規化失敗<br>If normalization fails<br>
      */
     public static String normalize(final String hex) {
         String defaultValue = "EX";
