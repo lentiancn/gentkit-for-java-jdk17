@@ -21,11 +21,16 @@
  */
 package com.gentkit.json.utils;
 
+import com.gentkit.logger.utils.LoggerUtils;
 import com.gentkit.string.utils.StringUtils;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+import static com.gentkit.json.JsonConstants.GSON;
 
 /**
  * @author 田隆 (Len)
@@ -33,8 +38,6 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class JsonUtils {
-
-    private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
 
     public static <T> T toBean(final Gson gson, final String json, final Class<T> classOfT) {
         if (StringUtils.isBlank(json)) {
@@ -51,102 +54,113 @@ public class JsonUtils {
         return toBean(GSON, json, classOfT);
     }
 
+    public static short getShort(final String memberName, final JsonObject json, final short defaultValue) {
+        try {
+            return json.getAsJsonPrimitive(memberName).getAsShort();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
     public static int getInt(final String memberName, final JsonObject json, final int defaultValue) {
-        if (StringUtils.isBlank(memberName)) {
-            throw new NullPointerException("memberName");
-        }
-        if (json == null) {
-            return defaultValue;
-        }
         try {
             return json.getAsJsonPrimitive(memberName).getAsInt();
         } catch (Throwable ex) {
-            return defaultValue;
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
+        return defaultValue;
     }
 
-//    public static String getString(final String memberName, final JsonObject json, final String defValue) {
-//        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
-//            throw new NullPointerException("memberName");
-//        }
-//        if (json == null) {
-//            return defValue;
-//        }
-//        try {
-//            return json.getAsJsonPrimitive(memberName).getAsString();
-//        } catch (Throwable ex) {
-//            return defValue;
-//        }
-//    }
-//
-//    public static String getString(final int index, final JsonArray json, final String defValue) {
-//        if (json == null) {
-//            return defValue;
-//        }
-//        try {
-//            return json.get(index).getAsString();
-//        } catch (Throwable ex) {
-//            return defValue;
-//        }
-//    }
-//
-//    public static boolean getBoolean(String memberName, JsonObject json, boolean defValue) {
-//        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
-//            throw new NullPointerException("memberName");
-//        }
-//        if (json == null) {
-//            return defValue;
-//        }
-//        try {
-//            return json.getAsJsonPrimitive(memberName).getAsBoolean();
-//        } catch (Throwable ex) {
-//            return defValue;
-//        }
-//    }
-//
-//    public static Date getDate(String memberName, String format, JsonObject json, Date defValue) {
+    public static long getLong(final String memberName, final JsonObject json, final long defaultValue) {
+        try {
+            return json.getAsJsonPrimitive(memberName).getAsLong();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static float getFloat(final String memberName, final JsonObject json, final float defaultValue) {
+        try {
+            return json.getAsJsonPrimitive(memberName).getAsFloat();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static double getDouble(final String memberName, final JsonObject json, final double defaultValue) {
+        try {
+            return json.getAsJsonPrimitive(memberName).getAsDouble();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static String getString(final String memberName, final JsonObject json, final String defaultValue) {
+        try {
+            return json.getAsJsonPrimitive(memberName).getAsString();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static boolean getBoolean(final String memberName, final JsonObject json, final boolean defaultValue) {
+        try {
+            return json.getAsJsonPrimitive(memberName).getAsBoolean();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static Date getDate(String memberName, JsonObject json, String format, Date defaultValue) {
 //        Date d = DateFormatUtility.parse(format, getString(memberName, json, null));
 //        if (d != null) {
 //            return d;
 //        }
 //
-//        return defValue;
-//    }
-//
-//    public static JsonObject getJsonObject(String memberName, JsonObject json) {
-//        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
-//            throw new NullPointerException("memberName");
-//        }
-//        if (json == null) {
-//            return null;
-//        }
-//        try {
-//            return json.getAsJsonObject(memberName);
-//        } catch (Throwable ex) {
-//            return null;
-//        }
-//    }
-//
-//    public static JsonObject getJsonObject(int i, JsonArray json) {
-//        try {
-//            return json.get(i).getAsJsonObject();
-//        } catch (Throwable ex) {
-//            return null;
-//        }
-//    }
-//
-//    public static JsonArray getJsonArray(final String memberName, final JsonObject json, final JsonArray defValue) {
-//        if (DataUtilsInternalUseOnly.isBlankString(memberName)) {
-//            throw new NullPointerException("memberName");
-//        }
-//        if (json == null) {
-//            return defValue;
-//        }
-//        try {
-//            JsonArray ja = json.getAsJsonArray(memberName);
-//            return ja != null ? ja : defValue;
-//        } catch (Throwable ex) {
-//            return defValue;
-//        }
-//    }
+        return defaultValue;
+    }
+
+    public static JsonObject getJsonObject(String memberName, JsonObject json, JsonObject defaultValue) {
+        try {
+            return json.getAsJsonObject(memberName);
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static JsonArray getJsonArray(final String memberName, final JsonObject json, final JsonArray defaultValue) {
+        try {
+            JsonArray ja = json.getAsJsonArray(memberName);
+            return ja != null ? ja : defaultValue;
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+
+    public static String getString(final int index, final JsonArray json, final String defaultValue) {
+        try {
+            return json.get(index).getAsString();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static JsonObject getJsonObject(int index, JsonArray json, JsonObject defaultValue) {
+        try {
+            return json.get(index).getAsJsonObject();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
 }
