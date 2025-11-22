@@ -20,6 +20,7 @@
     </description>
 
     <modules>
+        <module>gentkit-json-with-fastjson</module>
         <module>gentkit-json-with-gson</module>
     </modules>
 
@@ -44,6 +45,11 @@
                 <groupId>com.gentkit.string</groupId>
                 <artifactId>gentkit-string</artifactId>
                 <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.83</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>
