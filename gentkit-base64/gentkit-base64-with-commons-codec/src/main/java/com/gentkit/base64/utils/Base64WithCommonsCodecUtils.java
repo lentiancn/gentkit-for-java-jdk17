@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 import org.apache.commons.codec.binary.Base64;
 
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class Base64Utils {
+public class Base64WithCommonsCodecUtils {
 
     public static byte[] decode(final byte[] base64) {
         return Base64.decodeBase64(base64);

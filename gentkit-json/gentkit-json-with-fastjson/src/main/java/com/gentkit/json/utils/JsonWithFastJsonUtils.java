@@ -36,7 +36,7 @@ import java.util.Date;
  * @since 2025-11-18 08:35
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class FastJsonUtils {
+public class JsonWithFastJsonUtils {
 
     public static <T> T toBean(final String json, final Class<T> classOfT) {
         if (StringUtils.isBlank(json)) {
@@ -59,7 +59,7 @@ public class FastJsonUtils {
             }
             return json.getShortValue(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -74,7 +74,7 @@ public class FastJsonUtils {
             }
             return json.getIntValue(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -89,7 +89,7 @@ public class FastJsonUtils {
             }
             return json.getLongValue(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -104,7 +104,7 @@ public class FastJsonUtils {
             }
             return json.getFloatValue(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -119,7 +119,7 @@ public class FastJsonUtils {
             }
             return json.getDoubleValue(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -132,7 +132,7 @@ public class FastJsonUtils {
             }
             return json.getString(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -149,7 +149,7 @@ public class FastJsonUtils {
             }
             return json.getBooleanValue(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -173,7 +173,7 @@ public class FastJsonUtils {
             }
             return json.getJSONObject(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -187,7 +187,7 @@ public class FastJsonUtils {
             JSONArray ja = json.getJSONArray(memberName);
             return ja != null ? ja : defaultValue;
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -202,7 +202,7 @@ public class FastJsonUtils {
             }
             return json.getShortValue(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -217,7 +217,7 @@ public class FastJsonUtils {
             }
             return json.getIntValue(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -232,7 +232,7 @@ public class FastJsonUtils {
             }
             return json.getLongValue(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -247,7 +247,7 @@ public class FastJsonUtils {
             }
             return json.getFloatValue(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -262,7 +262,7 @@ public class FastJsonUtils {
             }
             return json.getDoubleValue(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -275,7 +275,7 @@ public class FastJsonUtils {
             }
             return json.getString(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -292,7 +292,7 @@ public class FastJsonUtils {
             }
             return json.getBooleanValue(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -316,7 +316,7 @@ public class FastJsonUtils {
             }
             return json.getJSONObject(index);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -330,7 +330,7 @@ public class FastJsonUtils {
             JSONArray ja = json.getJSONArray(index);
             return ja != null ? ja : defaultValue;
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(FastJsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithFastJsonUtils.class).warn(ex);
         }
         return defaultValue;
     }

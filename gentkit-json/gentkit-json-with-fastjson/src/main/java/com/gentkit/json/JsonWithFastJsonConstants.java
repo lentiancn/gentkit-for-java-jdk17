@@ -19,14 +19,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.base64;
+package com.gentkit.json;
 
 import lombok.NoArgsConstructor;
 
 /**
  * @author 田隆 (Len)
- * @since 2025-11-18 20:01
+ * @since 2025-11-18 08:35
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class Base64Constants {
+public class JsonWithFastJsonConstants {
 }

@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FastJsonUtilsTest {
+public class JsonWithFastJsonUtilsTest {
 
     @Test
     public void testToBean() {
         String json = "{\"name\":\"John\", \"age\":30}";
-        TestBean bean = FastJsonUtils.toBean(json, TestBean.class);
+        TestBean bean = JsonWithFastJsonUtils.toBean(json, TestBean.class);
         assertNotNull(bean);
         assertEquals("John", bean.getName());
         assertEquals(30, bean.getAge());
@@ -19,13 +19,13 @@ public class FastJsonUtilsTest {
 
     @Test
     public void testToBeanWithNullJson() {
-        TestBean bean = FastJsonUtils.toBean(null, TestBean.class);
+        TestBean bean = JsonWithFastJsonUtils.toBean(null, TestBean.class);
         assertNull(bean);
     }
 
     @Test
     public void testToBeanWithEmptyJson() {
-        TestBean bean = FastJsonUtils.toBean("", TestBean.class);
+        TestBean bean = JsonWithFastJsonUtils.toBean("", TestBean.class);
         assertNull(bean);
     }
 
@@ -33,7 +33,7 @@ public class FastJsonUtilsTest {
     public void testGetShortFromJsonObject() {
         JSONObject json = new JSONObject();
         json.put("value", (short) 10);
-        short result = FastJsonUtils.getShort(json, "value", (short) 0);
+        short result = JsonWithFastJsonUtils.getShort(json, "value", (short) 0);
         assertEquals(10, result);
     }
 
@@ -41,7 +41,7 @@ public class FastJsonUtilsTest {
     public void testGetIntFromJsonObject() {
         JSONObject json = new JSONObject();
         json.put("value", 42);
-        int result = FastJsonUtils.getInt(json, "value", 0);
+        int result = JsonWithFastJsonUtils.getInt(json, "value", 0);
         assertEquals(42, result);
     }
 
@@ -49,7 +49,7 @@ public class FastJsonUtilsTest {
     public void testGetLongFromJsonObject() {
         JSONObject json = new JSONObject();
         json.put("value", 1234567890L);
-        long result = FastJsonUtils.getLong(json, "value", 0L);
+        long result = JsonWithFastJsonUtils.getLong(json, "value", 0L);
         assertEquals(1234567890L, result);
     }
 
@@ -57,7 +57,7 @@ public class FastJsonUtilsTest {
     public void testGetFloatFromJsonObject() {
         JSONObject json = new JSONObject();
         json.put("value", 3.14f);
-        float result = FastJsonUtils.getFloat(json, "value", 0.0f);
+        float result = JsonWithFastJsonUtils.getFloat(json, "value", 0.0f);
         assertEquals(3.14f, result, 0.01f);
     }
 
@@ -65,7 +65,7 @@ public class FastJsonUtilsTest {
     public void testGetDoubleFromJsonObject() {
         JSONObject json = new JSONObject();
         json.put("value", 3.14159);
-        double result = FastJsonUtils.getDouble(json, "value", 0.0);
+        double result = JsonWithFastJsonUtils.getDouble(json, "value", 0.0);
         assertEquals(3.14159, result, 0.0001);
     }
 
@@ -73,7 +73,7 @@ public class FastJsonUtilsTest {
     public void testGetStringFromJsonObject() {
         JSONObject json = new JSONObject();
         json.put("value", "test");
-        String result = FastJsonUtils.getString(json, "value", "default");
+        String result = JsonWithFastJsonUtils.getString(json, "value", "default");
         assertEquals("test", result);
     }
 
@@ -81,7 +81,7 @@ public class FastJsonUtilsTest {
     public void testGetBooleanFromJsonObject() {
         JSONObject json = new JSONObject();
         json.put("value", true);
-        boolean result = FastJsonUtils.getBoolean(json, "value", false);
+        boolean result = JsonWithFastJsonUtils.getBoolean(json, "value", false);
         assertTrue(result);
     }
 
@@ -92,7 +92,7 @@ public class FastJsonUtilsTest {
         inner.put("innerKey", "innerValue");
         json.put("inner", inner);
         
-        JSONObject result = FastJsonUtils.getJsonObject(json, "inner", null);
+        JSONObject result = JsonWithFastJsonUtils.getJsonObject(json, "inner", null);
         assertNotNull(result);
         assertEquals("innerValue", result.getString("innerKey"));
     }
@@ -105,7 +105,7 @@ public class FastJsonUtilsTest {
         array.add("item2");
         json.put("array", array);
         
-        JSONArray result = FastJsonUtils.getJsonArray(json, "array", null);
+        JSONArray result = JsonWithFastJsonUtils.getJsonArray(json, "array", null);
         assertNotNull(result);
         assertEquals(2, result.size());
         assertEquals("item1", result.getString(0));
@@ -116,7 +116,7 @@ public class FastJsonUtilsTest {
     public void testGetShortFromJsonArray() {
         JSONArray json = new JSONArray();
         json.add((short) 5);
-        short result = FastJsonUtils.getShort(json, 0, (short) 0);
+        short result = JsonWithFastJsonUtils.getShort(json, 0, (short) 0);
         assertEquals(5, result);
     }
 
@@ -124,7 +124,7 @@ public class FastJsonUtilsTest {
     public void testGetIntFromJsonArray() {
         JSONArray json = new JSONArray();
         json.add(99);
-        int result = FastJsonUtils.getInt(json, 0, 0);
+        int result = JsonWithFastJsonUtils.getInt(json, 0, 0);
         assertEquals(99, result);
     }
 
@@ -132,7 +132,7 @@ public class FastJsonUtilsTest {
     public void testGetLongFromJsonArray() {
         JSONArray json = new JSONArray();
         json.add(9876543210L);
-        long result = FastJsonUtils.getLong(json, 0, 0L);
+        long result = JsonWithFastJsonUtils.getLong(json, 0, 0L);
         assertEquals(9876543210L, result);
     }
 
@@ -140,7 +140,7 @@ public class FastJsonUtilsTest {
     public void testGetFloatFromJsonArray() {
         JSONArray json = new JSONArray();
         json.add(2.71f);
-        float result = FastJsonUtils.getFloat(json, 0, 0.0f);
+        float result = JsonWithFastJsonUtils.getFloat(json, 0, 0.0f);
         assertEquals(2.71f, result, 0.01f);
     }
 
@@ -148,7 +148,7 @@ public class FastJsonUtilsTest {
     public void testGetDoubleFromJsonArray() {
         JSONArray json = new JSONArray();
         json.add(2.71828);
-        double result = FastJsonUtils.getDouble(json, 0, 0.0);
+        double result = JsonWithFastJsonUtils.getDouble(json, 0, 0.0);
         assertEquals(2.71828, result, 0.0001);
     }
 
@@ -156,7 +156,7 @@ public class FastJsonUtilsTest {
     public void testGetStringFromJsonArray() {
         JSONArray json = new JSONArray();
         json.add("arrayItem");
-        String result = FastJsonUtils.getString(json, 0, "default");
+        String result = JsonWithFastJsonUtils.getString(json, 0, "default");
         assertEquals("arrayItem", result);
     }
 
@@ -164,7 +164,7 @@ public class FastJsonUtilsTest {
     public void testGetBooleanFromJsonArray() {
         JSONArray json = new JSONArray();
         json.add(false);
-        boolean result = FastJsonUtils.getBoolean(json, 0, true);
+        boolean result = JsonWithFastJsonUtils.getBoolean(json, 0, true);
         assertFalse(result);
     }
 
@@ -175,7 +175,7 @@ public class FastJsonUtilsTest {
         inner.put("key", "value");
         json.add(inner);
         
-        JSONObject result = FastJsonUtils.getJsonObject(json, 0, null);
+        JSONObject result = JsonWithFastJsonUtils.getJsonObject(json, 0, null);
         assertNotNull(result);
         assertEquals("value", result.getString("key"));
     }
@@ -187,7 +187,7 @@ public class FastJsonUtilsTest {
         inner.add("nestedItem");
         json.add(inner);
         
-        JSONArray result = FastJsonUtils.getJsonArray(json, 0, null);
+        JSONArray result = JsonWithFastJsonUtils.getJsonArray(json, 0, null);
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals("nestedItem", result.getString(0));
