@@ -54,7 +54,7 @@ public class JsonUtils {
         return toBean(GSON, json, classOfT);
     }
 
-    public static short getShort(final String memberName, final JsonObject json, final short defaultValue) {
+    public static short getShort(final JsonObject json, final String memberName, final short defaultValue) {
         try {
             return json.getAsJsonPrimitive(memberName).getAsShort();
         } catch (Throwable ex) {
@@ -63,7 +63,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static int getInt(final String memberName, final JsonObject json, final int defaultValue) {
+    public static int getInt(final JsonObject json, final String memberName, final int defaultValue) {
         try {
             return json.getAsJsonPrimitive(memberName).getAsInt();
         } catch (Throwable ex) {
@@ -72,7 +72,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static long getLong(final String memberName, final JsonObject json, final long defaultValue) {
+    public static long getLong(final JsonObject json, final String memberName, final long defaultValue) {
         try {
             return json.getAsJsonPrimitive(memberName).getAsLong();
         } catch (Throwable ex) {
@@ -81,7 +81,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static float getFloat(final String memberName, final JsonObject json, final float defaultValue) {
+    public static float getFloat(final JsonObject json, final String memberName, final float defaultValue) {
         try {
             return json.getAsJsonPrimitive(memberName).getAsFloat();
         } catch (Throwable ex) {
@@ -90,7 +90,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static double getDouble(final String memberName, final JsonObject json, final double defaultValue) {
+    public static double getDouble(final JsonObject json, final String memberName, final double defaultValue) {
         try {
             return json.getAsJsonPrimitive(memberName).getAsDouble();
         } catch (Throwable ex) {
@@ -99,7 +99,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static String getString(final String memberName, final JsonObject json, final String defaultValue) {
+    public static String getString(final JsonObject json, final String memberName, final String defaultValue) {
         try {
             return json.getAsJsonPrimitive(memberName).getAsString();
         } catch (Throwable ex) {
@@ -108,7 +108,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static boolean getBoolean(final String memberName, final JsonObject json, final boolean defaultValue) {
+    public static boolean getBoolean(final JsonObject json, final String memberName, final boolean defaultValue) {
         try {
             return json.getAsJsonPrimitive(memberName).getAsBoolean();
         } catch (Throwable ex) {
@@ -117,7 +117,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static Date getDate(String memberName, JsonObject json, String format, Date defaultValue) {
+    public static Date getDate(final JsonObject json, final String memberName, final String format, final Date defaultValue) {
 //        Date d = DateFormatUtility.parse(format, getString(memberName, json, null));
 //        if (d != null) {
 //            return d;
@@ -126,7 +126,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static JsonObject getJsonObject(String memberName, JsonObject json, JsonObject defaultValue) {
+    public static JsonObject getJsonObject(final JsonObject json, final String memberName, final JsonObject defaultValue) {
         try {
             return json.getAsJsonObject(memberName);
         } catch (Throwable ex) {
@@ -135,7 +135,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static JsonArray getJsonArray(final String memberName, final JsonObject json, final JsonArray defaultValue) {
+    public static JsonArray getJsonArray(final JsonObject json, final String memberName, final JsonArray defaultValue) {
         try {
             JsonArray ja = json.getAsJsonArray(memberName);
             return ja != null ? ja : defaultValue;
@@ -146,7 +146,7 @@ public class JsonUtils {
     }
 
 
-    public static String getString(final int index, final JsonArray json, final String defaultValue) {
+    public static String getString(final JsonArray json, final int index, final String defaultValue) {
         try {
             return json.get(index).getAsString();
         } catch (Throwable ex) {
@@ -155,7 +155,7 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static JsonObject getJsonObject(int index, JsonArray json, JsonObject defaultValue) {
+    public static JsonObject getJsonObject(final JsonArray json, final int index, final JsonObject defaultValue) {
         try {
             return json.get(index).getAsJsonObject();
         } catch (Throwable ex) {
