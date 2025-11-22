@@ -22,7 +22,6 @@
 package com.gentkit.color.exception;
 
 import com.gentkit.exception.GlobalException;
-import lombok.Getter;
 
 /**
  * 颜色异常。<br>
@@ -32,7 +31,6 @@ import lombok.Getter;
  * @author 田隆 (Len)
  * @since 2025-11-21 22:48
  */
-@Getter
 public class ColorException extends GlobalException {
 
     /**
