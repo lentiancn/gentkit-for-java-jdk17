@@ -57,4 +57,11 @@ public class StringUtils {
     public static boolean isBlank(String s) {
         return !isNotBlank(s);
     }
+
+    public static String defaultIfBlank(String s, String defaultValue) {
+        if (isNotBlank(s)) {
+            return s;
+        }
+        return defaultValue;
+    }
 }

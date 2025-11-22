@@ -1,5 +1,6 @@
 package com.gentkit.string.utils;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -178,5 +179,22 @@ public class StringUtilsTest {
         boolean value = StringUtils.isBlank("test");
 
         assertFalse(value);
+    }
+
+    // -- defaultIfBlank
+
+    @DisplayName("defaultIfBlank_shouldReturnDefaultValue_whenStringIsBlank")
+    @Test
+    public void defaultIfBlank_shouldReturnDefaultValue_whenStringIsBlank() {
+        String value = StringUtils.defaultIfBlank("    ", "default");
+
+        Assertions.assertEquals("default", value);
+    }
+
+    @DisplayName("defaultIfBlank_shouldReturnValue_whenStringIsNotBlank")
+    @Test
+    public void defaultIfBlank_shouldReturnValue_whenStringIsNotBlank() {
+        String value = StringUtils.defaultIfBlank("666", "default");
+        Assertions.assertEquals("666", value);
     }
 }
