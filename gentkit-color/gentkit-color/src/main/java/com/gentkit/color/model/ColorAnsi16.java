@@ -57,11 +57,11 @@ public class ColorAnsi16 implements ColorAnsiSequence {
         }
         // 16 foreground
         if (foregroundCode != null) {
-            ansiString.append(ANSI_SEPARATOR).append(foregroundCode);
+            ansiString.append(ANSI_SEPARATOR).append(foregroundCode.getValue());
         }
         // 16 background
         if (backgroundCode != null) {
-            ansiString.append(ANSI_SEPARATOR).append(backgroundCode);
+            ansiString.append(ANSI_SEPARATOR).append(backgroundCode.getValue());
         }
         if (!ansiString.isEmpty()) {
             ansiString.deleteCharAt(0);

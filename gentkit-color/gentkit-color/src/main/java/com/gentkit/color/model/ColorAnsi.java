@@ -21,6 +21,9 @@
  */
 package com.gentkit.color.model;
 
+import com.gentkit.color.enums.ColorAnsi16BackgroundCodeEnum;
+import com.gentkit.color.enums.ColorAnsi16ForegroundCodeEnum;
+import com.gentkit.color.enums.ColorAnsiStyleEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -55,12 +58,5 @@ public class ColorAnsi implements Serializable {
         }
 
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        ColorAnsi colorAnsi = new ColorAnsi();
-        colorAnsi.append(new ColorAnsiBold());
-
-        System.out.println(colorAnsi.ansiString(true, "hello world", true));
     }
 }

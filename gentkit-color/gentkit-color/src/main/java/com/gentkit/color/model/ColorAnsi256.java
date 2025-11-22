@@ -32,13 +32,13 @@ public class ColorAnsi256 implements ColorAnsiSequence {
 
     private ColorAnsiStyleEnum[] styles;
 
-    private int foreground;
+    private int foregroundCode;
 
-    private int background;
+    private int backgroundCode;
 
-    public ColorAnsi256(final int foreground, final int background, final ColorAnsiStyleEnum... styles) {
-        this.foreground = foreground;
-        this.background = background;
+    public ColorAnsi256(final int foregroundCode, final int backgroundCode, final ColorAnsiStyleEnum... styles) {
+        this.foregroundCode = foregroundCode;
+        this.backgroundCode = backgroundCode;
         this.styles = styles;
     }
 
@@ -53,12 +53,12 @@ public class ColorAnsi256 implements ColorAnsiSequence {
             ansiString.append(ANSI_SEPARATOR).append(style.getValue());
         }
         // 256 foreground
-        if (foreground >= 0 && foreground < 256) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_FOREGROUND_PREFIX).append(foreground);
+        if (foregroundCode >= 0 && foregroundCode < 256) {
+            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_FOREGROUND_PREFIX).append(foregroundCode);
         }
         // 256 background
-        if (background >= 0 && background < 256) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_BACKGROUND_PREFIX).append(rgbBackground);
+        if (backgroundCode >= 0 && backgroundCode < 256) {
+            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_BACKGROUND_PREFIX).append(backgroundCode);
         }
         if (!ansiString.isEmpty()) {
             ansiString.deleteCharAt(0);

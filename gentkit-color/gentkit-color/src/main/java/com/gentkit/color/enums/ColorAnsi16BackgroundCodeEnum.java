@@ -26,28 +26,31 @@ import lombok.Getter;
 @Getter
 public enum ColorAnsi16BackgroundCodeEnum {
 
-    BLACK_BG(40),
-    RED_BG(41),
-    GREEN_BG(42),
-    YELLOW_BG(43),
-    BLUE_BG(44),
-    PURPLE_BG(45),
-    CYAN_BG(46),
-    WHITE_BG(47),
+    BLACK_BG(40, "#181818"),
+    RED_BG(41, "#AC4242"),
+    GREEN_BG(42, "#90A959"),
+    YELLOW_BG(43, "#F4BF75"),
+    BLUE_BG(44, "#6A9FB5"),
+    PURPLE_BG(45, "#AA759F"),
+    CYAN_BG(46, "#75B5AA"),
+    WHITE_BG(47, "#D8D8D8"),
 
-    BLACK_BG_B(100),
-    RED_BG_B(101),
-    GREEN_BG_B(102),
-    YELLOW_BG_B(103),
-    BLUE_BG_B(104),
-    PURPLE_BG_B(105),
-    CYAN_BG_B(106),
-    WHITE_BG_B(107);
+    BLACK_BG_B(100, "#6B6B6B"),
+    RED_BG_B(101, "#C55555"),
+    GREEN_BG_B(102, "#AAC474"),
+    YELLOW_BG_B(103, "#FECA88"),
+    BLUE_BG_B(104, "#82B8C8"),
+    PURPLE_BG_B(105, "#C28CB8"),
+    CYAN_BG_B(106, "#93D3C3"),
+    WHITE_BG_B(107, "#F8F8F8");
 
     private final int value;
 
-    ColorAnsi16BackgroundCodeEnum(int value) {
+    private final String hex;
+
+    ColorAnsi16BackgroundCodeEnum(int value, String hex) {
         this.value = value;
+        this.hex = hex;
     }
 
     public static ColorAnsi16BackgroundCodeEnum getByValue(int value) {

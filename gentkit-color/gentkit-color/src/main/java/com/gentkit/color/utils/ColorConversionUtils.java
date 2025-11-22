@@ -22,6 +22,8 @@
 package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
+import com.gentkit.color.enums.ColorAnsi16BackgroundCodeEnum;
+import com.gentkit.color.enums.ColorAnsi16ForegroundCodeEnum;
 import com.gentkit.color.exception.ColorHexNormalizationException;
 import com.gentkit.color.exception.ColorRgbOutOfRangeException;
 import com.gentkit.color.model.ColorHex;
@@ -129,42 +131,19 @@ public class ColorConversionUtils {
         return defaultValue;
     }
 
-//    public static AnsiColor hexToAnsiColor(final String hex) {
-//        RgbaColor rgb = hexToRgb(hex);
-//        return String.format("%d;%d;%d", rgb.getRed(), rgb.getGreen(), rgb.getBlue());
-//    }
-
-    /**
-     * 将16进制颜色转换为ANSI前景色序列。<br>
-     * 將16進位顏色轉換為ANSI前景色序列。<br>
-     * Convert hexadecimal colors to ANSI foreground color sequences.<br>
-     */
-//    public static String hexToAnsiForeground(final boolean bold, final String hex) {
-//        ColorRgb rgb = hexToRgb(hex);
-//        String ansiBold = bold ? ColorConstants.ANSI_BOLD : "";
-//        return String.format("%s%s38;2;%d;%d;%d%s", ColorConstants.ANSI_START, ansiBold, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
-//    }
-
-    /**
-     * 将16进制颜色转换为ANSI前景色序列。<br>
-     * 將16進位顏色轉換為ANSI前景色序列。<br>
-     * Convert hexadecimal colors to ANSI foreground color sequences.<br>
-     */
-//    public static String hexToAnsiForeground(final String hex) {
-//        return hexToAnsiForeground(false, hex);
-//    }
-
-    /**
-     * 将16进制颜色转换为ANSI背景色序列。<br>
-     * 將16進位顏色轉換為ANSI背景色序列。<br>
-     * Convert hexadecimal colors to ANSI background color sequences.<br>
-     */
-    public static String hexToAnsiBackground(final String hex) {
-        ColorRgb rgb = hexToRgb(hex);
-        return String.format("%s48;2;%d;%d;%d%s", ColorConstants.ANSI_START, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
+    public static String ansi16feToHex(final ColorAnsi16ForegroundCodeEnum ansi16ForegroundCode) {
+        return ansi16ForegroundCode.getHex();
     }
 
+    public static String ansi16beToHex(final ColorAnsi16BackgroundCodeEnum ansi16BackgroundCode) {
+        return ansi16BackgroundCode.getHex();
+    }
+
+
+
+
+
     public static void main(String[] args) {
-        System.out.println(rgbToHex(256, 255, 255));
+        System.out.println(ansi16feToHex(ColorAnsi16ForegroundCodeEnum.RED_B));
     }
 }
