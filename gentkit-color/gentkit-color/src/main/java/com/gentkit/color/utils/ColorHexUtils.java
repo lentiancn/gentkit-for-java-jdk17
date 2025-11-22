@@ -39,10 +39,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class ColorHexUtils {
 
-    public static String hexColor(final String hexRed, final String hexGreen, final String hexBlue) {
-
-    }
-
     /**
      * 将十六进制颜色字符串规范化为标准的 6 位格式。<br>
      * 將十六進制顏色字串正規化為標準的 6 位格式。<br>

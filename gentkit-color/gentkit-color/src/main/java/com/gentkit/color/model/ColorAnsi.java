@@ -19,42 +19,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.color;
+package com.gentkit.color.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
-/**
- * @author 田隆 (Len)
- * @since 2025-11-10 22:36
- */
-@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class ColorConstants {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-    public static final String HEX_PREFIX = "#";
+@Data
+public class ColorAnsi implements Serializable {
 
-    /**
-     * ANSI序列开始。<br>
-     * ANSI序列開始。<br>
-     * ANSI sequence start.<br>
-     */
-    public static final String ANSI_START = "\u001B[";
-    public static final String ANSI_START_FOR_PRINT = "\\u001B[";
+    private List<ColorAnsiSequence> ansiSequences = Collections.synchronizedList(new ArrayList<>());
 
-    public static final String ANSI_BOLD = "1;";
+    public ColorAnsi append(ColorAnsiSequence text) {
+        ansiSequences.add(text);
+        return this;
+    }
 
-    /**
-     * ANSI序列结束。<br>
-     * ANSI序列結束。<br>
-     * ANSI sequence end.<br>
-     */
-    public static final String ANSI_END = "m";
+    public String ansiString(final boolean startReset, final String sss, final boolean endReset) {
+        StringBuilder sb = new StringBuilder();
+        if (startReset) {
+            sb.append(new ColorAnsiReset().ansiString());
+        }
 
-    /**
-     * ANSI序列重置。<br>
-     * ANSI序列重置。<br>
-     * ANSI sequence reset.<br>
-     */
-    public static final String ANSI_RESET = ANSI_START + '0' + ANSI_END;
-    public static final String ANSI_RESET_FOR_PRINT = ANSI_START_FOR_PRINT + '0' + ANSI_END;
+        for (ColorAnsiSequence ansiSequence : ansiSequences) {
+            sb.append(ansiSequence.ansiString());
+        }
+
+        sb.append(sss);
+
+        if (endReset) {
+            sb.append(new ColorAnsiReset().ansiString());
+        }
+
+        return sb.toString();
+    }
 }

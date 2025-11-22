@@ -19,42 +19,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.color;
+package com.gentkit.color.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import java.io.Serializable;
 
-/**
- * @author 田隆 (Len)
- * @since 2025-11-10 22:36
- */
-@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class ColorConstants {
+public interface ColorAnsiSequence extends Serializable {
 
-    public static final String HEX_PREFIX = "#";
-
-    /**
-     * ANSI序列开始。<br>
-     * ANSI序列開始。<br>
-     * ANSI sequence start.<br>
-     */
-    public static final String ANSI_START = "\u001B[";
-    public static final String ANSI_START_FOR_PRINT = "\\u001B[";
-
-    public static final String ANSI_BOLD = "1;";
-
-    /**
-     * ANSI序列结束。<br>
-     * ANSI序列結束。<br>
-     * ANSI sequence end.<br>
-     */
-    public static final String ANSI_END = "m";
-
-    /**
-     * ANSI序列重置。<br>
-     * ANSI序列重置。<br>
-     * ANSI sequence reset.<br>
-     */
-    public static final String ANSI_RESET = ANSI_START + '0' + ANSI_END;
-    public static final String ANSI_RESET_FOR_PRINT = ANSI_START_FOR_PRINT + '0' + ANSI_END;
+    String ansiString();
 }
