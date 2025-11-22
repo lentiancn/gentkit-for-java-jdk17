@@ -4,11 +4,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class JsonUtilsTest {
+public class FastJsonUtilsTest {
 
     @Test
     public void testToBean() {
