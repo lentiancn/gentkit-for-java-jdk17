@@ -131,16 +131,11 @@ public class ColorConversionUtils {
         return defaultValue;
     }
 
-    public static String ansi16feToHex(final ColorAnsi16ForegroundCodeEnum ansi16ForegroundCode) {
-        return ansi16ForegroundCode.getHex();
+    public static ColorHex ansi16feToHex(final ColorAnsi16ForegroundCodeEnum ansi16ForegroundCode) {
+        return new ColorHex(ansi16ForegroundCode.getHex());
     }
 
-    public static String ansi16beToHex(final ColorAnsi16BackgroundCodeEnum ansi16BackgroundCode) {
-        return ansi16BackgroundCode.getHex();
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println(ansi16feToHex(ColorAnsi16ForegroundCodeEnum.RED_B));
+    public static ColorHex ansi16beToHex(final ColorAnsi16BackgroundCodeEnum ansi16BackgroundCode) {
+        return new ColorHex(ansi16BackgroundCode.getHex());
     }
 }
