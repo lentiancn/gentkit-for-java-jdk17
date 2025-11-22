@@ -21,6 +21,7 @@
  */
 package com.gentkit.json.utils;
 
+import com.gentkit.datetime.utils.DateTimeUtils;
 import com.gentkit.logger.utils.LoggerUtils;
 import com.gentkit.string.utils.StringUtils;
 import com.google.gson.Gson;
@@ -118,11 +119,10 @@ public class JsonUtils {
     }
 
     public static Date getDate(final JsonObject json, final String memberName, final String format, final Date defaultValue) {
-//        Date d = DateFormatUtility.parse(format, getString(memberName, json, null));
-//        if (d != null) {
-//            return d;
-//        }
-//
+        Date d = DateTimeUtils.parse(format, getString(json, memberName, null));
+        if (d != null) {
+            return d;
+        }
         return defaultValue;
     }
 
@@ -209,11 +209,10 @@ public class JsonUtils {
     }
 
     public static Date getDate(final JsonArray json, final int index, final String format, final Date defaultValue) {
-//        Date d = DateFormatUtility.parse(format, getString(memberName, json, null));
-//        if (d != null) {
-//            return d;
-//        }
-//
+        Date d = DateTimeUtils.parse(format, getString(json, index, null));
+        if (d != null) {
+            return d;
+        }
         return defaultValue;
     }
 

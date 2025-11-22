@@ -26,6 +26,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.gentkit.datetime</groupId>
+                <artifactId>gentkit-datetime</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.gentkit.json</groupId>
                 <artifactId>gentkit-json-with-gson</artifactId>
                 <version>${revision}</version>
