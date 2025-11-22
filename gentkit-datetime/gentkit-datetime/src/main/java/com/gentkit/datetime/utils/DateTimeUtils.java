@@ -23,7 +23,6 @@ package com.gentkit.datetime.utils;
 
 import lombok.NoArgsConstructor;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -45,7 +44,7 @@ public class DateTimeUtils {
      * Formats a date according to the specified pattern.
      *
      * @param pattern the date pattern
-     * @param date the date to format
+     * @param date    the date to format
      * @return the formatted date string, or null if formatting fails
      */
     public static String format(final String pattern, final Date date) {
@@ -66,7 +65,7 @@ public class DateTimeUtils {
     /**
      * Formats a timestamp according to the specified pattern.
      *
-     * @param pattern the date pattern
+     * @param pattern    the date pattern
      * @param timeMillis the timestamp in milliseconds
      * @return the formatted date string, or null if formatting fails
      */
@@ -78,7 +77,7 @@ public class DateTimeUtils {
      * Parses a date string according to the specified pattern.
      *
      * @param pattern the date pattern
-     * @param source the date string to parse
+     * @param source  the date string to parse
      * @return the parsed Date object, or null if parsing fails
      */
     public static Date parse(final String pattern, final String source) {

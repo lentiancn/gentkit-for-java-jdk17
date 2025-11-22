@@ -91,7 +91,7 @@ public class JsonWithFastJson2UtilsTest {
         JSONObject inner = new JSONObject();
         inner.put("innerKey", "innerValue");
         json.put("inner", inner);
-        
+
         JSONObject result = JsonWithFastJson2Utils.getJsonObject(json, "inner", null);
         assertNotNull(result);
         assertEquals("innerValue", result.getString("innerKey"));
@@ -104,7 +104,7 @@ public class JsonWithFastJson2UtilsTest {
         array.add("item1");
         array.add("item2");
         json.put("array", array);
-        
+
         JSONArray result = JsonWithFastJson2Utils.getJsonArray(json, "array", null);
         assertNotNull(result);
         assertEquals(2, result.size());
@@ -174,7 +174,7 @@ public class JsonWithFastJson2UtilsTest {
         JSONObject inner = new JSONObject();
         inner.put("key", "value");
         json.add(inner);
-        
+
         JSONObject result = JsonWithFastJson2Utils.getJsonObject(json, 0, null);
         assertNotNull(result);
         assertEquals("value", result.getString("key"));
@@ -186,7 +186,7 @@ public class JsonWithFastJson2UtilsTest {
         JSONArray inner = new JSONArray();
         inner.add("nestedItem");
         json.add(inner);
-        
+
         JSONArray result = JsonWithFastJson2Utils.getJsonArray(json, 0, null);
         assertNotNull(result);
         assertEquals(1, result.size());

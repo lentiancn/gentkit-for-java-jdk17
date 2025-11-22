@@ -13,7 +13,8 @@
     <version>${revision}</version>
     <name>GentKit Json with Fastjson2</name>
     <description>
-        GentKit Json with Fastjson2 is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
+        GentKit Json with Fastjson2 is a core submodule of the GentKit framework, dedicated to providing standardized,
+        extensible,
         and easily integrable json handling solutions.
     </description>
 
