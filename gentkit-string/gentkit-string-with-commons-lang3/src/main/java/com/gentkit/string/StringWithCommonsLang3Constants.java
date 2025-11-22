@@ -28,5 +28,5 @@ import lombok.NoArgsConstructor;
  * @since 2025-11-18 20:01
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class StringConstants {
+public class StringWithCommonsLang3Constants {
 }

@@ -21,7 +21,7 @@
 
     <modules>
         <module>gentkit-string</module>
-        <module>gentkit-string-with-common-lang3</module>
+        <module>gentkit-string-with-commons-lang3</module>
     </modules>
 
     <dependencyManagement>

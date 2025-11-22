@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class StringUtilsTest {
+public class StringWithCommonsLang3UtilsTest {
 
     // -- isNotNull
 
     @DisplayName("isNotNull_shouldReturnTrue_whenStringIsNotNull")
     @Test
     public void isNotNull_shouldReturnTrue_whenStringIsNotNull() {
-        boolean value = StringUtils.isNotNull("test");
+        boolean value = StringWithCommonsLang3Utils.isNotNull("test");
 
         Assertions.assertTrue(value);
     }
@@ -19,7 +19,7 @@ public class StringUtilsTest {
     @DisplayName("isNotNull_shouldReturnTrue_whenStringIsBlank")
     @Test
     public void isNotNull_shouldReturnTrue_whenStringIsBlank() {
-        boolean value = StringUtils.isNotNull("    ");
+        boolean value = StringWithCommonsLang3Utils.isNotNull("    ");
 
         Assertions.assertTrue(value);
     }
@@ -27,7 +27,7 @@ public class StringUtilsTest {
     @DisplayName("isNotNull_shouldReturnFalse_whenStringIsNull")
     @Test
     public void isNotNull_shouldReturnFalse_whenStringIsNull() {
-        boolean value = StringUtils.isNotNull(null);
+        boolean value = StringWithCommonsLang3Utils.isNotNull(null);
 
         Assertions.assertFalse(value);
     }
@@ -37,7 +37,7 @@ public class StringUtilsTest {
     @DisplayName("isNull_shouldReturnTrue_whenStringIsNull")
     @Test
     public void isNull_shouldReturnTrue_whenStringIsNull() {
-        boolean value = StringUtils.isNull(null);
+        boolean value = StringWithCommonsLang3Utils.isNull(null);
 
         Assertions.assertTrue(value);
     }
@@ -45,7 +45,7 @@ public class StringUtilsTest {
     @DisplayName("isNull_shouldReturnFalse_whenStringIsNotNull")
     @Test
     public void isNull_shouldReturnFalse_whenStringIsNotNull() {
-        boolean value = StringUtils.isNull("test");
+        boolean value = StringWithCommonsLang3Utils.isNull("test");
 
         Assertions.assertFalse(value);
     }
@@ -53,7 +53,7 @@ public class StringUtilsTest {
     @DisplayName("isNull_shouldReturnFalse_whenStringIsBlank")
     @Test
     public void isNull_shouldReturnFalse_whenStringIsBlank() {
-        boolean value = StringUtils.isNull("    ");
+        boolean value = StringWithCommonsLang3Utils.isNull("    ");
 
         Assertions.assertFalse(value);
     }
@@ -63,7 +63,7 @@ public class StringUtilsTest {
     @DisplayName("isNotEmpty_shouldReturnTrue_whenStringIsNotEmpty")
     @Test
     public void isNotEmpty_shouldReturnTrue_whenStringIsNotEmpty() {
-        boolean value = StringUtils.isNotEmpty("test");
+        boolean value = StringWithCommonsLang3Utils.isNotEmpty("test");
 
         Assertions.assertTrue(value);
     }
@@ -71,7 +71,7 @@ public class StringUtilsTest {
     @DisplayName("isNotEmpty_shouldReturnTrue_whenStringIsBlank")
     @Test
     public void isNotEmpty_shouldReturnTrue_whenStringIsBlank() {
-        boolean value = StringUtils.isNotEmpty("    ");
+        boolean value = StringWithCommonsLang3Utils.isNotEmpty("    ");
 
         Assertions.assertTrue(value);
     }
@@ -79,7 +79,7 @@ public class StringUtilsTest {
     @DisplayName("isNotEmpty_shouldReturnFalse_whenStringIsNull")
     @Test
     public void isNotEmpty_shouldReturnFalse_whenStringIsNull() {
-        boolean value = StringUtils.isNotEmpty(null);
+        boolean value = StringWithCommonsLang3Utils.isNotEmpty(null);
 
         Assertions.assertFalse(value);
     }
@@ -87,7 +87,7 @@ public class StringUtilsTest {
     @DisplayName("isNotEmpty_shouldReturnFalse_whenStringIsEmpty")
     @Test
     public void isNotEmpty_shouldReturnFalse_whenStringIsEmpty() {
-        boolean value = StringUtils.isNotEmpty("");
+        boolean value = StringWithCommonsLang3Utils.isNotEmpty("");
 
         Assertions.assertFalse(value);
     }
@@ -97,7 +97,7 @@ public class StringUtilsTest {
     @DisplayName("isEmpty_shouldReturnTrue_whenStringIsNull")
     @Test
     public void isEmpty_shouldReturnTrue_whenStringIsNull() {
-        boolean value = StringUtils.isEmpty(null);
+        boolean value = StringWithCommonsLang3Utils.isEmpty(null);
 
         Assertions.assertTrue(value);
     }
@@ -105,7 +105,7 @@ public class StringUtilsTest {
     @DisplayName("isEmpty_shouldReturnTrue_whenStringIsEmpty")
     @Test
     public void isEmpty_shouldReturnTrue_whenStringIsEmpty() {
-        boolean value = StringUtils.isEmpty("");
+        boolean value = StringWithCommonsLang3Utils.isEmpty("");
 
         Assertions.assertTrue(value);
     }
@@ -113,7 +113,7 @@ public class StringUtilsTest {
     @DisplayName("isEmpty_shouldReturnFalse_whenStringIsBlank")
     @Test
     public void isEmpty_shouldReturnFalse_whenStringIsBlank() {
-        boolean value = StringUtils.isEmpty("    ");
+        boolean value = StringWithCommonsLang3Utils.isEmpty("    ");
 
         Assertions.assertFalse(value);
     }
@@ -121,7 +121,7 @@ public class StringUtilsTest {
     @DisplayName("isEmpty_shouldReturnFalse_whenStringIsNotEmpty")
     @Test
     public void isEmpty_shouldReturnFalse_whenStringIsNotEmpty() {
-        boolean value = StringUtils.isEmpty("test");
+        boolean value = StringWithCommonsLang3Utils.isEmpty("test");
 
         Assertions.assertFalse(value);
     }
@@ -131,7 +131,7 @@ public class StringUtilsTest {
     @DisplayName("isNotBlank_shouldReturnTrue_whenStringIsNotBlank")
     @Test
     public void isNotBlank_shouldReturnTrue_whenStringIsNotBlank() {
-        boolean value = StringUtils.isNotBlank("test");
+        boolean value = StringWithCommonsLang3Utils.isNotBlank("test");
 
         Assertions.assertTrue(value);
     }
@@ -139,7 +139,7 @@ public class StringUtilsTest {
     @DisplayName("isNotBlank_shouldReturnFalse_whenStringIsNull")
     @Test
     public void isNotBlank_shouldReturnFalse_whenStringIsNull() {
-        boolean value = StringUtils.isNotBlank(null);
+        boolean value = StringWithCommonsLang3Utils.isNotBlank(null);
 
         Assertions.assertFalse(value);
     }
@@ -147,7 +147,7 @@ public class StringUtilsTest {
     @DisplayName("isNotBlank_shouldReturnFalse_whenStringIsBlank")
     @Test
     public void isNotBlank_shouldReturnFalse_whenStringIsBlank() {
-        boolean value = StringUtils.isNotBlank("    ");
+        boolean value = StringWithCommonsLang3Utils.isNotBlank("    ");
 
         Assertions.assertFalse(value);
     }
@@ -157,7 +157,7 @@ public class StringUtilsTest {
     @DisplayName("isBlank_shouldReturnTrue_whenStringIsBlank")
     @Test
     public void isBlank_shouldReturnTrue_whenStringIsBlank() {
-        boolean value = StringUtils.isBlank("    ");
+        boolean value = StringWithCommonsLang3Utils.isBlank("    ");
 
         Assertions.assertTrue(value);
     }
@@ -165,7 +165,7 @@ public class StringUtilsTest {
     @DisplayName("isBlank_shouldReturnTrue_whenStringIsNull")
     @Test
     public void isBlank_shouldReturnTrue_whenStringIsNull() {
-        boolean value = StringUtils.isBlank(null);
+        boolean value = StringWithCommonsLang3Utils.isBlank(null);
 
         Assertions.assertTrue(value);
     }
@@ -173,7 +173,7 @@ public class StringUtilsTest {
     @DisplayName("isBlank_shouldReturnFalse_whenStringIsNotBlank")
     @Test
     public void isBlank_shouldReturnFalse_whenStringIsNotBlank() {
-        boolean value = StringUtils.isBlank("test");
+        boolean value = StringWithCommonsLang3Utils.isBlank("test");
 
         Assertions.assertFalse(value);
     }
@@ -183,7 +183,7 @@ public class StringUtilsTest {
     @DisplayName("defaultIfBlank_shouldReturnDefaultValue_whenStringIsBlank")
     @Test
     public void defaultIfBlank_shouldReturnDefaultValue_whenStringIsBlank() {
-        String value = StringUtils.defaultIfBlank("    ", "default");
+        String value = StringWithCommonsLang3Utils.defaultIfBlank("    ", "default");
 
         Assertions.assertEquals("default", value);
     }
@@ -191,7 +191,7 @@ public class StringUtilsTest {
     @DisplayName("defaultIfBlank_shouldReturnValue_whenStringIsNotBlank")
     @Test
     public void defaultIfBlank_shouldReturnValue_whenStringIsNotBlank() {
-        String value = StringUtils.defaultIfBlank("666", "default");
+        String value = StringWithCommonsLang3Utils.defaultIfBlank("666", "default");
         Assertions.assertEquals("666", value);
     }
 }
