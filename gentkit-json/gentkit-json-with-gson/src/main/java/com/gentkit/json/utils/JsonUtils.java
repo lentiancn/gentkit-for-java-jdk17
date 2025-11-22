@@ -145,6 +145,50 @@ public class JsonUtils {
         return defaultValue;
     }
 
+    public static short getShort(final JsonArray json, final int index, final short defaultValue) {
+        try {
+            return json.get(index).getAsShort();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static int getInt(final JsonArray json, final int index, final int defaultValue) {
+        try {
+            return json.get(index).getAsInt();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static long getLong(final JsonArray json, final int index, final long defaultValue) {
+        try {
+            return json.get(index).getAsLong();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static float getFloat(final JsonArray json, final int index, final float defaultValue) {
+        try {
+            return json.get(index).getAsFloat();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static double getDouble(final JsonArray json, final int index, final double defaultValue) {
+        try {
+            return json.get(index).getAsDouble();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
 
     public static String getString(final JsonArray json, final int index, final String defaultValue) {
         try {
@@ -155,9 +199,37 @@ public class JsonUtils {
         return defaultValue;
     }
 
+    public static boolean getBoolean(final JsonArray json, final int index, final boolean defaultValue) {
+        try {
+            return json.get(index).getAsBoolean();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static Date getDate(final JsonArray json, final int index, final String format, final Date defaultValue) {
+//        Date d = DateFormatUtility.parse(format, getString(memberName, json, null));
+//        if (d != null) {
+//            return d;
+//        }
+//
+        return defaultValue;
+    }
+
     public static JsonObject getJsonObject(final JsonArray json, final int index, final JsonObject defaultValue) {
         try {
             return json.get(index).getAsJsonObject();
+        } catch (Throwable ex) {
+            LoggerUtils.getLogger(JsonUtils.class).warn(ex);
+        }
+        return defaultValue;
+    }
+
+    public static JsonArray getJsonArray(final JsonArray json, final int index, final JsonArray defaultValue) {
+        try {
+            JsonArray ja = json.get(index).getAsJsonArray();
+            return ja != null ? ja : defaultValue;
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
