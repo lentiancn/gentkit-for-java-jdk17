@@ -19,34 +19,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.color.model;
+package com.gentkit.color.exception;
 
-import com.gentkit.color.utils.HexColorUtils;
-import lombok.Data;
+import lombok.Getter;
 
-import java.io.Serializable;
+/**
+ * 十六进制颜色规范化异常。<br>
+ * 十六進制顏色正規化異常。<br>
+ * Hex color normalization exception.<br>
+ *
+ * @author 田隆 (Len)
+ * @since 2025-11-21 22:48
+ */
+@Getter
+public class ColorHexNormalizationException extends ColorException {
 
-@Data
-public class HexColor implements Serializable {
+    /**
+     * 十六进制颜色。<br>
+     * 十六進制顏色。<br>
+     * hex color.<br>
+     */
+    private final String hex;
 
-    private String hexColor;
-
-    private String red;
-
-    private String green;
-
-    private String blue;
-
-    public HexColor(final String hexColor) {
-        this.hexColor = HexColorUtils.normalize(hexColor);
-
-        red = hexColor.substring(0, 2);
-        green = hexColor.substring(2, 4);
-        blue = hexColor.substring(4, 6);
-    }
-
-    @Override
-    public String toString() {
-        return hexColor;
+    /**
+     * 构造方法。<br>
+     * 建構方法。<br>
+     * Constructor.<br>
+     *
+     * @param message 异常消息<br>異常訊息<br>Exception message<br>
+     * @param hex     十六进制颜色<br>十六進制顏色<br>hex color<br>
+     * @see #hex
+     */
+    public ColorHexNormalizationException(final String message, final String hex) {
+        super(message);
+        this.hex = hex;
     }
 }

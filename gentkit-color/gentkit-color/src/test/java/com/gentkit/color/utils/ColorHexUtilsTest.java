@@ -7,56 +7,56 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class HexColorUtilsTest {
+public class ColorHexUtilsTest {
 
     // -- String normalize(final String hexColor, final String defaultValue)
 
     @DisplayName("normalize_shouldReturnDefaultValue_whenHexColorIsNull")
     @Test
     public void normalize_shouldReturnDefaultValue_whenHexColorIsNull() {
-        assertEquals("#666666", HexColorUtils.normalize(null, "#666666"));
+        assertEquals("#666666", ColorHexUtils.normalize(null, "#666666"));
     }
 
     @DisplayName("normalize_shouldReturnHexColor_whenHexColorCorrectAndNotStartWithSharp")
     @Test
     public void normalize_shouldReturnHexColor_whenHexColorCorrectAndNotStartWithSharp() {
-        assertEquals("#123456", HexColorUtils.normalize("123456", "#666666"));
+        assertEquals("#123456", ColorHexUtils.normalize("123456", "#666666"));
     }
 
     @DisplayName("normalize_shouldReturnDefaultValue_whenHexColorIncludeInvalidCharacters")
     @Test
     public void normalize_shouldReturnDefaultValue_whenHexColorIncludeInvalidCharacters() {
-        assertEquals("#666666", HexColorUtils.normalize("12345L", "#666666"));
+        assertEquals("#666666", ColorHexUtils.normalize("12345L", "#666666"));
     }
 
     @DisplayName("normalize_shouldReturnHexColor_whenHexColor3DigitFormat")
     @Test
     public void normalize_shouldReturnHexColor_whenHexColor3DigitFormat() {
-        assertEquals("#112233", HexColorUtils.normalize("#123", "#666666"));
+        assertEquals("#112233", ColorHexUtils.normalize("#123", "#666666"));
     }
 
     @DisplayName("normalize_shouldReturnHexColor_whenHexColor4DigitFormat")
     @Test
     public void normalize_shouldReturnHexColor_whenHexColor4DigitFormat() {
-        assertEquals("#112233", HexColorUtils.normalize("#1234", "#666666"));
+        assertEquals("#112233", ColorHexUtils.normalize("#1234", "#666666"));
     }
 
     @DisplayName("normalize_shouldReturnDefaultValue_whenHexColor5DigitFormat")
     @Test
     public void normalize_shouldReturnDefaultValue_whenHexColor5DigitFormat() {
-        assertEquals("#666666", HexColorUtils.normalize("#12345", "#666666"));
+        assertEquals("#666666", ColorHexUtils.normalize("#12345", "#666666"));
     }
 
     @DisplayName("normalize_shouldReturnHexColor_whenHexColor6DigitFormat")
     @Test
     public void normalize_shouldReturnHexColor_whenHexColor6DigitFormat() {
-        assertEquals("#123456", HexColorUtils.normalize("#123456", "#666666"));
+        assertEquals("#123456", ColorHexUtils.normalize("#123456", "#666666"));
     }
 
     @DisplayName("normalize_shouldReturnDefaultValue_whenHexColorOtherDigitFormat")
     @Test
     public void normalize_shouldReturnDefaultValue_whenHexColorOtherDigitFormat() {
-        assertEquals("#666666", HexColorUtils.normalize("#1234567", "#666666"));
+        assertEquals("#666666", ColorHexUtils.normalize("#1234567", "#666666"));
     }
 
     // -- String normalize(final String hexColor)
@@ -64,12 +64,12 @@ public class HexColorUtilsTest {
     @DisplayName("normalize_shouldReturnHexColor_whenHexColorNormal")
     @Test
     public void normalize_shouldReturnHexColor_whenHexColorNormal() {
-        assertEquals("#123456", HexColorUtils.normalize("#123456"));
+        assertEquals("#123456", ColorHexUtils.normalize("#123456"));
     }
 
     @DisplayName("normalize_shouldThrowException_whenHexColorIsBlank")
     @Test
     public void normalize_shouldThrowException_whenHexColorIsBlank() {
-        assertThrows(GlobalException.class, () -> HexColorUtils.normalize(""));
+        assertThrows(GlobalException.class, () -> ColorHexUtils.normalize(""));
     }
 }

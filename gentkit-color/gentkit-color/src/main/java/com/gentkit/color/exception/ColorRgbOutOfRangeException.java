@@ -19,78 +19,69 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.color.model;
+package com.gentkit.color.exception;
 
-import com.gentkit.color.exception.RgbColorOutOfRangeException;
-import lombok.Data;
-
-import java.io.Serializable;
+import com.gentkit.exception.GlobalException;
+import lombok.Getter;
 
 /**
- * RGB 颜色。<br>
- * RGB 顏色。<br>
- * RGB Color.<br>
+ * RGB 颜色值超出范围异常。<br>
+ * RGB 顏色值超出範圍異常。<br>
+ * RGB color out of range exception.<br>
  *
  * @author 田隆 (Len)
- * @since 2025-11-10 22:42
+ * @since 2025-11-21 23:38
  */
-@Data
-public class RgbColor implements Serializable {
+@Getter
+public class ColorRgbOutOfRangeException extends GlobalException {
 
     /**
      * 红色。<br>
      * 紅色。<br>
      * red.<br>
+     *
+     * @see #green
+     * @see #blue
      */
-    private int red;
+    private final int red;
+
     /**
      * 绿色。<br>
      * 綠色。<br>
      * green.<br>
+     *
+     * @see #red
+     * @see #blue
      */
-    private int green;
+    private final int green;
+
     /**
      * 蓝色。<br>
      * 藍色。<br>
      * blue.<br>
+     *
+     * @see #red
+     * @see #green
      */
-    private int blue;
+    private final int blue;
 
     /**
      * 构造方法。<br>
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @param red   红色<br>紅色<br>Red<br>
-     * @param green 绿色<br>綠色<br>Green<br>
-     * @param blue  蓝色<br>藍色<br>Blue<br>
+     * @param message 异常消息<br>異常訊息<br>Exception message<br>
+     * @param red     红色<br>紅色<br>Red<br>
+     * @param green   绿色<br>綠色<br>Green<br>
+     * @param blue    蓝色<br>藍色<br>Blue<br>
+     * @see #red
+     * @see #green
+     * @see #blue
      */
-    public RgbColor(final int red, final int green, final int blue) {
-        // Validate all color components are in valid range (0-255)
-        if (red < 0 || red > 255) {
-            throw new RgbColorOutOfRangeException("red must be between 0 and 255", red, green, blue);
-        }
-        if (green < 0 || green > 255) {
-            throw new RgbColorOutOfRangeException("green must be between 0 and 255", red, green, blue);
-        }
-        if (blue < 0 || blue > 255) {
-            throw new RgbColorOutOfRangeException("blue must be between 0 and 255", red, green, blue);
-        }
-
+    public ColorRgbOutOfRangeException(final String message, final int red, final int green, final int blue) {
+        super(message);
         this.red = red;
         this.green = green;
         this.blue = blue;
-    }
-
-    /**
-     * 获取 RGB 颜色字符串。<br>
-     * 取得 RGB 顏色字串。<br>
-     * Get RGB color String.<br>
-     *
-     * @return RGB 颜色字符串<br>RGB 顏色字串<br>RGB color string
-     */
-    @Override
-    public String toString() {
-        return "RGB(" + red + ", " + green + ", " + blue + ")";
     }
 }
