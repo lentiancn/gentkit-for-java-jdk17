@@ -21,17 +21,15 @@
  */
 package com.gentkit.json.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.gentkit.datetime.utils.DateTimeUtils;
 import com.gentkit.logger.utils.LoggerUtils;
 import com.gentkit.string.utils.StringUtils;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
-import static com.gentkit.json.JsonConstants.GSON;
 
 /**
  * @author 田隆 (Len)
@@ -40,104 +38,153 @@ import static com.gentkit.json.JsonConstants.GSON;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class JsonUtils {
 
-    public static <T> T toBean(final Gson gson, final String json, final Class<T> classOfT) {
+    public static <T> T toBean(final String json, final Class<T> classOfT) {
         if (StringUtils.isBlank(json)) {
             return null;
         }
         try {
-            return gson.fromJson(json, classOfT);
+            return JSON.parseObject(json, classOfT);
         } catch (Throwable ex) {
             return null;
         }
     }
 
-    public static <T> T toBean(final String json, final Class<T> classOfT) {
-        return toBean(GSON, json, classOfT);
-    }
-
-    public static short getShort(final JsonObject json, final String memberName, final short defaultValue) {
+    public static short getShort(final JSONObject json, final String memberName, final short defaultValue) {
         try {
-            return json.getAsJsonPrimitive(memberName).getAsShort();
+            Object value = json.get(memberName);
+            if (value instanceof Number n) {
+                return n.shortValue();
+            } else if (value instanceof String s) {
+                return Short.parseShort(s);
+            }
+            return json.getShortValue(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static int getInt(final JsonObject json, final String memberName, final int defaultValue) {
+    public static int getInt(final JSONObject json, final String memberName, final int defaultValue) {
         try {
-            return json.getAsJsonPrimitive(memberName).getAsInt();
+            Object value = json.get(memberName);
+            if (value instanceof Number n) {
+                return n.intValue();
+            } else if (value instanceof String s) {
+                return Integer.parseInt(s);
+            }
+            return json.getIntValue(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static long getLong(final JsonObject json, final String memberName, final long defaultValue) {
+    public static long getLong(final JSONObject json, final String memberName, final long defaultValue) {
         try {
-            return json.getAsJsonPrimitive(memberName).getAsLong();
+            Object value = json.get(memberName);
+            if (value instanceof Number n) {
+                return n.longValue();
+            } else if (value instanceof String s) {
+                return Long.parseLong(s);
+            }
+            return json.getLongValue(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static float getFloat(final JsonObject json, final String memberName, final float defaultValue) {
+    public static float getFloat(final JSONObject json, final String memberName, final float defaultValue) {
         try {
-            return json.getAsJsonPrimitive(memberName).getAsFloat();
+            Object value = json.get(memberName);
+            if (value instanceof Number n) {
+                return n.floatValue();
+            } else if (value instanceof String s) {
+                return Float.parseFloat(s);
+            }
+            return json.getFloatValue(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static double getDouble(final JsonObject json, final String memberName, final double defaultValue) {
+    public static double getDouble(final JSONObject json, final String memberName, final double defaultValue) {
         try {
-            return json.getAsJsonPrimitive(memberName).getAsDouble();
+            Object value = json.get(memberName);
+            if (value instanceof Number n) {
+                return n.doubleValue();
+            } else if (value instanceof String s) {
+                return Double.parseDouble(s);
+            }
+            return json.getDoubleValue(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static String getString(final JsonObject json, final String memberName, final String defaultValue) {
+    public static String getString(final JSONObject json, final String memberName, final String defaultValue) {
         try {
-            return json.getAsJsonPrimitive(memberName).getAsString();
+            Object value = json.get(memberName);
+            if (value != null) {
+                return value.toString();
+            }
+            return json.getString(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static boolean getBoolean(final JsonObject json, final String memberName, final boolean defaultValue) {
+    public static boolean getBoolean(final JSONObject json, final String memberName, final boolean defaultValue) {
         try {
-            return json.getAsJsonPrimitive(memberName).getAsBoolean();
+            Object value = json.get(memberName);
+            if (value instanceof Boolean b) {
+                return b;
+            } else if (value instanceof String s) {
+                return Boolean.parseBoolean(s);
+            } else if (value instanceof Number n) {
+                return n.intValue() != 0;
+            }
+            return json.getBooleanValue(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static Date getDate(final JsonObject json, final String memberName, final String format, final Date defaultValue) {
-        Date d = DateTimeUtils.parse(format, getString(json, memberName, null));
-        if (d != null) {
-            return d;
+    public static Date getDate(final JSONObject json, final String memberName, final String format, final Date defaultValue) {
+        String dateString = getString(json, memberName, null);
+        if (dateString != null) {
+            Date d = DateTimeUtils.parse(format, dateString);
+            if (d != null) {
+                return d;
+            }
         }
         return defaultValue;
     }
 
-    public static JsonObject getJsonObject(final JsonObject json, final String memberName, final JsonObject defaultValue) {
+    public static JSONObject getJsonObject(final JSONObject json, final String memberName, final JSONObject defaultValue) {
         try {
-            return json.getAsJsonObject(memberName);
+            Object obj = json.get(memberName);
+            if (obj instanceof JSONObject j) {
+                return j;
+            }
+            return json.getJSONObject(memberName);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static JsonArray getJsonArray(final JsonObject json, final String memberName, final JsonArray defaultValue) {
+    public static JSONArray getJsonArray(final JSONObject json, final String memberName, final JSONArray defaultValue) {
         try {
-            JsonArray ja = json.getAsJsonArray(memberName);
+            Object obj = json.get(memberName);
+            if (obj instanceof JSONArray j) {
+                return j;
+            }
+            JSONArray ja = json.getJSONArray(memberName);
             return ja != null ? ja : defaultValue;
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
@@ -145,89 +192,142 @@ public class JsonUtils {
         return defaultValue;
     }
 
-    public static short getShort(final JsonArray json, final int index, final short defaultValue) {
+    public static short getShort(final JSONArray json, final int index, final short defaultValue) {
         try {
-            return json.get(index).getAsShort();
+            Object value = json.get(index);
+            if (value instanceof Number n) {
+                return n.shortValue();
+            } else if (value instanceof String s) {
+                return Short.parseShort(s);
+            }
+            return json.getShortValue(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static int getInt(final JsonArray json, final int index, final int defaultValue) {
+    public static int getInt(final JSONArray json, final int index, final int defaultValue) {
         try {
-            return json.get(index).getAsInt();
+            Object value = json.get(index);
+            if (value instanceof Number n) {
+                return n.intValue();
+            } else if (value instanceof String s) {
+                return Integer.parseInt(s);
+            }
+            return json.getIntValue(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static long getLong(final JsonArray json, final int index, final long defaultValue) {
+    public static long getLong(final JSONArray json, final int index, final long defaultValue) {
         try {
-            return json.get(index).getAsLong();
+            Object value = json.get(index);
+            if (value instanceof Number n) {
+                return n.longValue();
+            } else if (value instanceof String s) {
+                return Long.parseLong(s);
+            }
+            return json.getLongValue(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static float getFloat(final JsonArray json, final int index, final float defaultValue) {
+    public static float getFloat(final JSONArray json, final int index, final float defaultValue) {
         try {
-            return json.get(index).getAsFloat();
+            Object value = json.get(index);
+            if (value instanceof Number n) {
+                return n.floatValue();
+            } else if (value instanceof String s) {
+                return Float.parseFloat(s);
+            }
+            return json.getFloatValue(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static double getDouble(final JsonArray json, final int index, final double defaultValue) {
+    public static double getDouble(final JSONArray json, final int index, final double defaultValue) {
         try {
-            return json.get(index).getAsDouble();
+            Object value = json.get(index);
+            if (value instanceof Number n) {
+                return n.doubleValue();
+            } else if (value instanceof String s) {
+                return Double.parseDouble(s);
+            }
+            return json.getDoubleValue(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static String getString(final JsonArray json, final int index, final String defaultValue) {
+    public static String getString(final JSONArray json, final int index, final String defaultValue) {
         try {
-            return json.get(index).getAsString();
+            Object value = json.get(index);
+            if (value != null) {
+                return value.toString();
+            }
+            return json.getString(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static boolean getBoolean(final JsonArray json, final int index, final boolean defaultValue) {
+    public static boolean getBoolean(final JSONArray json, final int index, final boolean defaultValue) {
         try {
-            return json.get(index).getAsBoolean();
+            Object value = json.get(index);
+            if (value instanceof Boolean b) {
+                return b;
+            } else if (value instanceof String s) {
+                return Boolean.parseBoolean(s);
+            } else if (value instanceof Number n) {
+                return n.intValue() != 0;
+            }
+            return json.getBooleanValue(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static Date getDate(final JsonArray json, final int index, final String format, final Date defaultValue) {
-        Date d = DateTimeUtils.parse(format, getString(json, index, null));
-        if (d != null) {
-            return d;
+    public static Date getDate(final JSONArray json, final int index, final String format, final Date defaultValue) {
+        String dateString = getString(json, index, null);
+        if (dateString != null) {
+            Date d = DateTimeUtils.parse(format, dateString);
+            if (d != null) {
+                return d;
+            }
         }
         return defaultValue;
     }
 
-    public static JsonObject getJsonObject(final JsonArray json, final int index, final JsonObject defaultValue) {
+    public static JSONObject getJsonObject(final JSONArray json, final int index, final JSONObject defaultValue) {
         try {
-            return json.get(index).getAsJsonObject();
+            Object obj = json.get(index);
+            if (obj instanceof JSONObject j) {
+                return j;
+            }
+            return json.getJSONObject(index);
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
 
-    public static JsonArray getJsonArray(final JsonArray json, final int index, final JsonArray defaultValue) {
+    public static JSONArray getJsonArray(final JSONArray json, final int index, final JSONArray defaultValue) {
         try {
-            JsonArray ja = json.get(index).getAsJsonArray();
+            Object obj = json.get(index);
+            if (obj instanceof JSONArray j) {
+                return j;
+            }
+            JSONArray ja = json.getJSONArray(index);
             return ja != null ? ja : defaultValue;
         } catch (Throwable ex) {
             LoggerUtils.getLogger(JsonUtils.class).warn(ex);

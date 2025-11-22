@@ -21,8 +21,6 @@
  */
 package com.gentkit.json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import lombok.NoArgsConstructor;
 
 /**
@@ -31,6 +29,4 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class JsonConstants {
-
-    public static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
 }
