@@ -50,20 +50,20 @@ public class ColorAnsiRgb implements ColorAnsiSequence {
     public String ansiString() {
         StringBuilder ansiString = new StringBuilder();
         for (ColorAnsiStyleEnum style : styles) {
-            ansiString.append(ANSI_SEPARATOR).append(style.getValue());
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(style.getValue());
         }
         // RGB foreground
         if (rgbForeground != null) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_RGB_FOREGROUND_PREFIX).append(rgbForeground.getRed()).append(ANSI_SEPARATOR).append(rgbForeground.getGreen()).append(ANSI_SEPARATOR).append(rgbForeground.getBlue());
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(ANSI_RGB_FOREGROUND_PREFIX).append(rgbForeground.getRed()).append(ANSI_SEQUENCE_SEPARATOR).append(rgbForeground.getGreen()).append(ANSI_SEQUENCE_SEPARATOR).append(rgbForeground.getBlue());
         }
         // RGB background
         if (rgbBackground != null) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_RGB_BACKGROUND_PREFIX).append(rgbBackground.getRed()).append(ANSI_SEPARATOR).append(rgbBackground.getGreen()).append(ANSI_SEPARATOR).append(rgbBackground.getBlue());
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(ANSI_RGB_BACKGROUND_PREFIX).append(rgbBackground.getRed()).append(ANSI_SEQUENCE_SEPARATOR).append(rgbBackground.getGreen()).append(ANSI_SEQUENCE_SEPARATOR).append(rgbBackground.getBlue());
         }
         if (!ansiString.isEmpty()) {
             ansiString.deleteCharAt(0);
         }
 
-        return ANSI_START + ansiString + ColorConstants.ANSI_END;
+        return ANSI_SEQUENCE_START + ansiString + ColorConstants.ANSI_SEQUENCE_END;
     }
 }

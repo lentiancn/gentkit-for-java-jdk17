@@ -50,20 +50,20 @@ public class ColorAnsi256 implements ColorAnsiSequence {
     public String ansiString() {
         StringBuilder ansiString = new StringBuilder();
         for (ColorAnsiStyleEnum style : styles) {
-            ansiString.append(ANSI_SEPARATOR).append(style.getValue());
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(style.getValue());
         }
         // 256 foreground
         if (foregroundCode >= 0 && foregroundCode < 256) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_FOREGROUND_PREFIX).append(foregroundCode);
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(ANSI_256_FOREGROUND_PREFIX).append(foregroundCode);
         }
         // 256 background
         if (backgroundCode >= 0 && backgroundCode < 256) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_BACKGROUND_PREFIX).append(backgroundCode);
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(ANSI_256_BACKGROUND_PREFIX).append(backgroundCode);
         }
         if (!ansiString.isEmpty()) {
             ansiString.deleteCharAt(0);
         }
 
-        return ANSI_START + ansiString + ColorConstants.ANSI_END;
+        return ANSI_SEQUENCE_START + ansiString + ColorConstants.ANSI_SEQUENCE_END;
     }
 }

@@ -38,6 +38,6 @@ public class ColorAnsiReset implements ColorAnsiSequence {
 
     @Override
     public String ansiString() {
-        return ColorConstants.ANSI_START + ColorAnsiStyleEnum.RESET.getValue() + ColorConstants.ANSI_END;
+        return ColorConstants.ANSI_SEQUENCE_START + ColorAnsiStyleEnum.RESET.getValue() + ColorConstants.ANSI_SEQUENCE_END;
     }
 }

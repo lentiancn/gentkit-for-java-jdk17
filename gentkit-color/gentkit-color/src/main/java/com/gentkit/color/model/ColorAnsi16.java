@@ -27,8 +27,8 @@ import com.gentkit.color.enums.ColorAnsi16ForegroundCodeEnum;
 import com.gentkit.color.enums.ColorAnsiStyleEnum;
 import lombok.Data;
 
-import static com.gentkit.color.ColorConstants.ANSI_SEPARATOR;
-import static com.gentkit.color.ColorConstants.ANSI_START;
+import static com.gentkit.color.ColorConstants.ANSI_SEQUENCE_SEPARATOR;
+import static com.gentkit.color.ColorConstants.ANSI_SEQUENCE_START;
 
 @Data
 public class ColorAnsi16 implements ColorAnsiSequence {
@@ -53,20 +53,20 @@ public class ColorAnsi16 implements ColorAnsiSequence {
     public String ansiString() {
         StringBuilder ansiString = new StringBuilder();
         for (ColorAnsiStyleEnum style : styles) {
-            ansiString.append(ANSI_SEPARATOR).append(style.getValue());
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(style.getValue());
         }
         // 16 foreground
         if (foregroundCode != null) {
-            ansiString.append(ANSI_SEPARATOR).append(foregroundCode.getValue());
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(foregroundCode.getValue());
         }
         // 16 background
         if (backgroundCode != null) {
-            ansiString.append(ANSI_SEPARATOR).append(backgroundCode.getValue());
+            ansiString.append(ANSI_SEQUENCE_SEPARATOR).append(backgroundCode.getValue());
         }
         if (!ansiString.isEmpty()) {
             ansiString.deleteCharAt(0);
         }
 
-        return ANSI_START + ansiString + ColorConstants.ANSI_END;
+        return ANSI_SEQUENCE_START + ansiString + ColorConstants.ANSI_SEQUENCE_END;
     }
 }

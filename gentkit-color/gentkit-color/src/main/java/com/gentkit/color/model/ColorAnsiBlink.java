@@ -38,6 +38,6 @@ public class ColorAnsiBlink implements ColorAnsiSequence {
 
     @Override
     public String ansiString() {
-        return ColorConstants.ANSI_START + ColorAnsiStyleEnum.BLINK.getValue() + ColorConstants.ANSI_END;
+        return ColorConstants.ANSI_SEQUENCE_START + ColorAnsiStyleEnum.BLINK.getValue() + ColorConstants.ANSI_SEQUENCE_END;
     }
 }
