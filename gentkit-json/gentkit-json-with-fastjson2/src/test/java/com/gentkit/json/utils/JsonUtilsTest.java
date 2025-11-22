@@ -1,7 +1,7 @@
 package com.gentkit.json.utils;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -157,9 +157,9 @@ public class JsonUtilsTest {
     @Test
     public void testGetStringFromJsonArray() {
         JSONArray json = new JSONArray();
-        json.add("arrayItem");
+        json.add("test");
         String result = JsonUtils.getString(json, 0, "default");
-        assertEquals("arrayItem", result);
+        assertEquals("test", result);
     }
 
     @Test
