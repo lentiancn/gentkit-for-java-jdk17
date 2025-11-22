@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
 
-public class Base64UtilsTest {
+public class Base64WithCommonsCodecUtilsTest {
 
     // -- decode
 
     @DisplayName("decode")
     @Test
     public void decode() {
-        byte[] value = Base64Utils.decode("test".getBytes(StandardCharsets.UTF_8));
+        byte[] value = Base64WithCommonsCodecUtils.decode("test".getBytes(StandardCharsets.UTF_8));
 
         System.out.println(value.length);
     }
@@ -22,7 +22,7 @@ public class Base64UtilsTest {
     @DisplayName("decodeFromString")
     @Test
     public void decodeFromString() {
-        byte[] value = Base64Utils.decodeFromString("test");
+        byte[] value = Base64WithCommonsCodecUtils.decodeFromString("test");
 
         System.out.println(value.length);
     }
@@ -32,7 +32,7 @@ public class Base64UtilsTest {
     @DisplayName("encode")
     @Test
     public void encode() {
-        byte[] value = Base64Utils.encode("test".getBytes(StandardCharsets.UTF_8));
+        byte[] value = Base64WithCommonsCodecUtils.encode("test".getBytes(StandardCharsets.UTF_8));
 
         System.out.println(value.length);
     }
@@ -42,7 +42,7 @@ public class Base64UtilsTest {
     @DisplayName("encodeToString")
     @Test
     public void encodeToString() {
-        String value = Base64Utils.encodeToString("test".getBytes(StandardCharsets.UTF_8));
+        String value = Base64WithCommonsCodecUtils.encodeToString("test".getBytes(StandardCharsets.UTF_8));
 
         System.out.println(value.length());
     }
