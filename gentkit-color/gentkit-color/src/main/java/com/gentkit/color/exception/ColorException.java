@@ -39,6 +39,9 @@ public class ColorException extends GlobalException {
      * 构造方法。<br>
      * 建構方法。<br>
      * Constructor.<br>
+     *
+     * @see #ColorException(String)
+     * @see #ColorException(String, Throwable)
      */
     public ColorException() {
         super();
@@ -49,7 +52,9 @@ public class ColorException extends GlobalException {
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @param message 异常消息<br>異常訊息<br>Exception message
+     * @param message 异常消息<br>異常訊息<br>Exception message<br>
+     * @see #ColorException()
+     * @see #ColorException(String, Throwable)
      */
     public ColorException(String message) {
         super(message);
@@ -62,6 +67,8 @@ public class ColorException extends GlobalException {
      *
      * @param message 异常消息<br>異常訊息<br>Exception message<br>
      * @param cause   异常原因<br>異常原因<br>Exception cause<br>
+     * @see #ColorException()
+     * @see #ColorException(String)
      */
     public ColorException(String message, Throwable cause) {
         super(message, cause);
