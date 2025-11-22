@@ -31,14 +31,14 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-import static com.gentkit.json.GsonConstants.GSON;
+import static com.gentkit.json.JsonWithGsonConstants.GSON;
 
 /**
  * @author 田隆 (Len)
  * @since 2025-11-18 08:35
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class GsonUtils {
+public class JsonWithGsonUtils {
 
     public static <T> T toBean(final Gson gson, final String json, final Class<T> classOfT) {
         if (StringUtils.isBlank(json)) {
@@ -59,7 +59,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonPrimitive(memberName).getAsShort();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -68,7 +68,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonPrimitive(memberName).getAsInt();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -77,7 +77,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonPrimitive(memberName).getAsLong();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -86,7 +86,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonPrimitive(memberName).getAsFloat();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -95,7 +95,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonPrimitive(memberName).getAsDouble();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -104,7 +104,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonPrimitive(memberName).getAsString();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -113,7 +113,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonPrimitive(memberName).getAsBoolean();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -130,7 +130,7 @@ public class GsonUtils {
         try {
             return json.getAsJsonObject(memberName);
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -140,7 +140,7 @@ public class GsonUtils {
             JsonArray ja = json.getAsJsonArray(memberName);
             return ja != null ? ja : defaultValue;
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -149,7 +149,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsShort();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -158,7 +158,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsInt();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -167,7 +167,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsLong();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -176,7 +176,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsFloat();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -185,7 +185,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsDouble();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -194,7 +194,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsString();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -203,7 +203,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsBoolean();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -220,7 +220,7 @@ public class GsonUtils {
         try {
             return json.get(index).getAsJsonObject();
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
@@ -230,7 +230,7 @@ public class GsonUtils {
             JsonArray ja = json.get(index).getAsJsonArray();
             return ja != null ? ja : defaultValue;
         } catch (Throwable ex) {
-            LoggerUtils.getLogger(GsonUtils.class).warn(ex);
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
         return defaultValue;
     }
