@@ -26,12 +26,13 @@ import com.gentkit.color.exception.ColorHexNormalizationException;
 import com.gentkit.color.exception.ColorRgbOutOfRangeException;
 import com.gentkit.color.model.ColorHex;
 import com.gentkit.color.model.ColorRgb;
+import com.gentkit.logger.utils.LoggerUtils;
 import lombok.NoArgsConstructor;
 
 /**
- * 颜色工具。<br>
- * 顏色工具。<br>
- * Color utils.<br>
+ * 颜色转换工具。<br>
+ * 顏色轉換工具。<br>
+ * Color conversion utils.<br>
  *
  * @author 田隆 (Len)
  * @since 2025-11-10 22:36
@@ -44,7 +45,6 @@ public class ColorConversionUtils {
      * 將16進位顏色轉換為RGB顏色。<br>
      * Convert hexadecimal colors to RGB colors.<br>
      *
-     * @throws ColorHexNormalizationException
      * @see #hexToRgb(String)
      */
     public static ColorRgb hexToRgb(final ColorHex hex) {
@@ -52,6 +52,18 @@ public class ColorConversionUtils {
             return new ColorRgb(Integer.parseInt(hex.getHexRed(), 16), Integer.parseInt(hex.getHexGreen(), 16), Integer.parseInt(hex.getHexBlue(), 16));
         }
         return null;
+    }
+
+    public static ColorRgb hexToRgb(final ColorHex hex, final ColorRgb defaultValue) {
+        try {
+            ColorRgb value = hexToRgb(hex, defaultValue);
+            if (value != null) {
+                return value;
+            }
+        } catch (Throwable e) {
+            LoggerUtils.warn(ColorConversionUtils.class, e);
+        }
+        return defaultValue;
     }
 
     /**
@@ -66,17 +78,8 @@ public class ColorConversionUtils {
         return hexToRgb(new ColorHex(hex));
     }
 
-    /**
-     * 将RGB颜色转换为16进制颜色。<br>
-     * 将RGB顏色轉換為16進位顏色。<br>
-     * Convert RGB colors to hexadecimal colors.<br>
-     *
-     * @throws ColorRgbOutOfRangeException
-     */
-    public static String rgbToHex(final int red, final int green, final int blue) {
-        ColorRgb rgbColor = new ColorRgb(red, green, blue);
-
-        return (ColorConstants.HEX_PREFIX + String.format("%02x%02x%02x", rgbColor.getRed(), rgbColor.getGreen(), rgbColor.getBlue()).toUpperCase());
+    public static ColorRgb hexToRgb(final String hex, final ColorRgb defaultValue) {
+        return hexToRgb(new ColorHex(hex), defaultValue);
     }
 
     /**
@@ -84,8 +87,46 @@ public class ColorConversionUtils {
      * 将RGB顏色轉換為16進位顏色。<br>
      * Convert RGB colors to hexadecimal colors.<br>
      */
-    public static String rgbToHex(final ColorRgb rgb) {
-        return rgbToHex(rgb.getRed(), rgb.getGreen(), rgb.getBlue());
+    public static ColorHex rgbToHex(final ColorRgb rgb) {
+        if (rgb != null) {
+            return new ColorHex(ColorConstants.HEX_PREFIX + String.format("%02x%02x%02x", rgb.getRed(), rgb.getGreen(), rgb.getBlue()));
+        }
+        return null;
+    }
+
+    public static ColorHex rgbToHex(final ColorRgb rgb, final ColorHex defaultValue) {
+        try {
+            ColorHex value = rgbToHex(rgb);
+            if (value != null) {
+                return value;
+            }
+        } catch (Throwable e) {
+            LoggerUtils.warn(ColorConversionUtils.class, e);
+        }
+        return defaultValue;
+    }
+
+    /**
+     * 将RGB颜色转换为16进制颜色。<br>
+     * 将RGB顏色轉換為16進位顏色。<br>
+     * Convert RGB colors to hexadecimal colors.<br>
+     *
+     * @throws ColorRgbOutOfRangeException
+     */
+    public static ColorHex rgbToHex(final int red, final int green, final int blue) {
+        return rgbToHex(new ColorRgb(red, green, blue));
+    }
+
+    public static ColorHex rgbToHex(final int red, final int green, final int blue, final ColorHex defaultValue) {
+        try {
+            ColorHex value = rgbToHex(red, green, blue);
+            if (value != null) {
+                return value;
+            }
+        } catch (Throwable e) {
+            LoggerUtils.warn(ColorConversionUtils.class, e);
+        }
+        return defaultValue;
     }
 
 //    public static AnsiColor hexToAnsiColor(final String hex) {

@@ -21,7 +21,11 @@
  */
 package com.gentkit.logger.utils;
 
+import com.gentkit.logger.Logger;
 import com.gentkit.logger.LoggerConstants;
+import com.gentkit.logger.LoggerFactory;
+import com.gentkit.logger.impl.NoOperationLoggerImpl;
+import com.gentkit.logger.impl.SystemLoggerImpl;
 import lombok.NoArgsConstructor;
 
 import java.io.BufferedReader;
@@ -43,6 +47,38 @@ import java.util.List;
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public final class LoggerUtils {
+
+    public static Logger getLogger(final String name) {
+        return LoggerFactory.getLogger(name);
+    }
+
+    public static Logger getLogger(final Class clazz) {
+        return LoggerFactory.getLogger(clazz);
+    }
+
+    public static Logger getLoggerWithSystemIfNoProvider(final String name) {
+        Logger logger = LoggerFactory.getLogger(name);
+
+        if (logger instanceof NoOperationLoggerImpl) {
+            return new SystemLoggerImpl(name);
+        }
+
+        return logger;
+    }
+
+    public static Logger getLoggerWithSystemIfNoProvider(final Class clazz) {
+        Logger logger = LoggerFactory.getLogger(clazz);
+
+        if (logger instanceof NoOperationLoggerImpl) {
+            return new SystemLoggerImpl(clazz);
+        }
+
+        return logger;
+    }
+
+    public static void warn(Class clazz, Throwable cause) {
+        LoggerUtils.getLogger(clazz).warn(cause);
+    }
 
     /**
      * 加载 CLASSPATH 下指定接口的实现类。<br>

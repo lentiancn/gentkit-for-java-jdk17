@@ -41,6 +41,11 @@
                 <version>${revision}</version>
             </dependency>
             <dependency>
+                <groupId>com.gentkit.logger</groupId>
+                <artifactId>gentkit-logger</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.gentkit.string</groupId>
                 <artifactId>gentkit-string</artifactId>
                 <version>${revision}</version>

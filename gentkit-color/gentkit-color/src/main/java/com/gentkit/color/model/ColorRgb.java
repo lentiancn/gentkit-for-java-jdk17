@@ -73,6 +73,7 @@ public class ColorRgb implements Serializable {
      * @param red   红色<br>紅色<br>Red<br>
      * @param green 绿色<br>綠色<br>Green<br>
      * @param blue  蓝色<br>藍色<br>Blue<br>
+     * @throws ColorRgbOutOfRangeException ColorRgbOutOfRangeException
      * @see #red
      * @see #green
      * @see #blue

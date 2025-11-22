@@ -27,6 +27,10 @@
             <artifactId>gentkit-hex</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.gentkit.logger</groupId>
+            <artifactId>gentkit-logger</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.gentkit.string</groupId>
             <artifactId>gentkit-string</artifactId>
         </dependency>

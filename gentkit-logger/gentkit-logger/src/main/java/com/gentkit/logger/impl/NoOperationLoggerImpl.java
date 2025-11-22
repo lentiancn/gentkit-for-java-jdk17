@@ -21,22 +21,21 @@
  */
 package com.gentkit.logger.impl;
 
-import com.gentkit.exception.utils.ExceptionUtils;
 import com.gentkit.logger.Logger;
 
 /**
  * @author 田隆 (Len)
  * @since 2025-11-07 22:53
  */
-public class DefaultLoggerImpl implements Logger {
+public class NoOperationLoggerImpl implements Logger {
 
     public static final String FACADE = "gentkit";
-    public static final String PROVIDER = "gentkit";
+    public static final String PROVIDER = "no-op";
 
-    public DefaultLoggerImpl(final String name) {
+    public NoOperationLoggerImpl(final String name) {
     }
 
-    public DefaultLoggerImpl(final Class<?> clazz) {
+    public NoOperationLoggerImpl(final Class<?> clazz) {
     }
 
     @Override
@@ -56,148 +55,86 @@ public class DefaultLoggerImpl implements Logger {
 
     @Override
     public boolean isTraceEnabled() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isDebugEnabled() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isInfoEnabled() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isWarnEnabled() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isErrorEnabled() {
-        return true;
+        return false;
     }
 
     @Override
     public void trace(final Throwable cause, final String msg, final Object... args) {
-        StringBuffer sb = new StringBuffer();
-        if (msg != null) {
-            sb.append(formatMessage(msg, args));
-        }
-        if (cause != null) {
-            sb.append(ExceptionUtils.throwableToString(cause));
-        }
-        System.out.println(sb);
     }
 
     @Override
     public void trace(final Throwable cause) {
-        trace(cause, null, (Object) null);
     }
 
     @Override
     public void trace(final String msg, final Object... args) {
-        trace(null, msg, args);
     }
 
     @Override
     public void debug(final Throwable cause, final String msg, final Object... args) {
-        StringBuffer sb = new StringBuffer();
-        if (msg != null) {
-            sb.append(formatMessage(msg, args));
-        }
-        if (cause != null) {
-            sb.append(ExceptionUtils.throwableToString(cause));
-        }
-        System.out.println(sb);
     }
 
     @Override
     public void debug(final Throwable cause) {
-        debug(cause, null, (Object) null);
     }
 
     @Override
     public void debug(final String msg, final Object... args) {
-        debug(null, msg, args);
     }
 
     @Override
     public void info(final Throwable cause, final String msg, final Object... args) {
-        StringBuffer sb = new StringBuffer();
-        if (msg != null) {
-            sb.append(formatMessage(msg, args));
-        }
-        if (cause != null) {
-            sb.append(ExceptionUtils.throwableToString(cause));
-        }
-        System.out.println(sb);
     }
 
     @Override
     public void info(final Throwable cause) {
-        info(cause, null, (Object) null);
     }
 
     @Override
     public void info(final String msg, final Object... args) {
-        info(null, msg, args);
     }
 
     @Override
     public void warn(final Throwable cause, final String msg, final Object... args) {
-        StringBuffer sb = new StringBuffer();
-        if (msg != null) {
-            sb.append(formatMessage(msg, args));
-        }
-        if (cause != null) {
-            sb.append(ExceptionUtils.throwableToString(cause));
-        }
-        System.err.println(sb);
     }
 
     @Override
     public void warn(final Throwable cause) {
-        warn(cause, null, (Object) null);
     }
 
     @Override
     public void warn(final String msg, final Object... args) {
-        warn(null, msg, args);
     }
 
     @Override
     public void error(final Throwable cause, final String msg, final Object... args) {
-        StringBuffer sb = new StringBuffer();
-        if (msg != null) {
-            sb.append(formatMessage(msg, args));
-        }
-        if (cause != null) {
-            sb.append(ExceptionUtils.throwableToString(cause));
-        }
-        System.err.println(sb);
     }
 
     @Override
     public void error(final Throwable cause) {
-        error(cause, null, (Object) null);
     }
 
     @Override
     public void error(final String msg, final Object... args) {
-        error(null, msg, args);
-    }
-
-    private String formatMessage(final String msg, final Object... args) {
-        if (args == null || args.length == 0) {
-            return msg;
-        }
-
-        String formattedMsg = msg;
-        for (Object arg : args) {
-            formattedMsg = formattedMsg.replaceFirst("\\{\\}", String.valueOf(arg));
-        }
-        return formattedMsg;
     }
 }

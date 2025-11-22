@@ -33,7 +33,7 @@ import lombok.Getter;
  * @since 2025-11-21 23:38
  */
 @Getter
-public class ColorRgbOutOfRangeException extends GlobalException {
+public class ColorRgbOutOfRangeException extends ColorException {
 
     /**
      * 红色。<br>

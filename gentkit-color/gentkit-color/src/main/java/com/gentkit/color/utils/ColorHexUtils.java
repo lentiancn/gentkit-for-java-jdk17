@@ -39,6 +39,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class ColorHexUtils {
 
+    public static String hexColor(final String hexRed, final String hexGreen, final String hexBlue) {
+
+    }
+
     /**
      * 将十六进制颜色字符串规范化为标准的 6 位格式。<br>
      * 將十六進制顏色字串正規化為標準的 6 位格式。<br>
@@ -97,11 +101,11 @@ public class ColorHexUtils {
      */
     public static String normalize(final String hex) {
         String defaultValue = "EX";
-        String hexColor01 = normalize(hex, defaultValue);
+        String hex01 = normalize(hex, defaultValue);
 
         // 1. Directly return non default values
-        if (!defaultValue.equals(hexColor01)) {
-            return hexColor01;
+        if (!defaultValue.equals(hex01)) {
+            return hex01;
         }
 
         throw new ColorHexNormalizationException("Invalid hex color: '" + hex + "'", hex);
