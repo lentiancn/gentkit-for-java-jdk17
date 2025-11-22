@@ -21,46 +21,20 @@
  */
 package com.gentkit.color.model;
 
+import com.gentkit.color.enums.ColorAnsiStyleEnum;
 import lombok.Data;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 @Data
-public class ColorAnsi implements Serializable {
+public class ColorAnsi256Background implements ColorAnsiSequence {
 
-    private List<ColorAnsiSequence> ansiSequences = Collections.synchronizedList(new ArrayList<>());
+    private ColorAnsi256 colorAnsi256;
 
-    public ColorAnsi append(ColorAnsiSequence text) {
-        ansiSequences.add(text);
-        return this;
+    public ColorAnsi256Background(final int rgbBackground, final ColorAnsiStyleEnum... styles) {
+        colorAnsi256 = new ColorAnsi256(-1, rgbBackground, styles);
     }
 
-    public String ansiString(final boolean startReset, final String s, final boolean endReset) {
-        StringBuilder sb = new StringBuilder();
-        if (startReset) {
-            sb.append(new ColorAnsiReset().ansiString());
-        }
-
-        for (ColorAnsiSequence ansiSequence : ansiSequences) {
-            sb.append(ansiSequence.ansiString());
-        }
-
-        sb.append(s);
-
-        if (endReset) {
-            sb.append(new ColorAnsiReset().ansiString());
-        }
-
-        return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        ColorAnsi colorAnsi = new ColorAnsi();
-        colorAnsi.append(new ColorAnsiBold());
-
-        System.out.println(colorAnsi.ansiString(true, "hello world", true));
+    @Override
+    public String ansiString() {
+        return colorAnsi256.ansiString();
     }
 }

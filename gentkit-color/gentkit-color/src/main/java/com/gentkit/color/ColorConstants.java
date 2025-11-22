@@ -43,8 +43,10 @@ public class ColorConstants {
     public static final String ANSI_START = "\u001B[";
 
     public static final String ANSI_RGB_FOREGROUND_PREFIX = "38;2;";
-
     public static final String ANSI_RGB_BACKGROUND_PREFIX = "48;2;";
+
+    public static final String ANSI_256_FOREGROUND_PREFIX = "38;5;";
+    public static final String ANSI_256_BACKGROUND_PREFIX = "48;5;";
 
     /**
      * ANSI序列结束。<br>
