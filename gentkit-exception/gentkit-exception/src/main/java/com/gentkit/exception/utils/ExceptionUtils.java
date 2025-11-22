@@ -43,7 +43,7 @@ public class ExceptionUtils {
      * 異常轉為堆疊資訊字串。<br>
      * The exception is converted into a stack trace string.<br>
      *
-     * @param cause 异常<br>例外<br>abnormal
+     * @param cause 异常<br>異常<br>abnormal
      * @return 返回异常堆栈信息字符串。<br>傳回異常堆疊資訊字串。<br>Returns an exception stack trace string.
      */
     public static String throwableToString(final Throwable cause) {

@@ -37,10 +37,13 @@ import lombok.NoArgsConstructor;
  * @since 2025-11-10 22:36
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class ColorUtils {
+public class ColorConversionUtils {
 
     public static RgbColor hexToRgb(final HexColor hexColor) {
-        return new RgbColor(Integer.parseInt(hexColor.getRed(), 16), Integer.parseInt(hexColor.getGreen(), 16), Integer.parseInt(hexColor.getBlue(), 16));
+        if (hexColor != null) {
+            return new RgbColor(Integer.parseInt(hexColor.getRed(), 16), Integer.parseInt(hexColor.getGreen(), 16), Integer.parseInt(hexColor.getBlue(), 16));
+        }
+        return null;
     }
 
     /**

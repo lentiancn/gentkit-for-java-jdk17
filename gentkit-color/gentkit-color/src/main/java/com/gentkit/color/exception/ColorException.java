@@ -19,27 +19,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.exception;
+package com.gentkit.color.exception;
+
+import com.gentkit.exception.GlobalException;
+import lombok.Getter;
 
 /**
- * 全局异常。<br>
- * 全局異常。<br>
- * Global exception.<br>
+ * 颜色异常。<br>
+ * 顏色異常。<br>
+ * Color exception.<br>
  *
  * @author 田隆 (Len)
- * @since 2025-11-10 23:17
+ * @since 2025-11-21 22:48
  */
-public class GlobalException extends RuntimeException {
+@Getter
+public class ColorException extends GlobalException {
 
     /**
      * 构造方法。<br>
      * 建構方法。<br>
      * Constructor.<br>
-     *
-     * @see #GlobalException(String)
-     * @see #GlobalException(String, Throwable)
      */
-    public GlobalException() {
+    public ColorException() {
         super();
     }
 
@@ -48,11 +49,9 @@ public class GlobalException extends RuntimeException {
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @param message 异常消息<br>異常訊息<br>Exception message<br>
-     * @see #GlobalException()
-     * @see #GlobalException(String, Throwable)
+     * @param message 异常消息<br>異常訊息<br>Exception message
      */
-    public GlobalException(String message) {
+    public ColorException(String message) {
         super(message);
     }
 
@@ -63,10 +62,8 @@ public class GlobalException extends RuntimeException {
      *
      * @param message 异常消息<br>異常訊息<br>Exception message<br>
      * @param cause   异常原因<br>異常原因<br>Exception cause<br>
-     * @see #GlobalException()
-     * @see #GlobalException(String)
      */
-    public GlobalException(String message, Throwable cause) {
+    public ColorException(String message, Throwable cause) {
         super(message, cause);
     }
 }
