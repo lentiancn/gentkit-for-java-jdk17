@@ -24,19 +24,38 @@ package com.gentkit.color.enums;
 import lombok.Getter;
 
 @Getter
-public enum ColorAnsiEnum {
-    GREEN(32);
+public enum ColorAnsi16ForegroundCodeEnum {
+
+    BLACK(30),
+    RED(31),
+    GREEN(32),
+    YELLOW(33),
+    BLUE(34),
+    PURPLE(35),
+    CYAN(36),
+    WHITE(37),
+
+    BLACK_B(90),
+    RED_B(91),
+    GREEN_B(92),
+    YELLOW_B(93),
+    BLUE_B(94),
+    PURPLE_B(95),
+    CYAN_B(96),
+    WHITE_B(97),
+
+    ;
 
     private final int value;
 
-    ColorAnsiEnum(int value) {
+    ColorAnsi16ForegroundCodeEnum(int value) {
         this.value = value;
     }
 
-    public static ColorAnsiEnum getByValue(int value) {
-        for (ColorAnsiEnum ansiColor : ColorAnsiEnum.values()) {
-            if (ansiColor.value == value) {
-                return ansiColor;
+    public static ColorAnsi16ForegroundCodeEnum getByValue(int value) {
+        for (ColorAnsi16ForegroundCodeEnum ansi16 : ColorAnsi16ForegroundCodeEnum.values()) {
+            if (ansi16.value == value) {
+                return ansi16;
             }
         }
         return null;

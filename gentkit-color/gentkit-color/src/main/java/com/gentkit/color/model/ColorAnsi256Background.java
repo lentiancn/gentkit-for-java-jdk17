@@ -29,8 +29,8 @@ public class ColorAnsi256Background implements ColorAnsiSequence {
 
     private ColorAnsi256 colorAnsi256;
 
-    public ColorAnsi256Background(final int rgbBackground, final ColorAnsiStyleEnum... styles) {
-        colorAnsi256 = new ColorAnsi256(-1, rgbBackground, styles);
+    public ColorAnsi256Background(final int background, final ColorAnsiStyleEnum... styles) {
+        colorAnsi256 = new ColorAnsi256(-1, background, styles);
     }
 
     @Override

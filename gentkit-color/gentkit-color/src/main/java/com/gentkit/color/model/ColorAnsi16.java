@@ -22,28 +22,31 @@
 package com.gentkit.color.model;
 
 import com.gentkit.color.ColorConstants;
+import com.gentkit.color.enums.ColorAnsi16BackgroundCodeEnum;
+import com.gentkit.color.enums.ColorAnsi16ForegroundCodeEnum;
 import com.gentkit.color.enums.ColorAnsiStyleEnum;
 import lombok.Data;
 
-import static com.gentkit.color.ColorConstants.*;
+import static com.gentkit.color.ColorConstants.ANSI_SEPARATOR;
+import static com.gentkit.color.ColorConstants.ANSI_START;
 
 @Data
-public class ColorAnsi256 implements ColorAnsiSequence {
+public class ColorAnsi16 implements ColorAnsiSequence {
 
     private ColorAnsiStyleEnum[] styles;
 
-    private int foreground;
+    private ColorAnsi16ForegroundCodeEnum foregroundCode;
 
-    private int background;
+    private ColorAnsi16BackgroundCodeEnum backgroundCode;
 
-    public ColorAnsi256(final int foreground, final int background, final ColorAnsiStyleEnum... styles) {
-        this.foreground = foreground;
-        this.background = background;
+    public ColorAnsi16(final ColorAnsi16ForegroundCodeEnum foregroundCode, final ColorAnsi16BackgroundCodeEnum backgroundCode, final ColorAnsiStyleEnum... styles) {
+        this.foregroundCode = foregroundCode;
+        this.backgroundCode = backgroundCode;
         this.styles = styles;
     }
 
-    public ColorAnsi256(final int foreground, final ColorAnsiStyleEnum... styles) {
-        this(foreground, -1, styles);
+    public ColorAnsi16(final ColorAnsi16ForegroundCodeEnum foregroundCode, final ColorAnsiStyleEnum... styles) {
+        this(foregroundCode, null, styles);
     }
 
     @Override
@@ -52,13 +55,13 @@ public class ColorAnsi256 implements ColorAnsiSequence {
         for (ColorAnsiStyleEnum style : styles) {
             ansiString.append(ANSI_SEPARATOR).append(style.getValue());
         }
-        // 256 foreground
-        if (foreground >= 0 && foreground < 256) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_FOREGROUND_PREFIX).append(foreground);
+        // 16 foreground
+        if (foregroundCode != null) {
+            ansiString.append(ANSI_SEPARATOR).append(foregroundCode);
         }
-        // 256 background
-        if (background >= 0 && background < 256) {
-            ansiString.append(ANSI_SEPARATOR).append(ANSI_256_BACKGROUND_PREFIX).append(rgbBackground);
+        // 16 background
+        if (backgroundCode != null) {
+            ansiString.append(ANSI_SEPARATOR).append(backgroundCode);
         }
         if (!ansiString.isEmpty()) {
             ansiString.deleteCharAt(0);

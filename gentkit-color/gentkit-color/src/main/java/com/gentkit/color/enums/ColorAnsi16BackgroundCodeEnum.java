@@ -19,22 +19,43 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.color.model;
+package com.gentkit.color.enums;
 
-import com.gentkit.color.enums.ColorAnsiStyleEnum;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
-public class ColorAnsi256Foreground implements ColorAnsiSequence {
+@Getter
+public enum ColorAnsi16BackgroundCodeEnum {
 
-    private ColorAnsi256 colorAnsi256;
+    BLACK_BG(40),
+    RED_BG(41),
+    GREEN_BG(42),
+    YELLOW_BG(43),
+    BLUE_BG(44),
+    PURPLE_BG(45),
+    CYAN_BG(46),
+    WHITE_BG(47),
 
-    public ColorAnsi256Foreground(final int foreground, final ColorAnsiStyleEnum... styles) {
-        colorAnsi256 = new ColorAnsi256(foreground, -1, styles);
+    BLACK_BG_B(100),
+    RED_BG_B(101),
+    GREEN_BG_B(102),
+    YELLOW_BG_B(103),
+    BLUE_BG_B(104),
+    PURPLE_BG_B(105),
+    CYAN_BG_B(106),
+    WHITE_BG_B(107);
+
+    private final int value;
+
+    ColorAnsi16BackgroundCodeEnum(int value) {
+        this.value = value;
     }
 
-    @Override
-    public String ansiString() {
-        return colorAnsi256.ansiString();
+    public static ColorAnsi16BackgroundCodeEnum getByValue(int value) {
+        for (ColorAnsi16BackgroundCodeEnum ansi16 : ColorAnsi16BackgroundCodeEnum.values()) {
+            if (ansi16.value == value) {
+                return ansi16;
+            }
+        }
+        return null;
     }
 }

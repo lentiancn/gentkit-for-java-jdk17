@@ -21,20 +21,22 @@
  */
 package com.gentkit.color.model;
 
+import com.gentkit.color.enums.ColorAnsi16BackgroundCodeEnum;
+import com.gentkit.color.enums.ColorAnsi16ForegroundCodeEnum;
 import com.gentkit.color.enums.ColorAnsiStyleEnum;
 import lombok.Data;
 
 @Data
-public class ColorAnsi256Foreground implements ColorAnsiSequence {
+public class ColorAnsi16Background implements ColorAnsiSequence {
 
-    private ColorAnsi256 colorAnsi256;
+    private ColorAnsi16 colorAnsi16;
 
-    public ColorAnsi256Foreground(final int foreground, final ColorAnsiStyleEnum... styles) {
-        colorAnsi256 = new ColorAnsi256(foreground, -1, styles);
+    public ColorAnsi16Background(final ColorAnsi16BackgroundCodeEnum backgroundCode, final ColorAnsiStyleEnum... styles) {
+        colorAnsi16 = new ColorAnsi16(null, backgroundCode, styles);
     }
 
     @Override
     public String ansiString() {
-        return colorAnsi256.ansiString();
+        return colorAnsi16.ansiString();
     }
 }
