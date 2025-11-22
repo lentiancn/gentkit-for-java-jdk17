@@ -23,13 +23,7 @@ package com.gentkit.color.model;
 
 import com.gentkit.color.ColorConstants;
 import com.gentkit.color.enums.ColorAnsiStyleEnum;
-import com.gentkit.string.utils.StringUtils;
 import lombok.Data;
-
-import java.io.Serializable;
-
-import static com.gentkit.color.ColorConstants.ANSI_RESET_FOR_PRINT;
-import static com.gentkit.color.ColorConstants.ANSI_START_FOR_PRINT;
 
 /**
  * ANSI 颜色。<br>

@@ -19,37 +19,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.color;
+package com.gentkit.color.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.gentkit.color.ColorConstants;
+import com.gentkit.color.enums.ColorAnsiStyleEnum;
+import lombok.Data;
 
-/**
- * @author 田隆 (Len)
- * @since 2025-11-10 22:36
- */
-@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class ColorConstants {
+import static com.gentkit.color.ColorConstants.*;
 
-    public static final String HEX_PREFIX = "#";
+@Data
+public class ColorAnsiRgbBackground implements ColorAnsiSequence {
 
-    public static final char ANSI_SEPARATOR = ';';
+    private ColorAnsiRgb colorAnsiRgb;
 
-    /**
-     * ANSI序列开始。<br>
-     * ANSI序列開始。<br>
-     * ANSI sequence start.<br>
-     */
-    public static final String ANSI_START = "\u001B[";
+    public ColorAnsiRgbBackground(final ColorRgb rgbBackground, final ColorAnsiStyleEnum... styles) {
+        colorAnsiRgb = new ColorAnsiRgb(null, rgbBackground, styles);
+    }
 
-    public static final String ANSI_RGB_FOREGROUND_PREFIX = "38;2;";
-
-    public static final String ANSI_RGB_BACKGROUND_PREFIX = "48;2;";
-
-    /**
-     * ANSI序列结束。<br>
-     * ANSI序列結束。<br>
-     * ANSI sequence end.<br>
-     */
-    public static final String ANSI_END = "m";
+    @Override
+    public String ansiString() {
+        return colorAnsiRgb.ansiString();
+    }
 }

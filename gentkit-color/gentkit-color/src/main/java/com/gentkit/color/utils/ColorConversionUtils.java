@@ -134,33 +134,25 @@ public class ColorConversionUtils {
 //        return String.format("%d;%d;%d", rgb.getRed(), rgb.getGreen(), rgb.getBlue());
 //    }
 
-    public static String ansiColorAsBold(final String ansiColor) {
-        return ColorConstants.ANSI_BOLD + ansiColor;
-    }
-
-    public static String ansiColorAsBold(final int ansiColor) {
-        return ColorConstants.ANSI_BOLD + ansiColor;
-    }
+    /**
+     * 将16进制颜色转换为ANSI前景色序列。<br>
+     * 將16進位顏色轉換為ANSI前景色序列。<br>
+     * Convert hexadecimal colors to ANSI foreground color sequences.<br>
+     */
+//    public static String hexToAnsiForeground(final boolean bold, final String hex) {
+//        ColorRgb rgb = hexToRgb(hex);
+//        String ansiBold = bold ? ColorConstants.ANSI_BOLD : "";
+//        return String.format("%s%s38;2;%d;%d;%d%s", ColorConstants.ANSI_START, ansiBold, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
+//    }
 
     /**
      * 将16进制颜色转换为ANSI前景色序列。<br>
      * 將16進位顏色轉換為ANSI前景色序列。<br>
      * Convert hexadecimal colors to ANSI foreground color sequences.<br>
      */
-    public static String hexToAnsiForeground(final boolean bold, final String hex) {
-        ColorRgb rgb = hexToRgb(hex);
-        String ansiBold = bold ? ColorConstants.ANSI_BOLD : "";
-        return String.format("%s%s38;2;%d;%d;%d%s", ColorConstants.ANSI_START, ansiBold, rgb.getRed(), rgb.getGreen(), rgb.getBlue(), ColorConstants.ANSI_END);
-    }
-
-    /**
-     * 将16进制颜色转换为ANSI前景色序列。<br>
-     * 將16進位顏色轉換為ANSI前景色序列。<br>
-     * Convert hexadecimal colors to ANSI foreground color sequences.<br>
-     */
-    public static String hexToAnsiForeground(final String hex) {
-        return hexToAnsiForeground(false, hex);
-    }
+//    public static String hexToAnsiForeground(final String hex) {
+//        return hexToAnsiForeground(false, hex);
+//    }
 
     /**
      * 将16进制颜色转换为ANSI背景色序列。<br>
