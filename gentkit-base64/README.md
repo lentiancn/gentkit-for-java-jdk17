@@ -1,8 +1,18 @@
 # GentKit Base64
 
+![许可证](https://img.shields.io/github/license/lentiancn/gentkit-for-java-jdk17.svg)
+[![Codecov](https://img.shields.io/codecov/c/github/lentiancn/gentkit-for-java-jdk17/master)](https://codecov.io/gh/lentiancn/gentkit-for-java-jdk17)
+[![GitHub 发行版本](https://img.shields.io/github/tag/lentiancn/gentkit-for-java-jdk17.svg?label=release)](https://github.com/lentiancn/gentkit-for-java-jdk17/releases)
+
+简体中文 | [繁體中文](README/README_zh_CN_Hant.md) | [English](README/README_en.md)
+
 ## 介绍
 
 Base64 encoding and decoding library.
+
+## 开发语言
+
+> Java JDK 17，但是如果需要应用旧版本环境，请移步至 [Java JDK 1.8](https://gitee.com/gentkit/gentkit-for-java-jdk8)
 
 ## 功能列表
 
