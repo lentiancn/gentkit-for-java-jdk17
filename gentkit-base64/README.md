@@ -6,7 +6,7 @@ Base64 encoding and decoding library.
 
 ## 功能列表
 
-* `com.gentkit.base64.utils.Base64WithCommonsCodecUtils.java` - 基于 commons codec 的 Base64 工具。
+> `com.gentkit.base64.utils.Base64WithCommonsCodecUtils.java` - 基于 commons codec 的 Base64 工具。
 
 | 序号 | 功能                                             | 说明              |
 |----|:-----------------------------------------------|:----------------|
@@ -25,4 +25,10 @@ Base64 encoding and decoding library.
     <artifactId>gentkit-base64-with-commons-codec</artifactId>
     <version>1.0.4-jdk17</version>
 </dependency>
+```
+
+> **Gradle 项目** -> 添加依赖至 <code>build.gradle</code> ：
+
+```groovy
+implementation 'com.gentkit.base64:gentkit-base64-with-commons-codec:1.0.4-jdk17'
 ```
