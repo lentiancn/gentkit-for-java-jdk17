@@ -2,6 +2,8 @@
 
 [简体中文](../README.md) | 繁體中文 | [English](README_en.md)
 
+![許可證](https://img.shields.io/github/license/lentiancn/gentkit-for-java-jdk17.svg)
+
 ## 介紹
 
 打造一組可以最少依賴、乾淨的开源框架，支援每個元件、檔案甚至程式碼段可以獨立使用，彼此沒有耦合。
