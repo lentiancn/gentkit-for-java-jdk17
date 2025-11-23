@@ -6,7 +6,7 @@ Base64 encoding and decoding library.
 
 ## 功能列表
 
-`com.gentkit.base64.utils.Base64WithCommonsCodecUtils.java` - 基于 commons codec 的 Base64 工具。
+* `com.gentkit.base64.utils.Base64WithCommonsCodecUtils.java` - 基于 commons codec 的 Base64 工具。
 
 | 序号 | 功能                                             | 说明              |
 |----|:-----------------------------------------------|:----------------|
