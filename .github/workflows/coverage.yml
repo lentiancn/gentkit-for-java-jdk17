@@ -1,7 +1,8 @@
 name: Run tests and upload coverage
 
 on:
-  push
+  push:
+    branches: [ master ]
 
 jobs:
   test:
@@ -10,20 +11,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+#        with:
+#          fetch-depth: 2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
-          fetch-depth: 2
+          java-version: '17'
+          distribution: 'temurin'
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - name: Build and generate coverage report
+        run: mvn clean verify jacoco:report
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npx jest --coverage
-
-      - name: Upload results to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+#      - name: Upload results to Codecov
+#        uses: codecov/codecov-action@v5
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
 #          slug: lentiancn/gentkit-for-java-jdk17
