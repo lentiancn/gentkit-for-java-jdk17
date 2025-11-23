@@ -27,7 +27,7 @@ Base64 encoding and decoding library.
 
 ## 安装方法
 
-[获取最新版](https://gitee.com/gentkit/gentkit-for-java-jdk17/releases/latest)
+获取[最新版本](https://gitee.com/gentkit/gentkit-for-java-jdk17/releases/latest)
 
 > **Maven 项目** -> 添加依赖至 <code>pom.xml</code> ：
 
@@ -35,14 +35,14 @@ Base64 encoding and decoding library.
 <dependency>
     <groupId>com.gentkit.base64</groupId>
     <artifactId>gentkit-base64-with-commons-codec</artifactId>
-    <version>最新版</version>
+    <version>最新版本</version>
 </dependency>
 ```
 
 > **Gradle 项目** -> 添加依赖至 <code>build.gradle</code> ：
 
 ```groovy
-implementation 'com.gentkit.base64:gentkit-base64-with-commons-codec:1.0.4-jdk17'
+implementation 'com.gentkit.base64:gentkit-base64-with-commons-codec:最新版本'
 ```
 
 ## 使用方法
