@@ -16,11 +16,11 @@
 
 ## 组件列表
 
-> <font color="#FF0000">GentKit Base64</font> - Base64 encoding and decoding library.
+> **GentKit Base64** - Base64 encoding and decoding library.
 
-| 序号 | 组件                                  | 说明                                    |
-|----|:------------------------------------|:--------------------------------------|
-| 1  | `gentkit-base64-with-commons-codec` | Base64 encoding and decoding library. |
+| 序号 | 组件                                    | 说明                                    |
+|----|:--------------------------------------|:--------------------------------------|
+| 1  | **gentkit-base64-with-commons-codec** | Base64 encoding and decoding library. |
 
 ## 捐助
 
