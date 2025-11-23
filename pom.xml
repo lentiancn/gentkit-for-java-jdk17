@@ -24,6 +24,7 @@
         <module>gentkit-json</module>
         <module>gentkit-logger</module>
         <module>gentkit-string</module>
+        <module>gentkit-validator</module>
     </modules>
 
     <properties>

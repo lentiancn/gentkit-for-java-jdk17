@@ -40,19 +40,20 @@ import static com.gentkit.json.JsonWithGsonConstants.GSON;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class JsonWithGsonUtils {
 
-    public static <T> T toBean(final Gson gson, final String json, final Class<T> classOfT) {
+    public static <T> T parse(final Gson gson, final String json, final Class<T> classOfT, final T defaultValue) {
         if (StringUtils.isBlank(json)) {
-            return null;
+            return defaultValue;
         }
         try {
             return gson.fromJson(json, classOfT);
         } catch (Throwable ex) {
-            return null;
+            LoggerUtils.getLogger(JsonWithGsonUtils.class).warn(ex);
         }
+        return defaultValue;
     }
 
-    public static <T> T toBean(final String json, final Class<T> classOfT) {
-        return toBean(GSON, json, classOfT);
+    public static <T> T parse(final String json, final Class<T> classOfT, final T defaultValue) {
+        return parse(GSON, json, classOfT, defaultValue);
     }
 
     public static short getShort(final JsonObject json, final String memberName, final short defaultValue) {

@@ -4,23 +4,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.gentkit.string</groupId>
-        <artifactId>gentkit-string-parent</artifactId>
+        <groupId>com.gentkit.validator</groupId>
+        <artifactId>gentkit-validator-parent</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>gentkit-string</artifactId>
+    <artifactId>gentkit-validator-with-commons-validator</artifactId>
     <version>${revision}</version>
-    <name>GentKit String</name>
+    <name>GentKit Validator with Apache Commons Validator</name>
     <description>
-        GentKit String is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
-        and easily integrable string handling solutions.
+        GentKit Validator GentKit Validator with Apache Commons Validator is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
+        and easily integrable validator handling solutions.
     </description>
 
     <dependencies>
         <dependency>
-            <groupId>com.gentkit.exception</groupId>
-            <artifactId>gentkit-exception</artifactId>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
