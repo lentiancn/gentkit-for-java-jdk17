@@ -33,12 +33,18 @@ Base64 encoding and decoding library.
 <dependency>
     <groupId>com.gentkit.base64</groupId>
     <artifactId>gentkit-base64-with-commons-codec</artifactId>
-    <version>1.0.4-jdk17</version>
+    <version>最新版</version>
 </dependency>
 ```
+
+[获取最新版](https://github.com/lentiancn/gentkit-for-java-jdk17/releases/latest)
 
 > **Gradle 项目** -> 添加依赖至 <code>build.gradle</code> ：
 
 ```groovy
 implementation 'com.gentkit.base64:gentkit-base64-with-commons-codec:1.0.4-jdk17'
 ```
+
+## 使用方法
+
+
