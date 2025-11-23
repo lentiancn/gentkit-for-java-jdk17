@@ -29,7 +29,7 @@ import org.apache.commons.codec.binary.Base64;
  * 基於 commons codec 的 Base64 工具。<br>
  * Base64 based on commons codec utility.<br>
  *
- * @author 田隆 (Len)
+ * @author Len
  * @since 2025-11-18 22:29
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
