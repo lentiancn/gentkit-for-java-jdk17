@@ -14,6 +14,14 @@
 
 - Java JDK 17，但是如果需要应用旧版本环境，请移步至 [Java JDK 1.8](https://gitee.com/gentkit/gentkit-for-java-jdk8)
 
+## 组件列表
+
+> `GentKit Base64` - Base64 encoding and decoding library.
+
+| 序号 | 组件                                  | 说明                                    |
+|----|:------------------------------------|:--------------------------------------|
+| 1  | `gentkit-base64-with-commons-codec` | Base64 encoding and decoding library. |
+
 ## 捐助
 
 如果内容对你有帮助，可扫下方二维码打赏一杯咖啡支持一下！你的认可，是创作的动力，非常感谢~ (●'◡'●)
