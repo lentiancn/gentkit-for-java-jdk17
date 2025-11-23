@@ -47,5 +47,5 @@ implementation 'com.gentkit.base64:gentkit-base64-with-commons-codec:最新版�
 
 ## 使用方法
 
-https://www.yuque.com/lentiancn/qicfia/fuito5zx9owfkz4w
+待续...
 
