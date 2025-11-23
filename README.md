@@ -16,11 +16,11 @@
 
 ## 组件列表
 
-> **GentKit Base64** - Base64 encoding and decoding library.
+> [GentKit Base64](gentkit-base64/README.md) - Base64 encoding and decoding library.
 
-| 序号 | 组件                                                                | 说明                                    |
-|----|:------------------------------------------------------------------|:--------------------------------------|
-| 1  | [**gentkit-base64-with-commons-codec**](gentkit-base64/README.md) | Base64 encoding and decoding library. |
+| 序号 | 组件                       | 说明                                    |
+|----|:-------------------------|:--------------------------------------|
+| 1  | gentkit-base64/README.md | Base64 encoding and decoding library. |
 
 ## 捐助
 
