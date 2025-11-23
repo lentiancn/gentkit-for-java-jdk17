@@ -13,7 +13,8 @@
     <version>${revision}</version>
     <name>GentKit Validator with Apache Commons Validator</name>
     <description>
-        GentKit Validator GentKit Validator with Apache Commons Validator is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
+        GentKit Validator with Apache Commons Validator is a core submodule of the GentKit framework,
+        dedicated to providing standardized, extensible,
         and easily integrable validator handling solutions.
     </description>
 

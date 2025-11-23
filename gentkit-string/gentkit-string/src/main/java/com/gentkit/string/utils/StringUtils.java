@@ -59,10 +59,10 @@ public class StringUtils {
     }
 
     public static String strim(final String s, final boolean trim) {
-        return trim? (StringUtils.isNotNull(s)? s.trim() : null) : s;
+        return trim ? (StringUtils.isNotNull(s) ? s.trim() : null) : s;
     }
 
     public static String strim(final String trims, final String s, final boolean trim) {
-        return trim? trims : s;
+        return trim ? trims : s;
     }
 }
