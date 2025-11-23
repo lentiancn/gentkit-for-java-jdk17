@@ -22,6 +22,14 @@
 |----|:----------------------------------|:--------------------------------------|
 | 1  | gentkit-base64-with-commons-codec | Base64 encoding and decoding library. |
 
+> [GentKit Logger](gentkit-logger/README.md) - Logger library.
+
+| 序号 | 组件                                | 说明                                    |
+|----|:----------------------------------|:--------------------------------------|
+| 1  | gentkit-logger                    | Logger library.                       |
+| 2  | gentkit-logger-with-slf4j-logback | Logger library.                       |
+| 3  | gentkit-logger-with-slf4j-log4j2  | Logger library.                       |
+
 ## 捐助
 
 如果内容对你有帮助，可扫下方二维码打赏一杯咖啡支持一下！你的认可，是创作的动力，非常感谢~ (●'◡'●)
