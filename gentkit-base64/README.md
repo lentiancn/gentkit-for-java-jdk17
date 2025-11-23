@@ -23,6 +23,6 @@ Base64 encoding and decoding library.
 <dependency>
     <groupId>com.gentkit.base64</groupId>
     <artifactId>gentkit-base64-with-commons-codec</artifactId>
-    <version>${revision}</version>
+    <version>1.0.4-jdk17</version>
 </dependency>
 ```
