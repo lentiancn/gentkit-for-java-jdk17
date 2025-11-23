@@ -16,25 +16,11 @@
 
 ## 组件列表
 
-> [GentKit Base64](gentkit-base64/README.md) - Base64 encoding and decoding library.
-
-| 序号 | 组件                                | 说明                                    |
-|----|:----------------------------------|:--------------------------------------|
-| 1  | gentkit-base64-with-commons-codec | Base64 encoding and decoding library. |
-
-> [GentKit Color](gentkit-color/README.md) - Color library.
-
-| 序号 | 组件            | 说明             |
-|----|:--------------|:---------------|
-| 1  | gentkit-color | Color library. |
-
-> [GentKit Logger](gentkit-logger/README.md) - Logger library.
-
-| 序号 | 组件                                | 说明                                    |
-|----|:----------------------------------|:--------------------------------------|
-| 1  | gentkit-logger                    | Logger library.                       |
-| 2  | gentkit-logger-with-slf4j-logback | Logger library.                       |
-| 3  | gentkit-logger-with-slf4j-log4j2  | Logger library.                       |
+| 序号 | 组件                                         | 说明                                    |
+|----|:-------------------------------------------|:--------------------------------------|
+| 1  | [GentKit Base64](gentkit-base64/README.md) | Base64 encoding and decoding library. |
+| 2  | [GentKit Color](gentkit-color/README.md)   | Color library.                        |
+| 3  | [GentKit Logger](gentkit-logger/README.md) | Logger library.                       |
 
 ## 捐助
 
