@@ -23,8 +23,6 @@ jobs:
       - name: Import GPG Private Key
         run: |
           echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
-          # 验证密钥导入
-          gpg --list-secret-keys
 
       - name: Build and generate coverage report
         run: mvn clean verify jacoco:report
