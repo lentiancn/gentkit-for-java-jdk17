@@ -22,6 +22,12 @@
 |----|:----------------------------------|:--------------------------------------|
 | 1  | gentkit-base64-with-commons-codec | Base64 encoding and decoding library. |
 
+> [GentKit Color](gentkit-color/README.md) - Color library.
+
+| 序号 | 组件            | 说明             |
+|----|:--------------|:---------------|
+| 1  | gentkit-color | Color library. |
+
 > [GentKit Logger](gentkit-logger/README.md) - Logger library.
 
 | 序号 | 组件                                | 说明                                    |
