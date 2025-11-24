@@ -1,6 +1,6 @@
 # GentKit
 
-![许可证](https://img.shields.io/github/license/lentiancn/gentkit-for-java-jdk17.svg)
+[![许可证](https://img.shields.io/github/license/lentiancn/gentkit-for-java-jdk17.svg)](LICENSE)
 [![Codecov](https://img.shields.io/codecov/c/github/lentiancn/gentkit-for-java-jdk17/master)](https://codecov.io/gh/lentiancn/gentkit-for-java-jdk17)
 [![GitHub 发行版本](https://img.shields.io/github/tag/lentiancn/gentkit-for-java-jdk17.svg?label=release)](https://github.com/lentiancn/gentkit-for-java-jdk17/releases)
 
