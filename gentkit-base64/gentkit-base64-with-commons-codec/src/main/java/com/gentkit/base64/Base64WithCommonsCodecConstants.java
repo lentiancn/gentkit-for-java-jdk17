@@ -26,8 +26,12 @@ package com.gentkit.base64;
 import lombok.NoArgsConstructor;
 
 /**
+ * 基于 commons codec 的 Base64 常量。<br>
+ * 基於 commons codec 的 Base64 常數。<br>
+ * Base64 constants based on commons-codec.<br>
+ *
  * @author Len<lentiancn@126.com>
- * @since 2025-11-18 20:01
+ * @since 2025-11-18 22:29
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class Base64WithCommonsCodecConstants {
