@@ -30,6 +30,14 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Excel 工具。<br>
+ * Excel 工具。<br>
+ * Excel utility.<br>
+ *
+ * @author Len<lentiancn@126.com>
+ * @since 2025-11-17 15:07
+ */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class ExcelUtils {
 
