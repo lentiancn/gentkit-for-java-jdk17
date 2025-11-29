@@ -4,7 +4,7 @@
 [![Codecov](https://img.shields.io/codecov/c/github/lentiancn/gentkit-for-java-jdk17/master)](https://codecov.io/gh/lentiancn/gentkit-for-java-jdk17)
 [![GitHub 发行版本](https://img.shields.io/github/tag/lentiancn/gentkit-for-java-jdk17.svg?label=release)](https://github.com/lentiancn/gentkit-for-java-jdk17/releases)
 
-简体中文 | [繁體中文](docs/README_zh_CN_Hant.md) | [English](docs/README_en.md)
+简体中文 | [繁體中文](README_zh_Hant.md) | [English](README_en.md)
 
 ## 介绍
 

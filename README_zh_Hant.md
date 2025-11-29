@@ -1,10 +1,10 @@
 # GentKit
 
-[![許可證](https://img.shields.io/github/license/lentiancn/gentkit-for-java-jdk17.svg)](../LICENSE)
+[![許可證](https://img.shields.io/github/license/lentiancn/gentkit-for-java-jdk17.svg)](LICENSE)
 [![Codecov](https://img.shields.io/codecov/c/github/lentiancn/gentkit-for-java-jdk17/master)](https://codecov.io/gh/lentiancn/gentkit-for-java-jdk17)
 [![GitHub 發行版本](https://img.shields.io/github/tag/lentiancn/gentkit-for-java-jdk17.svg?label=release)](https://github.com/lentiancn/gentkit-for-java-jdk17/releases)
 
-[简体中文](../README.md) | 繁體中文 | [English](README_en.md)
+[简体中文](README.md) | 繁體中文 | [English](README_en.md)
 
 ## 介紹
 
@@ -13,6 +13,14 @@
 ## 開發語言
 
 - Java JDK 17，若需使用舊版本環境，請移至 [Java JDK 1.8](https://gitee.com/gentkit/gentkit-for-java-jdk8)
+
+## 組件列表
+
+| 序號 | 組件                                         | 說明                                    |
+|----|:-------------------------------------------|:--------------------------------------|
+| 1  | [GentKit Base64](gentkit-base64/README.md) | Base64 encoding and decoding library. |
+| 2  | [GentKit Color](gentkit-color/README.md)   | Color library.                        |
+| 3  | [GentKit Logger](gentkit-logger/README.md) | Logger library.                       |
 
 ## 捐助
 
@@ -26,7 +34,7 @@
 
 ## 許可證
 
-GentKit 採用 [MIT License](../LICENSE) 協議進行授權 。
+GentKit 採用 [MIT License](LICENSE) 協議進行授權 。
 
 ## 聯絡方式
 
