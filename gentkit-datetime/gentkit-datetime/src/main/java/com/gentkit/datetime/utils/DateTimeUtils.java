@@ -27,6 +27,7 @@ import lombok.NoArgsConstructor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -41,6 +42,35 @@ public class DateTimeUtils {
 
     // Use ConcurrentHashMap for better thread safety and performance
     private static final Map<String, ThreadLocal<SimpleDateFormat>> dateFormatLocals = new ConcurrentHashMap<>();
+
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.ENGLISH);
+
+
+        System.out.println(DateTimeUtils.format("M", new Date()));
+        System.out.println(DateTimeUtils.format("MM", new Date()));
+        System.out.println(DateTimeUtils.format("MMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMMMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMMMMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMMMMMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMMMMMMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMMMMMMMM", new Date()));
+        System.out.println(DateTimeUtils.format("MMMMMMMMMMM", new Date()));
+//        System.out.println(DateTimeUtils.format("YYYYYY", new Date()));
+//        System.out.println(DateTimeUtils.format("YYYYYYY", new Date()));
+//        System.out.println(DateTimeUtils.format("YYYYYYYY", new Date()));
+//        System.out.println(DateTimeUtils.format("YYYYYYYYY", new Date()));
+//        System.out.println(DateTimeUtils.format("YYYYYYYYYY", new Date()));
+//        System.out.println(DateTimeUtils.format("YYYYYYYYYYY", new Date()));
+//        System.out.println(DateTimeUtils.format("y", new Date()));
+//        System.out.println(DateTimeUtils.format("yy", new Date()));
+//        System.out.println(DateTimeUtils.format("yyy", new Date()));
+//        System.out.println(DateTimeUtils.format("yyyy", new Date()));
+//        System.out.println(DateTimeUtils.format("yyyyy", new Date()));
+//        System.out.println(DateTimeUtils.format("yyyyyy", new Date()));
+    }
 
     /**
      * Formats a date according to the specified pattern.
