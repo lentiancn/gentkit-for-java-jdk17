@@ -120,7 +120,7 @@ logger.error("Hello World !");
 
 ## 許可證
 
-GentKit 採用 [MIT 協議](../LICENSE) 進行授權 。
+`GentKit` 採用 [MIT 協議](../LICENSE) 進行授權 。
 
 ## 聯絡方式
 
