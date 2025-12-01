@@ -38,4 +38,4 @@ GentKit 採用 [MIT 協議](LICENSE) 進行授權 。
 
 ## 聯絡方式
 
-電子信箱：gentkit@126.com
+電子信箱： gentkit@126.com
