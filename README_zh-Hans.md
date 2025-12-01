@@ -34,7 +34,7 @@
 
 ## 许可证
 
-GentKit 的授权遵循许可证 [MIT License](LICENSE) 。
+GentKit 的授权遵循 [MIT 许可证](LICENSE) 。
 
 ## 联系方式
 
