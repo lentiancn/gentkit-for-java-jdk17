@@ -29,34 +29,47 @@
 
     <properties>
         <revision>1.0.4-jdk17</revision>
-        <gentkit.java.version>17</gentkit.java.version>
         <gentkit.charset>UTF-8</gentkit.charset>
+        <gentkit.java.version>17</gentkit.java.version>
+
         <java.version>${gentkit.java.version}</java.version>
         <maven.compiler.source>${gentkit.java.version}</maven.compiler.source>
         <maven.compiler.target>${gentkit.java.version}</maven.compiler.target>
         <project.build.sourceEncoding>${gentkit.charset}</project.build.sourceEncoding>
+
         <!-- central-publishing-maven-plugin -->
         <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
+
         <!-- flatten-maven-plugin -->
         <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
+
+        <!-- jacoco-maven-plugin -->
+        <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
+
         <!-- maven-compiler-plugin -->
         <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
         <maven-compiler-plugin.encoding>${gentkit.charset}</maven-compiler-plugin.encoding>
+
         <!-- maven-deploy-plugin.version -->
         <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
+
         <!-- maven-gpg-plugin -->
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+
         <!-- maven-jar-plugin -->
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
+
         <!-- maven-javadoc-plugin -->
         <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
         <maven-javadoc-plugin.source>${gentkit.java.version}</maven-javadoc-plugin.source>
         <maven-javadoc-plugin.encoding>${gentkit.charset}</maven-javadoc-plugin.encoding>
         <maven-javadoc-plugin.docencoding>${gentkit.charset}</maven-javadoc-plugin.docencoding>
         <maven-javadoc-plugin.charset>${gentkit.charset}</maven-javadoc-plugin.charset>
+
         <!-- maven-resources-plugin -->
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-resources-plugin.encoding>${gentkit.charset}</maven-resources-plugin.encoding>
+
         <!-- maven-source-plugin -->
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
     </properties>
@@ -119,7 +132,7 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.14</version>
+                    <version>${jacoco-maven-plugin.version}</version>
                     <executions>
                         <execution>
                             <goals>
