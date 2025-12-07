@@ -31,7 +31,7 @@ import org.apache.commons.codec.binary.Base64;
  * 基於 commons codec 的 Base64 工具。<br>
  * Base64 based on commons codec utility.<br>
  *
- * @author Len<lentiancn@126.com>
+ * @author Len (lentiancn@126.com)
  * @since 2025-11-18 22:29
  */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
