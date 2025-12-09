@@ -4,24 +4,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.gentkit.exception</groupId>
-        <artifactId>gentkit-exception-parent</artifactId>
+        <groupId>com.gentkit.code</groupId>
+        <artifactId>gentkit-code-parent</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>gentkit-exception</artifactId>
+    <artifactId>gentkit-code</artifactId>
     <version>${revision}</version>
-    <name>GentKit Exception</name>
+    <name>GentKit Code</name>
     <description>
-        GentKit Exception is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
-        and easily integrable exception handling solutions.
+        GentKit Code is a core submodule of the GentKit framework, dedicated to providing standardized, extensible,
+        and easily integrable code handling solutions.
     </description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.gentkit.code</groupId>
-            <artifactId>gentkit-code</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
