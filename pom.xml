@@ -265,17 +265,18 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <distributionManagement>
+                <repository>
+                    <id>len-repos</id>
+                    <name>Kubernetes Repository</name>
+                    <url>http://kubernetes.docker.internal:8960/repository/maven-releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>len-repos</id>
+                    <name>Kubernetes Repository</name>
+                    <url>http://kubernetes.docker.internal:8960/repository/maven-snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
