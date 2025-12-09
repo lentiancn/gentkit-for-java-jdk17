@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.gentkit.server.bca</groupId>
+        <artifactId>gentkit-server-with-bca</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>com.gentkit.server.bca.component</groupId>
+    <artifactId>gentkit-component</artifactId>
+    <packaging>pom</packaging>
+    <description>GentKit Component</description>
+
+    <modules>
+        <module>gentkit-component-actuator</module>
+        <module>gentkit-component-json</module>
+        <module>gentkit-component-logger</module>
+        <module>gentkit-component-nacos</module>
+    </modules>
+
+</project>
