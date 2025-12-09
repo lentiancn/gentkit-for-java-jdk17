@@ -23,6 +23,7 @@
         <module>gentkit-json-with-fastjson</module>
         <module>gentkit-json-with-fastjson2</module>
         <module>gentkit-json-with-gson</module>
+        <module>gentkit-json-with-jackson</module>
     </modules>
 
     <dependencyManagement>
@@ -61,6 +62,16 @@
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
                 <version>2.13.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.19.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>2.19.4</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
