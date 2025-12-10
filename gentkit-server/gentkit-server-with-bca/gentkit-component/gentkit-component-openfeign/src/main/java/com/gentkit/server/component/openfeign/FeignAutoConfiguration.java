@@ -23,17 +23,25 @@
  */
 package com.gentkit.server.component.openfeign;
 
+import com.gentkit.server.component.openfeign.codec.FeignDecoder;
 import com.gentkit.server.component.openfeign.interceptor.FeignTraceIdInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
-public class OpenFeignAutoConfiguration {
+public class FeignAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
     public FeignTraceIdInterceptor feignTraceIdInterceptor() {
         return new FeignTraceIdInterceptor();
+    }
+
+    @Bean
+    @Primary
+    public FeignDecoder feignDecoder() {
+        return new FeignDecoder();
     }
 }

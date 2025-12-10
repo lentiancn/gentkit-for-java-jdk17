@@ -27,6 +27,18 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.gentkit.json</groupId>
+            <artifactId>gentkit-json-with-jackson</artifactId>
+            <version>1.0.5-jdk17</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gentkit.web</groupId>
+            <artifactId>gentkit-web</artifactId>
+            <version>1.0.5-jdk17</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>

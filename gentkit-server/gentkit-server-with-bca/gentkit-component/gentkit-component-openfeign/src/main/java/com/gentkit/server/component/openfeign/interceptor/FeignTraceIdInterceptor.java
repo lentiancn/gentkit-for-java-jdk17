@@ -23,18 +23,18 @@
  */
 package com.gentkit.server.component.openfeign.interceptor;
 
+import com.gentkit.common.traceid.TraceIdConstants;
 import com.gentkit.common.traceid.TraceIdContext;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 
 public class FeignTraceIdInterceptor implements RequestInterceptor {
 
-    public static final String X_TRACE_ID_HEADER = "X-Trace-Id";
-
     @Override
     public void apply(RequestTemplate template) {
-        String traceId = TraceIdContext.get();
+        String traceId = TraceIdContext.init(null);
 
-        template.header(X_TRACE_ID_HEADER, traceId);
+//        template.header("Authorization", "Bearer " + getToken());
+        template.header(TraceIdConstants.HTTP_HEADER_TRACE_ID, traceId);
     }
 }
