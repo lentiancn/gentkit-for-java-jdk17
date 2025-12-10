@@ -25,6 +25,7 @@ package com.gentkit.server.component.flux.web;
 
 import com.gentkit.server.component.flux.web.handler.FailureResultHandler;
 import com.gentkit.server.component.flux.web.handler.SuccessResultHandler;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,11 +33,13 @@ import org.springframework.context.annotation.Configuration;
 public class FluxWebAutoConfiguration {
 
     @Bean
+    @ConditionalOnMissingBean
     public FailureResultHandler failureResultHandler() {
         return new FailureResultHandler();
     }
 
     @Bean
+    @ConditionalOnMissingBean
     public SuccessResultHandler successResultHandler() {
         return new SuccessResultHandler();
     }
