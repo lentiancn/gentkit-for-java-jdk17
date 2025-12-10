@@ -21,18 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.common.model;
+package com.gentkit.common.traceid.hook;
 
-import lombok.Data;
+public interface ClearHook {
 
-public class FailureCode extends ResultCode {
-
-//    public static final FailureCode BAD_REQUEST = new FailureCode("00000400", "BAD_REQUEST", "请求参数错误");
-//    public static final FailureCode NOT_FOUND = new FailureCode("00000404", "NOT_FOUND", "未找到该资源");
-    public static final FailureCode UNSUPPORTED_MEDIA_TYPE = new FailureCode("00000415", "UNSUPPORTED_MEDIA_TYPE", "不支持的媒体类型");
-    public static final FailureCode SYSTEM_ERROR = new FailureCode("00000500", "SYSTEM_ERROR", "系统异常");
-
-    public FailureCode(String code, String reason, String message) {
-        super(code, reason, message);
-    }
+    void before();
 }

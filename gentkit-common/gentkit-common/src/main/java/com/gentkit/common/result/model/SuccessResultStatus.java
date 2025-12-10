@@ -21,13 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.common.model;
+package com.gentkit.common.result.model;
 
-public class SuccessCode extends ResultCode {
+public class SuccessResultStatus extends ResultStatus {
 
-    public static final SuccessCode SUCCESS = new SuccessCode("00000200", "SUCCESS", "操作成功");
+    public static final SuccessResultStatus SUCCESS = new SuccessResultStatus("00000200", "SUCCESS", "操作成功");
 
-    public SuccessCode(String code, String reason, String message) {
+    public SuccessResultStatus(String code, String reason, String message) {
         super(code, reason, message);
     }
 }

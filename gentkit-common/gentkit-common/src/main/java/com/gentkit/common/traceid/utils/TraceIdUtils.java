@@ -21,28 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.common.model;
+package com.gentkit.common.traceid.utils;
 
-import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
+import java.util.UUID;
 
-@Data
-public abstract class ResultCode implements Serializable {
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
+public class TraceIdUtils {
 
-    private final String code;
+//    private static final String PREFIX_FORMAT = "yyyyMMddHHmmssSSS";
+//    private static final ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
 
-    private final String reason;
-
-    private final String message;
-
-    public ResultCode(String code, String reason, String message) {
-        this.code = code;
-        this.reason = reason;
-        this.message = message;
-    }
-
-    public String toString() {
-        return code + " " + reason + " (" + message + ")";
+    public static synchronized String generate() {
+        try {
+//            int randInt = RANDOM.nextInt(100, 1000);
+            return UUID.randomUUID().toString().replace("-", "");
+        } catch (Exception ex) {
+            return UUID.randomUUID().toString().replace("-", "");
+        }
     }
 }
