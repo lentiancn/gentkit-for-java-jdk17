@@ -101,7 +101,7 @@ public class GlobalException extends RuntimeException {
      * @see #GlobalException()
      */
     public GlobalException(FailureResultStatus status, Throwable cause) {
-        super(cause);
+        super(status.getMessage(), cause);
 
         this.status = status;
     }
@@ -142,7 +142,7 @@ public class GlobalException extends RuntimeException {
      * @see #GlobalException()
      */
     public GlobalException(FailureResultStatus status) {
-        super();
+        super(status.getMessage());
 
         this.status = status;
     }
@@ -182,7 +182,7 @@ public class GlobalException extends RuntimeException {
      * @see #GlobalException()
      */
     public GlobalException(Throwable cause) {
-        super(cause);
+        super(FailureResultStatus.SYSTEM_ERROR.getMessage(), cause);
 
         this.status = FailureResultStatus.SYSTEM_ERROR;
     }
@@ -201,7 +201,7 @@ public class GlobalException extends RuntimeException {
      * @see #GlobalException(Throwable)
      */
     public GlobalException() {
-        super();
+        super(FailureResultStatus.SYSTEM_ERROR.getMessage());
 
         this.status = FailureResultStatus.SYSTEM_ERROR;
     }

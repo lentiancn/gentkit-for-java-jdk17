@@ -23,6 +23,7 @@
  */
 package com.gentkit.server.component.flux.web;
 
+import com.gentkit.server.component.flux.web.filter.FluxWebTraceIdFilter;
 import com.gentkit.server.component.flux.web.handler.FailureResultHandler;
 import com.gentkit.server.component.flux.web.handler.SuccessResultHandler;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -31,6 +32,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FluxWebAutoConfiguration {
+
+    @Bean
+    @ConditionalOnMissingBean
+    public FluxWebTraceIdFilter fluxWebTraceIdFilter() {
+        return new FluxWebTraceIdFilter();
+    }
 
     @Bean
     @ConditionalOnMissingBean

@@ -27,6 +27,8 @@ import com.gentkit.common.result.model.FailureResultStatus;
 import com.gentkit.common.result.model.Result;
 import com.gentkit.exception.GlobalException;
 import com.gentkit.logger.utils.LoggerUtils;
+import feign.FeignException;
+import feign.RetryableException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -54,6 +56,36 @@ public class FailureResultHandler {
         LoggerUtils.getLogger(getClass()).error(e);
 
         FailureResultStatus status = FailureResultStatus.UNSUPPORTED_MEDIA_TYPE;
+        String message = status.getMessage();
+
+        return handleGlobalException(new GlobalException(status, message, e));
+    }
+
+    @ExceptionHandler(RetryableException.class)
+    public ResponseEntity<Result<?>> handleRetryableException(RetryableException e) {
+        LoggerUtils.getLogger(getClass()).error(e);
+
+        FailureResultStatus status = FailureResultStatus.SYSTEM_ERROR;
+        String message = status.getMessage();
+
+        return handleGlobalException(new GlobalException(status, message, e));
+    }
+
+    @ExceptionHandler(FeignException.class)
+    public ResponseEntity<Result<?>> handleFeignException(FeignException e) {
+        LoggerUtils.getLogger(getClass()).error(e);
+
+        FailureResultStatus status = FailureResultStatus.SYSTEM_ERROR;
+        String message = status.getMessage();
+
+        return handleGlobalException(new GlobalException(status, message, e));
+    }
+
+    @ExceptionHandler(FeignException.NotFound.class)
+    public ResponseEntity<Result<?>> handleFeignExceptionNotFound(FeignException.NotFound e) {
+        LoggerUtils.getLogger(getClass()).error(e);
+
+        FailureResultStatus status = FailureResultStatus.SYSTEM_ERROR;
         String message = status.getMessage();
 
         return handleGlobalException(new GlobalException(status, message, e));
