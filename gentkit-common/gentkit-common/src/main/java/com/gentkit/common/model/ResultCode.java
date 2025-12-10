@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.code.result;
+package com.gentkit.common.model;
 
 import lombok.Data;
 
@@ -43,6 +43,6 @@ public abstract class ResultCode implements Serializable {
     }
 
     public String toString() {
-        return code + "::" + reason + "::" + message;
+        return code + " " + reason + " (" + message + ")";
     }
 }

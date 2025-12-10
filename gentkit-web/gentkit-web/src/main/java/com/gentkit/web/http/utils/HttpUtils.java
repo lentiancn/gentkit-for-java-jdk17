@@ -21,13 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.code.result;
+package com.gentkit.web.http.utils;
 
-public class SuccessCode extends ResultCode {
+import lombok.NoArgsConstructor;
 
-    public static final SuccessCode SUCCESS = new SuccessCode("000000", "SUCCESS", "操作成功");
-
-    public SuccessCode(String code, String reason, String message) {
-        super(code, reason, message);
-    }
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
+public class HttpUtils {
 }

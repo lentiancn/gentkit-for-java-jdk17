@@ -16,7 +16,7 @@
 
     <modules>
         <module>gentkit-base64</module>
-        <module>gentkit-code</module>
+        <module>gentkit-common</module>
         <module>gentkit-color</module>
         <module>gentkit-datetime</module>
         <module>gentkit-excel</module>
@@ -27,6 +27,7 @@
         <module>gentkit-server</module>
         <module>gentkit-string</module>
         <module>gentkit-validator</module>
+        <module>gentkit-web</module>
     </modules>
 
     <properties>
