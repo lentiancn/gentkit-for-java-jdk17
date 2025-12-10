@@ -20,6 +20,7 @@
         <module>gentkit-component-json</module>
         <module>gentkit-component-logger</module>
         <module>gentkit-component-nacos</module>
+        <module>gentkit-component-openfeign</module>
     </modules>
 
 </project>

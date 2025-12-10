@@ -40,6 +40,11 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
+            <groupId>com.gentkit.server.bca.component</groupId>
+            <artifactId>gentkit-component-openfeign</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
