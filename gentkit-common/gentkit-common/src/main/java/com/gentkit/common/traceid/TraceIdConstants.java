@@ -28,5 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class TraceIdConstants {
 
-    public static final String KEY_NAME = "traceId";
+    public static final String TRACE_ID = "traceId";
+
+    public static final String HTTP_HEADER_TRACE_ID = "GentKit-Trace-Id";
 }

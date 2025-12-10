@@ -36,7 +36,7 @@ public class ResultStatus implements Serializable {
 
     private final String message;
 
-    ResultStatus(String code, String reason, String message) {
+    public ResultStatus(String code, String reason, String message) {
         this.code = code;
         this.reason = reason;
         this.message = message;

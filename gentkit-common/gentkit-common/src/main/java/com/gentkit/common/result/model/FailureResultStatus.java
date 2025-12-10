@@ -23,6 +23,8 @@
  */
 package com.gentkit.common.result.model;
 
+import java.lang.reflect.Field;
+
 /**
  * 失败结果状态。<br>
  * 失敗結果狀態。<br>
@@ -41,5 +43,25 @@ public class FailureResultStatus extends ResultStatus {
 
     public FailureResultStatus(String code, String reason, String message) {
         super(code, reason, message);
+    }
+
+    public static FailureResultStatus objOf(String code) {
+        if (code == null) {
+            return null;
+        }
+        Field[] fs = FailureResultStatus.class.getDeclaredFields();
+        for (Field f : fs) {
+            if (f.getType() == FailureResultStatus.class) {
+                try {
+                    FailureResultStatus o = (FailureResultStatus) f.get(null);
+                    if (code.equals(o.getCode())) {
+                        return o;
+                    }
+                } catch (Throwable e) {
+                }
+            }
+        }
+
+        return null;
     }
 }

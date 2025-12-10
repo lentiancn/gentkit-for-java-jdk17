@@ -50,11 +50,15 @@ public class TraceIdContext {
 
     public static void set(String traceId, SetHook hook) {
         TRACE_ID_HOLDER.set(traceId);
-        hook.after(traceId);
+        if (hook != null) {
+            hook.after(traceId);
+        }
     }
 
     public static void clear(ClearHook hook) {
-        hook.before();
+        if (hook != null) {
+            hook.before();
+        }
         TRACE_ID_HOLDER.remove();
     }
 }
