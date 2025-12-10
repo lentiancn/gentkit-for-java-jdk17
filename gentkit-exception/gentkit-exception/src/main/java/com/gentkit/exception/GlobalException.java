@@ -23,7 +23,7 @@
  */
 package com.gentkit.exception;
 
-import com.gentkit.code.result.FailureCode;
+import com.gentkit.common.result.model.FailureResultStatus;
 import lombok.Getter;
 
 /**
@@ -38,40 +38,30 @@ import lombok.Getter;
 public class GlobalException extends RuntimeException {
 
     /**
-     * 异常失败代码<br>
-     * 異常失敗代碼<br>
-     * Exceptional failure code<br>
+     * 失败结果状态<br>失敗結果狀態<br>Failure result status<br>
      */
-    private final String code;
-
-    /**
-     * 异常失败原因<br>
-     * 異常失敗原因<br>
-     * Exceptional failure reason<br>
-     */
-    private final String reason;
+    private final FailureResultStatus status;
 
     /**
      * 构造方法。<br>
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @param code    异常失败代码<br>異常失敗代碼<br>Exceptional failure code<br>
+     * @param status  失败结果状态<br>失敗結果狀態<br>Failure result status<br>
      * @param message 异常消息<br>異常訊息<br>Exception message<br>
      * @param cause   异常原因<br>異常原因<br>Exception cause<br>
-     * @see #GlobalException(FailureCode, String)
-     * @see #GlobalException(FailureCode, Throwable)
+     * @see #GlobalException(FailureResultStatus, String)
+     * @see #GlobalException(FailureResultStatus, Throwable)
      * @see #GlobalException(String, Throwable)
-     * @see #GlobalException(FailureCode)
+     * @see #GlobalException(FailureResultStatus)
      * @see #GlobalException(String)
      * @see #GlobalException(Throwable)
      * @see #GlobalException()
      */
-    public GlobalException(FailureCode code, String message, Throwable cause) {
-        super(defaultIfBlank(message, code.getMessage()), cause);
+    public GlobalException(FailureResultStatus status, String message, Throwable cause) {
+        super(defaultIfBlank(message, status.getMessage()), cause);
 
-        this.code = code.getCode();
-        this.reason = code.getReason();
+        this.status = status;
     }
 
     /**
@@ -79,21 +69,20 @@ public class GlobalException extends RuntimeException {
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @param code    异常失败代码<br>異常失敗代碼<br>Exceptional failure code<br>
+     * @param status  失败结果状态<br>失敗結果狀態<br>Failure result status<br>
      * @param message 异常消息<br>異常訊息<br>Exception message<br>
-     * @see #GlobalException(FailureCode, String, Throwable)
-     * @see #GlobalException(FailureCode, Throwable)
+     * @see #GlobalException(FailureResultStatus, String, Throwable)
+     * @see #GlobalException(FailureResultStatus, Throwable)
      * @see #GlobalException(String, Throwable)
-     * @see #GlobalException(FailureCode)
+     * @see #GlobalException(FailureResultStatus)
      * @see #GlobalException(String)
      * @see #GlobalException(Throwable)
      * @see #GlobalException()
      */
-    public GlobalException(FailureCode code, String message) {
-        super(defaultIfBlank(message, code.getMessage()));
+    public GlobalException(FailureResultStatus status, String message) {
+        super(defaultIfBlank(message, status.getMessage()));
 
-        this.code = code.getCode();
-        this.reason = code.getReason();
+        this.status = status;
     }
 
     /**
@@ -101,21 +90,20 @@ public class GlobalException extends RuntimeException {
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @param code  异常失败代码<br>異常失敗代碼<br>Exceptional failure code<br>
-     * @param cause 异常原因<br>異常原因<br>Exception cause<br>
-     * @see #GlobalException(FailureCode, String, Throwable)
-     * @see #GlobalException(FailureCode, String)
+     * @param status 失败结果状态<br>失敗結果狀態<br>Failure result status<br>
+     * @param cause  异常原因<br>異常原因<br>Exception cause<br>
+     * @see #GlobalException(FailureResultStatus, String, Throwable)
+     * @see #GlobalException(FailureResultStatus, String)
      * @see #GlobalException(String, Throwable)
-     * @see #GlobalException(FailureCode)
+     * @see #GlobalException(FailureResultStatus)
      * @see #GlobalException(String)
      * @see #GlobalException(Throwable)
      * @see #GlobalException()
      */
-    public GlobalException(FailureCode code, Throwable cause) {
+    public GlobalException(FailureResultStatus status, Throwable cause) {
         super(cause);
 
-        this.code = code.getCode();
-        this.reason = code.getReason();
+        this.status = status;
     }
 
     /**
@@ -125,19 +113,18 @@ public class GlobalException extends RuntimeException {
      *
      * @param message 异常消息<br>異常訊息<br>Exception message<br>
      * @param cause   异常原因<br>異常原因<br>Exception cause<br>
-     * @see #GlobalException(FailureCode, String, Throwable)
-     * @see #GlobalException(FailureCode, String)
-     * @see #GlobalException(FailureCode, Throwable)
-     * @see #GlobalException(FailureCode)
+     * @see #GlobalException(FailureResultStatus, String, Throwable)
+     * @see #GlobalException(FailureResultStatus, String)
+     * @see #GlobalException(FailureResultStatus, Throwable)
+     * @see #GlobalException(FailureResultStatus)
      * @see #GlobalException(String)
      * @see #GlobalException(Throwable)
      * @see #GlobalException()
      */
     public GlobalException(String message, Throwable cause) {
-        super(defaultIfBlank(message, FailureCode.SYSTEM_ERROR.getMessage()), cause);
+        super(defaultIfBlank(message, FailureResultStatus.SYSTEM_ERROR.getMessage()), cause);
 
-        this.code = FailureCode.SYSTEM_ERROR.getCode();
-        this.reason = FailureCode.SYSTEM_ERROR.getReason();
+        this.status = FailureResultStatus.SYSTEM_ERROR;
     }
 
     /**
@@ -145,20 +132,19 @@ public class GlobalException extends RuntimeException {
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @param code 异常失败代码<br>異常失敗代碼<br>Exceptional failure code<br>
-     * @see #GlobalException(FailureCode, String, Throwable)
-     * @see #GlobalException(FailureCode, String)
-     * @see #GlobalException(FailureCode, Throwable)
+     * @param status 失败结果状态<br>失敗結果狀態<br>Failure result status<br>
+     * @see #GlobalException(FailureResultStatus, String, Throwable)
+     * @see #GlobalException(FailureResultStatus, String)
+     * @see #GlobalException(FailureResultStatus, Throwable)
      * @see #GlobalException(String, Throwable)
      * @see #GlobalException(String)
      * @see #GlobalException(Throwable)
      * @see #GlobalException()
      */
-    public GlobalException(FailureCode code) {
+    public GlobalException(FailureResultStatus status) {
         super();
 
-        this.code = code.getCode();
-        this.reason = code.getReason();
+        this.status = status;
     }
 
     /**
@@ -167,19 +153,18 @@ public class GlobalException extends RuntimeException {
      * Constructor.<br>
      *
      * @param message 异常消息<br>異常訊息<br>Exception message<br>
-     * @see #GlobalException(FailureCode, String, Throwable)
-     * @see #GlobalException(FailureCode, String)
-     * @see #GlobalException(FailureCode, Throwable)
+     * @see #GlobalException(FailureResultStatus, String, Throwable)
+     * @see #GlobalException(FailureResultStatus, String)
+     * @see #GlobalException(FailureResultStatus, Throwable)
      * @see #GlobalException(String, Throwable)
-     * @see #GlobalException(FailureCode)
+     * @see #GlobalException(FailureResultStatus)
      * @see #GlobalException(Throwable)
      * @see #GlobalException()
      */
     public GlobalException(String message) {
-        super(defaultIfBlank(message, FailureCode.SYSTEM_ERROR.getMessage()));
+        super(defaultIfBlank(message, FailureResultStatus.SYSTEM_ERROR.getMessage()));
 
-        this.code = FailureCode.SYSTEM_ERROR.getCode();
-        this.reason = FailureCode.SYSTEM_ERROR.getReason();
+        this.status = FailureResultStatus.SYSTEM_ERROR;
     }
 
     /**
@@ -188,19 +173,18 @@ public class GlobalException extends RuntimeException {
      * Constructor.<br>
      *
      * @param cause 异常原因<br>異常原因<br>Exception cause<br>
-     * @see #GlobalException(FailureCode, String, Throwable)
-     * @see #GlobalException(FailureCode, String)
-     * @see #GlobalException(FailureCode, Throwable)
+     * @see #GlobalException(FailureResultStatus, String, Throwable)
+     * @see #GlobalException(FailureResultStatus, String)
+     * @see #GlobalException(FailureResultStatus, Throwable)
      * @see #GlobalException(String, Throwable)
-     * @see #GlobalException(FailureCode)
+     * @see #GlobalException(FailureResultStatus)
      * @see #GlobalException(String)
      * @see #GlobalException()
      */
     public GlobalException(Throwable cause) {
         super(cause);
 
-        this.code = FailureCode.SYSTEM_ERROR.getCode();
-        this.reason = FailureCode.SYSTEM_ERROR.getReason();
+        this.status = FailureResultStatus.SYSTEM_ERROR;
     }
 
     /**
@@ -208,19 +192,18 @@ public class GlobalException extends RuntimeException {
      * 建構方法。<br>
      * Constructor.<br>
      *
-     * @see #GlobalException(FailureCode, String, Throwable)
-     * @see #GlobalException(FailureCode, String)
-     * @see #GlobalException(FailureCode, Throwable)
+     * @see #GlobalException(FailureResultStatus, String, Throwable)
+     * @see #GlobalException(FailureResultStatus, String)
+     * @see #GlobalException(FailureResultStatus, Throwable)
      * @see #GlobalException(String, Throwable)
-     * @see #GlobalException(FailureCode)
+     * @see #GlobalException(FailureResultStatus)
      * @see #GlobalException(String)
      * @see #GlobalException(Throwable)
      */
     public GlobalException() {
         super();
 
-        this.code = FailureCode.SYSTEM_ERROR.getCode();
-        this.reason = FailureCode.SYSTEM_ERROR.getReason();
+        this.status = FailureResultStatus.SYSTEM_ERROR;
     }
 
     /**
@@ -228,7 +211,7 @@ public class GlobalException extends RuntimeException {
      * 預設值處理。<br>
      * Default value processing.<br>
      *
-     * @param message       异常消息<br>異常訊息<br>Exception message<br>
+     * @param message        异常消息<br>異常訊息<br>Exception message<br>
      * @param defaultMessage 默认消息<br>預設訊息<br>Default message<br>
      * @return 处理后的消息<br>處理後的訊息<br>Processed message<br>
      */

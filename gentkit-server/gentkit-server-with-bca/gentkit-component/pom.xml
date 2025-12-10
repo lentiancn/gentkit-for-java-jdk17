@@ -16,6 +16,7 @@
 
     <modules>
         <module>gentkit-component-actuator</module>
+        <module>gentkit-component-flux-web</module>
         <module>gentkit-component-json</module>
         <module>gentkit-component-logger</module>
         <module>gentkit-component-nacos</module>

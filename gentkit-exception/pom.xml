@@ -26,11 +26,6 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.gentkit.code</groupId>
-                <artifactId>gentkit-code</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.gentkit.exception</groupId>
                 <artifactId>gentkit-exception</artifactId>
                 <version>${revision}</version>

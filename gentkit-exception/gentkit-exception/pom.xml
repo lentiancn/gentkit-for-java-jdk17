@@ -19,12 +19,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.gentkit.code</groupId>
-            <artifactId>gentkit-code</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.gentkit.common</groupId>
+            <artifactId>gentkit-common</artifactId>
+            <version>1.0.5-jdk17</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

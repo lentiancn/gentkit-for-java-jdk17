@@ -23,6 +23,14 @@
  */
 package com.gentkit.common.result.model;
 
+/**
+ * 失败结果状态。<br>
+ * 失敗結果狀態。<br>
+ * Failure result status.<br>
+ *
+ * @author Len (lentiancn@126.com)
+ * @since 2025-12-10 14:04
+ */
 public class FailureResultStatus extends ResultStatus {
 
     //    public static final FailureResultStatus BAD_REQUEST = new FailureResultStatus("00000400", "BAD_REQUEST", "请求参数错误");
