@@ -111,6 +111,16 @@ public enum HttpStatusCodeEnum {
     NOT_EXTENDED(510, "Not Extended", "未扩展（需HTTP扩展）"),
     NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required", "网络认证要求（公共Wi-Fi）");
 
+    private final int statusCode;
+    private final String reasonPhrase;
+    private final String description;
+
+    HttpStatusCodeEnum(int statusCode, String reasonPhrase, String description) {
+        this.statusCode = statusCode;
+        this.reasonPhrase = reasonPhrase;
+        this.description = description;
+    }
+
     public static HttpStatusCodeEnum enumOf(int statusCode) {
         for (HttpStatusCodeEnum value : values()) {
             if (value.statusCode == statusCode) {
@@ -118,18 +128,6 @@ public enum HttpStatusCodeEnum {
             }
         }
         return null;
-    }
-
-    private final int statusCode;
-
-    private final String reasonPhrase;
-
-    private final String description;
-
-    HttpStatusCodeEnum(int statusCode, String reasonPhrase, String description) {
-        this.statusCode = statusCode;
-        this.reasonPhrase = reasonPhrase;
-        this.description = description;
     }
 
     @Override
