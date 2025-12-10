@@ -21,25 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.common.result.model;
+package com.gentkit.server.component.flux.web;
 
-/**
- * 失败结果状态。<br>
- * 失敗結果狀態。<br>
- * Failure result status.<br>
- *
- * @author Len (lentiancn@126.com)
- * @since 2025-12-10 14:04
- */
-public class FailureResultStatus extends ResultStatus {
+import com.gentkit.server.component.flux.web.handler.FailureResultHandler;
+import com.gentkit.server.component.flux.web.handler.SuccessResultHandler;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-    //    public static final FailureResultStatus BAD_REQUEST = new FailureResultStatus("00000400", "BAD_REQUEST", "请求参数错误");
-//    public static final FailureResultStatus NOT_FOUND = new FailureResultStatus("00000404", "NOT_FOUND", "未找到该资源");
-    public static final FailureResultStatus UNSUPPORTED_MEDIA_TYPE = new FailureResultStatus("00000415", "UNSUPPORTED_MEDIA_TYPE", "不支持的媒体类型");
-    public static final FailureResultStatus SYSTEM_ERROR = new FailureResultStatus("00000500", "SYSTEM_ERROR", "系统异常");
-    public static final FailureResultStatus UNKNOWN_ERROR = new FailureResultStatus("00000502", "UNKNOWN_ERROR", "未知错误");
+@Configuration
+public class FluxWebAutoConfiguration {
 
-    public FailureResultStatus(String code, String reason, String message) {
-        super(code, reason, message);
+    @Bean
+    public FailureResultHandler failureResultHandler() {
+        return new FailureResultHandler();
+    }
+
+    @Bean
+    public SuccessResultHandler successResultHandler() {
+        return new SuccessResultHandler();
     }
 }

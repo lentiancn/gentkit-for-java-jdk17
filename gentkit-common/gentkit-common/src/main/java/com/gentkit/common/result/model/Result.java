@@ -31,7 +31,19 @@ import lombok.Getter;
 import java.io.Serializable;
 
 @Getter
-public class Result<T> implements Serializable {
+public class Result<T> implements Cloneable, Serializable {
+
+    private final String traceId;
+    private final String result;
+    private final ResultStatus status;
+    private final T data;
+
+    private Result(boolean success, ResultStatus status, String message, T data) {
+        this.traceId = TraceIdContext.get();
+        this.result = ResultCategoryEnum.enumOf(success).getCategory();
+        this.status = new ResultStatus(status.getCode(), status.getReason(), message != null && !message.trim().isEmpty() ? message.trim() : status.getMessage());
+        this.data = data;
+    }
 
     public static <T> Result<T> success(SuccessResultStatus status, String message, T data) {
         return new Result<>(true, status, message, data);
@@ -101,25 +113,24 @@ public class Result<T> implements Serializable {
         return new Result<>(false, status, status.getMessage(), null);
     }
 
-    private final String traceId;
-
-    private final String result;
-
-    private final ResultStatus status;
-
-    private final T data;
-
-    private Result(boolean success, ResultStatus status, String message, T data) {
-        this.traceId = TraceIdContext.get();
-        this.result = ResultCategoryEnum.enumOf(success).getCategory();
-        this.status = new ResultStatus(status.getCode(), status.getReason(), message != null && !message.trim().isEmpty() ? message.trim() : status.getMessage());
-        this.data = data;
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 
     @Override
     public String toString() {
+        Result<T> newResult = (Result<T>) clone();
+        if (newResult == null) {
+            newResult = ResultCategoryEnum.SUCCESS.getCategory().equalsIgnoreCase(this.result) ? success((SuccessResultStatus) getStatus(), data) : failure((FailureResultStatus) getStatus(), data);
+        }
+
         try {
-            return new ObjectMapper().writeValueAsString(this);
+            return new ObjectMapper().writeValueAsString(newResult);
         } catch (Throwable ex) {
             return super.toString();
         }
