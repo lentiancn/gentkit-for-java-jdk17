@@ -40,7 +40,7 @@ import java.nio.charset.StandardCharsets;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class FailureResultHandler {
 
     @ExceptionHandler(GlobalException.class)
     public ResponseEntity<Result<?>> handleGlobalException(GlobalException e) {
