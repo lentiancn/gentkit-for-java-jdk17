@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.exception;
+package com.gentkit.common.exception;
 
 import com.gentkit.common.result.model.FailureResultStatus;
 import lombok.Getter;

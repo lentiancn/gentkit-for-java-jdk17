@@ -21,28 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gentkit.exception;
+package com.gentkit.common.utils;
 
 import lombok.NoArgsConstructor;
 
-/**
- * 异常常量。<br>
- * 异常常數。<br>
- * Exception constants.<br>
- *
- * @author Len (lentiancn@126.com)
- * @since 2025-11-10 22:36
- */
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public final class ExceptionConstants {
+public class MimeTypeUtils {
 
-    /**
-     * 空字符串。<br>
-     * 空字串。<br>
-     * Empty string.<br>
-     */
-    public static final String STRING_EMPTY = "";
-
-    public static final String SYSTEM_ERROR_CODE = "00000500";
-    public static final String SYSTEM_ERROR_TYPE = "SYSTEM_ERROR";
+    public static final String IMAGE_PNG = "image/png";
+    public static final String IMAGE_JPG = "image/jpg";
+    public static final String IMAGE_JPEG = "image/jpeg";
+    public static final String IMAGE_BMP = "image/bmp";
+    public static final String IMAGE_GIF = "image/gif";
+    public static final String[] IMAGE_EXTENSION = {".png", ".jpg", ".jpeg", ".bmp", ".gif"};
+    public static final String[] FLASH_EXTENSION = {".flash", ".swf", ".fla"};
+    public static final String[] MEDIA_EXTENSION = {".avi", ".rmvb", ".m3u8", ".mp4", ".3gp", ".mkv"};
+    public static final String[] VIDEO_EXTENSION = {".avi", ".rmvb", ".m3u8", ".mp4", ".3gp", ".mkv"};
 }

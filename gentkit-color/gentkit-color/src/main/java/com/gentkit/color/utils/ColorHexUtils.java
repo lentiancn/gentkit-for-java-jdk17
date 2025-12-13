@@ -25,7 +25,7 @@ package com.gentkit.color.utils;
 
 import com.gentkit.color.ColorConstants;
 import com.gentkit.color.exception.ColorHexNormalizationException;
-import com.gentkit.exception.GlobalException;
+import com.gentkit.common.GlobalException;
 import com.gentkit.hex.utils.HexUtils;
 import com.gentkit.string.utils.StringUtils;
 import lombok.NoArgsConstructor;

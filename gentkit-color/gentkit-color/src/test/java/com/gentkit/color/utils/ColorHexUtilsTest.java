@@ -1,6 +1,6 @@
 package com.gentkit.color.utils;
 
-import com.gentkit.exception.GlobalException;
+import com.gentkit.common.GlobalException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

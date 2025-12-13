@@ -23,7 +23,7 @@
  */
 package com.gentkit.color.exception;
 
-import com.gentkit.exception.GlobalException;
+import com.gentkit.common.GlobalException;
 
 /**
  * 颜色异常。<br>

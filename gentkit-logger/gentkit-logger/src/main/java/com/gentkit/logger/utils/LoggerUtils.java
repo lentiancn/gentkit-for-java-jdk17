@@ -54,7 +54,7 @@ public final class LoggerUtils {
         return LoggerFactory.getLogger(name);
     }
 
-    public static Logger getLogger(final Class clazz) {
+    public static Logger getLogger(final Class<?> clazz) {
         return LoggerFactory.getLogger(clazz);
     }
 
@@ -68,7 +68,7 @@ public final class LoggerUtils {
         return logger;
     }
 
-    public static Logger getLoggerWithSystemIfNoProvider(final Class clazz) {
+    public static Logger getLoggerWithSystemIfNoProvider(final Class<?> clazz) {
         Logger logger = LoggerFactory.getLogger(clazz);
 
         if (logger instanceof NoOperationLoggerImpl) {
@@ -78,8 +78,16 @@ public final class LoggerUtils {
         return logger;
     }
 
-    public static void warn(Class clazz, Throwable cause) {
+    public static void warn(final Class<?> clazz, final Throwable cause, final String msg, final Object... args) {
+        LoggerUtils.getLogger(clazz).warn(cause, msg, args);
+    }
+
+    public static void warn(final Class<?> clazz, final Throwable cause) {
         LoggerUtils.getLogger(clazz).warn(cause);
+    }
+
+    public static void warn(final Class<?> clazz, final String msg, final Object... args) {
+        LoggerUtils.getLogger(clazz).warn(msg, args);
     }
 
     /**

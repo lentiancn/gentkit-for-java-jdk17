@@ -25,7 +25,7 @@ package com.gentkit.server.component.flux.web.handler;
 
 import com.gentkit.common.result.model.FailureResultStatus;
 import com.gentkit.common.result.model.Result;
-import com.gentkit.exception.GlobalException;
+import com.gentkit.common.GlobalException;
 import com.gentkit.logger.utils.LoggerUtils;
 import feign.FeignException;
 import feign.RetryableException;
